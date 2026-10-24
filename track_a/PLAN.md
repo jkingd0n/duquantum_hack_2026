@@ -48,7 +48,7 @@ approval, add the following notebooks alongside it:
   clustering reference values; also document the original CVRP formulation and
   compute the separate full-CVRP references for evaluation.
 - `quantum_capacity_constrained_clustering.ipynb`: load the same saved instances,
-  derive and validate the chosen QUBO against the textbook control, embed on
+  derive and validate the textbook binary-slack QUBO, embed on
   `AnalogDevice`, design pulses, emulate, and save raw-shot clustering results.
 - `results.ipynb`: assemble the Track A evidence required by Sections 9-10,
   using saved classical and quantum outputs. Include:
@@ -77,7 +77,9 @@ Track B implementation are not.
 
 The dedicated encoding-efficiency notebook and broad search across alternative
 encoding families are deferred. Keep only the formulation and limited
-calibration needed to deliver and explain one defensible quantum approach.
+calibration needed to deliver and explain the binary-slack quantum baseline.
+Do not remove slack in this phase; alternatives such as unbalanced penalization
+are later follow-up work.
 
 Keep notebooks thin: configuration, calls into shared code, experiment
 orchestration, plots, and explanatory discussion. Extract reusable logic into
@@ -243,64 +245,40 @@ and full-CVRP references distinct: neither is a substitute for the other.
   embedding, and emulation. This measures grouping quality on delivery distance
   without claiming a quantum routing result.
 
-## 3. QUBO: textbook baseline and proposed atom saving
+## 3. QUBO: binary-slack baseline first
 
-First derive and verify the standard slack formulation:
+Use the standard binary-slack formulation as the primary classical-QUBO and
+quantum target in this phase:
 
 $$
 E_{\rm slack}=F+A\sum_i(\sum_kx_{ik}-1)^2
 +B\sum_k(L_k+s_k-Q)^2,
 $$
 
-where each nonnegative integer slack `s_k` has `ceil(log2(Q+1))` bits.
-Derive sufficient penalty bounds for this exact encoding.
+where `s_k = sum_b 2^b*y_kb`, `y_kb in {0,1}`, and each slack uses
+`ceil(log2(Q+1))` bits. A feasible load can make the capacity penalty zero with
+`s_k = Q-L_k`, including partially loaded or unused vehicles.
 
-As a candidate quantum model, retain assignment bits but remove slack using
-[unbalanced penalization](https://arxiv.org/abs/2211.13914):
-
-$$
-h_k=Q-L_k,\qquad
-E_{\rm reduced}=F+A\sum_i(\sum_kx_{ik}-1)^2
-+\sum_k[-\alpha h_k+\beta h_k^2],
-\quad \alpha,\beta>0.
-$$
-
-This remains quadratic and uses no auxiliary atoms. **It is a heuristic
-surrogate, not an exact capacity constraint:** it also changes preferences
-among feasible loads, including empty vehicles. Validate against the original
-constraints and constrained-model optimum, not just QUBO energy.
-
-**Important simplification:** whenever every customer is assigned exactly once,
-total demand `D = sum_i d_i = sum_k L_k` is fixed, even if a vehicle is overloaded.
-Therefore,
-
-$$
-\sum_k[-\alpha(Q-L_k)+\beta(Q-L_k)^2]
-=\beta\sum_k L_k^2-\alpha(KQ-D)+\beta(KQ^2-2QD).
-$$
-
-Only the load-balancing term `beta*sum_k L_k^2` changes between such assignments.
-The asymmetric linear term cancels: `alpha` cannot change their ranking or
-independently penalize overloads. It can still affect assignment-invalid
-bitstrings. Do not assume this literature method transfers unchanged to our
-fixed-fleet problem.
+Normalize distance costs and derive sufficient bounds for `A` and `B`.
+For example, let `U` be the normalized objective of a known feasible
+certificate. Since `F >= 0` and any nonzero integer constraint residual has
+squared value at least one, `A > U` and `B > U` ensure that every ground state
+of the exact target QUBO decodes to a constrained optimum. Start with
+`A = B = U+1`; any limited calibration must preserve the proven bounds.
+This mathematical guarantee applies to the target QUBO, not to its approximate
+physical embedding or finite-duration quantum samples.
 
 | Encoding | Variable count | S | M | L | Within 80 atoms? |
 |---|---|---:|---:|---:|---|
 | Assignment only | `N*K` | 8 | 30 | 60 | All |
-| Assignment + binary slack | `N*K + K*ceil(log2(Q+1))` | 14 | 45 | 80 | All, on count alone |
-| Proposed slack-free | `N*K` | 8 | 30 | 60 | All, on count alone |
+| Binary-slack baseline used now | `N*K + K*ceil(log2(Q+1))` | 14 | 45 | 80 | All, on count alone |
+| Potential future slack-free formulation, not run now | `N*K` before any extra auxiliaries | 8 | 30 | 60 | Count estimate only |
 
-Normalize distance costs, then select `A, alpha, beta` using a small,
-fixed calibration grid on separate instances. Exhaustively inspect S to
-separate penalty-model errors from sampling errors. Check capacity feasibility
-and the original clustering objective of the candidate QUBO's lowest-energy
-states, and compare with the exact constrained reference. Tune `beta` for the
-load-balancing trade-off, not `alpha` as an overload control among assignment-valid
-candidates. Retain this encoding only if the checks support it; otherwise revisit
-the capacity encoding, using the exact slack QUBO as the control. Freeze settings
-before benchmarking. Record the symmetric-matrix convention: pair coefficients
-in `x^T Q x` equal `2*Q_ij`.
+Exhaustively inspect the 14-bit S target QUBO, verifying both assignment and
+slack residuals and comparing decoded ground states with the constrained
+clustering reference. Separate formulation, embedding, and sampling errors.
+Freeze calibration settings before benchmarking. Record the symmetric-matrix
+convention: pair coefficients in `x^T Q x` equal `2*Q_ij`.
 
 ### Required encoding validation
 
@@ -311,11 +289,22 @@ unsupported coupling signs, and unequal linear terms before embedding.
 Never silently discard unsupported terms or claim atom savings from an encoding
 that cannot be implemented on the stated device.
 
-Use the textbook slack QUBO as the exact-constraint control and treat the
-slack-free surrogate as conditional on the validation above. Freeze the chosen
-formulation and limited calibration settings before the shared 30-instance
-benchmark. Report the actual model, its limitations, and any failed checks in
-`results.ipynb`; no multi-family encoding sweep is required in this phase.
+Freeze the binary-slack formulation and limited calibration settings before
+the shared 30-instance benchmark. Report the actual model, its limitations,
+and any failed checks in `results.ipynb`; no slack-free runs or multi-family
+encoding sweep are required in this phase.
+
+### Later follow-up: reducing slack overhead
+
+After establishing this baseline, consider methods such as
+[unbalanced penalization](https://arxiv.org/abs/2211.13914) and measure whether
+atom savings improve embedding and feasible-sampling performance. This is not
+part of the current implementation. Preserve the modeling caveat: with
+`h_k = Q-L_k`, the proposed sum of `-alpha*h_k + beta*h_k^2` reduces to
+`beta*sum_k L_k^2` plus a constant whenever every customer is assigned once.
+The asymmetric linear term cancels across vehicles, so this is a load-balancing
+surrogate rather than an exact capacity penalty. Any future method needs its
+own derivation and validation against the binary-slack baseline.
 
 ## 4. Quantum Track A clustering with Pasqal
 
@@ -339,7 +328,7 @@ benchmark. Report the actual model, its limitations, and any failed checks in
    distance-dependent pair couplings. The interaction coefficient is fixed;
    use Pulser's device value, which already includes the conversion to
    angular-frequency units.
-3. **Check physical compatibility before scaling.** Expanding the reduced QUBO
+3. **Check physical compatibility before scaling.** Expanding the binary-slack QUBO
    gives nonnegative pair couplings, but generally unequal linear coefficients.
    Global detuning cannot reproduce those exactly; 2D `C6/r^6` interactions
    cannot reproduce an arbitrary coupling matrix either. Fit a common linear
@@ -378,9 +367,15 @@ benchmark. Report the actual model, its limitations, and any failed checks in
    the shot budget, sampling seed, raw counts, and emulator settings with the
    reported results. Decode shots using the saved variable-to-atom order and
    validate against the original assignment and capacity constraints.
-6. Use exact state-vector emulation for S and `emu-mps` for M/L. Record bond
-   dimension and other emulator settings, and check convergence on representative
-   runs. Sixty atoms fitting the device does not guarantee tractable emulation.
+6. Use `emu-sv` for exact state-vector emulation of S's 14 atoms, and assess
+   `emu-mps` for M's 45 and L's 80 atoms. Record bond dimension and other
+   emulator settings, and check convergence on representative runs. L exactly
+   reaches the hardware atom cap and exceeds the guide's typical 30-60 atom
+   MPS range: device legality does not guarantee tractable emulation. Set
+   explicit resource limits, attempt scaling only after smaller runs succeed,
+   and report resource-limited or unconverged runs as such, not as valid results.
+   Do not silently remove slack, relax device limits, or report invented gaps
+   to make a large-tier run appear successful.
 7. Primary results use **global detuning only**: every atom sees the same
    `delta(t)`. If unequal linear terms dominate errors, add a separately labeled
    **emulation-only DMM** comparison. As specified in Section 3.1, page 5, its
@@ -391,8 +386,9 @@ benchmark. Report the actual model, its limitations, and any failed checks in
    hackathon itself uses emulators only; no QPU execution is planned.
 
 **Checkpoint:** do not scale beyond S until decoding, device legality, QUBO
-coefficients, and feasible sampling have been checked. If the reduced model
-fails, report it and revise its penalties/encoding before scaling.
+coefficients, and feasible sampling have been checked. If the slack baseline
+fails, diagnose its formulation, embedding, or pulse before scaling; do not
+switch to a slack-free method as an undocumented fallback.
 
 ## 5. Fair comparison and clustering-phase outputs
 
@@ -400,7 +396,7 @@ fails, report it and revise its penalties/encoding before scaling.
   search. Disable solver defaults that add postprocessing, or label their
   outputs separately. Quantum sampling must perform the optimization.
 - Compare classical constrained optimization, classical optimization of the
-  same reduced QUBO, quantum sampling, and a random-bitstring sampler using
+  same binary-slack QUBO, quantum sampling, and a random-bitstring sampler using
   the same decoding/filtering and sample budget. Separate raw-shot results
   from any later repaired results.
 - For each `(instance, method, seed)`, report atom count, shot budget, feasibility
@@ -426,7 +422,7 @@ fails, report it and revise its penalties/encoding before scaling.
 
 **Execution order after approval:** shared instance/model/validation modules
 and S clustering/CVRP references ->
-textbook/chosen QUBO checks and a legal S quantum baseline ->
+binary-slack QUBO checks and a legal 14-atom S quantum baseline ->
 validated quantum clustering pipeline on M/L ->
 exact classical routing evaluation and remaining full-CVRP references ->
 `results.ipynb`, comparison tables, and report. Extract reused logic into the
