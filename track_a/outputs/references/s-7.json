@@ -1,0 +1,53 @@
+{
+  "clustering": {
+    "cost": 80.88685325702023,
+    "labels": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "distinct_optima": 1,
+    "status": "proven_optimum"
+  },
+  "cvrp": {
+    "cost": 208.23610162704392,
+    "labels": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "optimal_partitions": 1,
+    "status": "proven_optimum",
+    "distinct_optima_modulo_reversal": 1
+  },
+  "status": "proven_optimum",
+  "algorithm": "exhaustive-subset-dynamic-programming",
+  "settings": {
+    "maximum_customers": 15,
+    "vehicle_labels_quotiented": true,
+    "equality_tolerance": 1e-08
+  },
+  "seconds": 7.529999129474163e-05,
+  "feasible_partitions": 4,
+  "cplex_crosscheck": {
+    "settings": {
+      "time_limit_seconds": 30.0,
+      "threads": 1,
+      "seed": 0
+    },
+    "seconds": 0.02382797800237313,
+    "clustering": {
+      "status": "integer optimal solution",
+      "cost": 80.88685325702023,
+      "agrees": true
+    },
+    "cvrp": {
+      "status": "integer optimal solution",
+      "cost": 208.23610162704392,
+      "agrees": true
+    }
+  },
+  "instance_hash": "52f22a05ec4fef42"
+}

@@ -1,0 +1,166 @@
+{
+  "run_hash": "cda61426db646889",
+  "metrics": {
+    "actual_shots": 256,
+    "feasible_shots": 5,
+    "feasibility_rate": 0.01953125,
+    "best_model_gap": 0.0,
+    "best_cvrp_gap": 0.0,
+    "best_model_labels": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "best_cvrp_labels": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "routing_seconds": 0.00011396501213312149,
+    "model_hit_probability_0.1pct": 0.00390625,
+    "model_hit_probability_1pct": 0.00390625,
+    "model_hit_probability_5pct": 0.00390625,
+    "cvrp_hit_probability_0.1pct": 0.0078125,
+    "cvrp_hit_probability_1pct": 0.0078125,
+    "cvrp_hit_probability_5pct": 0.0078125
+  },
+  "partitions": [
+    {
+      "labels": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "model_cost": 80.88685325702023,
+      "route_cost": 208.23610162704392,
+      "model_gap": 0.0,
+      "cvrp_gap": 22.27919208403177,
+      "tours": [
+        {
+          "vehicle": 0,
+          "customers": [
+            0,
+            3
+          ],
+          "route": [
+            "depot",
+            0,
+            3,
+            "depot"
+          ],
+          "cost": 64.15955615654245,
+          "load": 5
+        },
+        {
+          "vehicle": 1,
+          "customers": [
+            1,
+            2
+          ],
+          "route": [
+            "depot",
+            1,
+            2,
+            "depot"
+          ],
+          "cost": 144.0765454705015,
+          "load": 6
+        }
+      ],
+      "shots": 1
+    },
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "model_cost": 93.7897042014055,
+      "route_cost": 170.2956145506273,
+      "model_gap": 15.951728154618767,
+      "cvrp_gap": 0.0,
+      "tours": [
+        {
+          "vehicle": 0,
+          "customers": [
+            2,
+            3,
+            0
+          ],
+          "route": [
+            "depot",
+            2,
+            3,
+            0,
+            "depot"
+          ],
+          "cost": 121.41537377170394,
+          "load": 7
+        },
+        {
+          "vehicle": 1,
+          "customers": [
+            1
+          ],
+          "route": [
+            "depot",
+            1,
+            "depot"
+          ],
+          "cost": 48.88024077892336,
+          "load": 4
+        }
+      ],
+      "shots": 2
+    },
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "model_cost": 98.27030257904937,
+      "route_cost": 225.61955094907307,
+      "model_gap": 21.49106884748346,
+      "cvrp_gap": 32.487000058359385,
+      "tours": [
+        {
+          "vehicle": 0,
+          "customers": [
+            0,
+            2
+          ],
+          "route": [
+            "depot",
+            0,
+            2,
+            "depot"
+          ],
+          "cost": 120.72184481820301,
+          "load": 5
+        },
+        {
+          "vehicle": 1,
+          "customers": [
+            1,
+            3
+          ],
+          "route": [
+            "depot",
+            1,
+            3,
+            "depot"
+          ],
+          "cost": 104.89770613087006,
+          "load": 6
+        }
+      ],
+      "shots": 2
+    }
+  ]
+}

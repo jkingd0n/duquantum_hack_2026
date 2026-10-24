@@ -1,0 +1,16 @@
+{
+  "checked_bitstrings": 16384,
+  "ground_states": 2,
+  "distinct_ground_partitions": 1,
+  "passed": true,
+  "minimum_energy": 1.1341937268641402,
+  "installed_qubo_solver": {
+    "agrees": true,
+    "bitstring": "01101001100010",
+    "energy": 1.1341937268641118,
+    "preprocessing": false,
+    "postprocessing": false,
+    "algorithm": "cplex",
+    "time_limit_seconds": 30
+  }
+}

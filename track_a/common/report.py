@@ -1,0 +1,142 @@
+"""Produce a four-page report from saved benchmark evidence only."""
+
+from collections import Counter
+import json
+from pathlib import Path
+import textwrap
+
+
+def write_report(output: Path, rows: list[dict]) -> None:
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    from matplotlib.backends.backend_pdf import PdfPages
+
+    def page(title: str, paragraphs: list[str]):
+        figure = plt.figure(figsize=(8.27, 11.69))
+        figure.text(0.08, 0.94, title, fontsize=16, weight="bold")
+        y = 0.89
+        for paragraph in paragraphs:
+            wrapped = "\n".join(textwrap.wrap(paragraph, 94))
+            figure.text(0.08, y, wrapped, va="top", fontsize=10, linespacing=1.5)
+            y -= (wrapped.count("\n") + 1) * 0.021 + 0.025
+        return figure
+
+    references = [json.loads(path.read_text()) for path in sorted((output / "references").glob("*.json"))]
+    validation = [json.loads(path.read_text()) for path in sorted((output / "validation").glob("*.json"))]
+    status = Counter(row["status"] for row in rows if row["method"] == "quantum-global")
+    calibration_path = output / "calibration.json"
+    calibration = json.loads(calibration_path.read_text()) if calibration_path.exists() else None
+    quantum = [row for row in rows if row["method"] == "quantum-global" and row["status"] == "completed"]
+    crosschecks = [ref["cplex_crosscheck"] for ref in references if "cplex_crosscheck" in ref]
+    confirmed = sum(all(check[name].get("agrees", False) for name in ("clustering", "cvrp"))
+                    for check in crosschecks)
+    with PdfPages(output / "report.pdf") as pdf:
+        fig = page("Track A: model and verification", [
+            "Scope: capacity-constrained clustering only. Quantum optimization returns groups; "
+            "all routing is exact classical evaluation with those groups fixed. No quantum speedup claim.",
+            "Binary x_ik assigns each customer exactly once. Minimize the sum of Euclidean "
+            "customer-pair distances within each vehicle, subject to load <= capacity. Unused "
+            "vehicles are allowed. The depot is fixed at (50, 50) and is absent from compactness.",
+            "The target QUBO divides distances by the largest customer distance, adds assignment "
+            "squares and binary-slack capacity squares. With U the normalized certificate cost, "
+            "A = B = U + 1 proves feasibility of every target ground state. The certificate is "
+            "not a solver warm start. Pair coefficients are twice off-diagonal matrix entries.",
+            "Variable counts (assignment / textbook binary slack / implemented): "
+            "S 8 / 14 / 14; M 30 / 45 / 45; L 60 / 80 / 80. No extra auxiliaries; "
+            "all pair couplings are nonnegative, but diagonal coefficients generally differ.",
+            f"Evidence: {len(references)} exact clustering/full-CVRP reference pairs; "
+            f"{len(validation)} exhaustive 14-bit QUBO validations "
+            f"({sum(v['passed'] for v in validation)} passed). Independent S CPLEX "
+            f"cross-checks agree for both references on {confirmed}/{len(crosschecks)} instances.",
+            "The separate docs/MODEL.md gives the original CVRP arc/assignment formulation, "
+            "connectivity constraints, penalty expansion and native Hamiltonian derivation.",
+        ])
+        pdf.savefig(fig)
+        plt.close(fig)
+        fig = page("Instances, embedding and pulse", [
+            f"{len(references)} explicit S demand vectors with (N,K,Q)=(4,2,7). "
+            "The input in inputs/seeds_s.json contains N, K, Q, demand_range, demands, "
+            "customer coordinates and depot. Fixed coordinates are read directly from the input. "
+            "Feasibility witnesses are computed internally, not supplied as input.",
+            "References use exhaustive subset dynamic programming, with exact Held-Karp tour "
+            "costs for every candidate group. Capacity-filtered set partitions select groups "
+            "and tours jointly for full CVRP, independently of compactness. Vehicle labels "
+            "are quotiented. S additionally counts tour optima modulo reversal.",
+            "Embedding uses a legal triangular grid, seeded greedy atom-label swaps and a "
+            "least-squares positive interaction scale. Every pair is retained, including "
+            "unwanted interactions where the target is zero. Device validation enforces "
+            "5 um spacing, 38 um radius, 80 atoms and all installed AnalogDevice controls.",
+            "Native energy at zero drive is -delta*sum(z) + sum(C6/r^6*z_a*z_b). "
+            "C6 = 865723.02 rad/us*um^6 from Pulser. The fitted scale and scaled constant "
+            "are saved. Global detuning fits the mean diagonal only: this is not an exact QUBO.",
+            "Pair error is ||J_real - s J_target||_F / ||s J_target||_F over all "
+            "off-diagonal pairs. Linear error is ||h_real - s h||_2 / ||s h||_2. "
+            "Embedding fidelity is characterized by these errors, not by a claimed exact mapping.",
+            f"Calibration: {calibration['selected'] if calibration else 'not run'}. "
+            "The two fixed candidate sweeps use 1000/2000 ns, peak amplitude 8 rad/us, "
+            "initial detuning -8 rad/us and zero final amplitude. Settings freeze after S-0. "
+            "Calibration uses a benchmark instance, so it is not held-out validation.",
+            "Global-only primary execution, noiseless emu-sv on CPU with dt=10 ns, "
+            "zero interaction cutoff and recorded shot seeds. Only S is executed. "
+            "M/L, MPS scaling, DMM and QPU operation are deferred.",
+        ])
+        pdf.savefig(fig)
+        plt.close(fig)
+        fig = page("Observed results and comparison", [
+            f"Quantum run statuses: {dict(status)}. All statuses, failure messages, "
+            "actual shots, reference values and gaps are preserved in results.csv.",
+            "Feasibility is measured against the original assignment and capacity "
+            "constraints, not against slack-bit residuals. Reference-hit probabilities "
+            "use all raw shots as denominator. Gap thresholds: 0.1%, 1%, 5%. "
+            "Undefined gaps remain missing; negative best-known gaps are never clipped.",
+            "The best compactness gap and best CVRP gap may come from different sampled "
+            "partitions. Each receives exact fixed-group depot tours; routing never changes "
+            "groups or feeds back into the quantum optimizer.",
+            "Classical constrained results are deterministic exact solutions repeated to "
+            "the common shot budget, not independent stochastic samples. Classical QUBO "
+            "comparisons use independent 400-step Metropolis chains; random baselines use "
+            "uniform raw bits. Both use identical decoding and feasibility filtering.",
+            "Reference, clustering, embedding, emulation and routing runtimes are separated. "
+            "Reference DP is offline. The deterministic clustering baseline independently "
+            "enumerates feasible partitions; this comparison measures quality rather than speedup.",
+        ])
+        ax = fig.add_axes((0.13, 0.10, 0.76, 0.28))
+        methods = sorted({row["method"] for row in rows})
+        for index, method in enumerate(methods):
+            values = [row["feasibility_rate"] for row in rows if row["method"] == method
+                      and row.get("feasibility_rate") is not None]
+            ax.scatter([index] * len(values), values, alpha=0.5)
+        ax.set(xticks=range(len(methods)), xticklabels=methods, ylabel="Feasible raw-shot fraction",
+               ylim=(-0.03, 1.03), title="Completed runs only")
+        ax.tick_params(axis="x", rotation=20, labelsize=8)
+        pdf.savefig(fig)
+        plt.close(fig)
+        fig = page("What did not work, limits and AI use", [
+            "The dense slack QUBO cannot generally be reproduced by 2D repulsive "
+            "interactions with one shared detuning. Positive coupling signs alone do not "
+            "establish embeddability. Large saved errors are physical-model approximation "
+            "failures, not failures of the proven target penalty or exact references.",
+            f"Completed quantum S runs: {len(quantum)}; runs with no feasible raw shots: "
+            f"{sum(row.get('feasible_shots') == 0 for row in quantum)}. "
+            "M/L are intentionally out of scope. Resource-limited or failed runs have "
+            "no reported success metrics.",
+            "Resource limits bound each isolated state-vector emulator by wall time and "
+            "address space. Time-step convergence and noise robustness are not established "
+            "by this baseline. No scaling or hardware performance claims are made.",
+            "Only one geometry is covered. The supplied vectors share a demand multiset, "
+            "although the simplified input also accepts different feasible vectors. Low feasible "
+            "rates on uniform bitstrings are expected for one-hot assignment. A small "
+            "pulse calibration and local swap layout are baselines, not an exhaustive "
+            "embedding/control optimization. There is no classical repair of quantum shots.",
+            "Reproduction: uv run --locked python -m track_a.common.run. Saved evidence is "
+            "reassembled with --stage results without rerunning clustering or quantum jobs. "
+            "The three notebooks show executable core algorithms with beginner-friendly "
+            "explanations and saved-result views.",
+            "AI-use disclosure: an AI assistant using Copilot SDK in VS Code implemented "
+            "the shared modules, notebooks, derivations and automated report. "
+            "The submitted numbers come from actual local solvers/emulators and saved "
+            "raw outputs, not generated claims. Human review remains necessary.",
+        ])
+        pdf.savefig(fig)
+        plt.close(fig)

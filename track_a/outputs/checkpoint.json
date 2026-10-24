@@ -1,0 +1,4 @@
+{
+  "s_passed": true,
+  "requirements": "exact QUBO, legal device, feasible raw S shots"
+}

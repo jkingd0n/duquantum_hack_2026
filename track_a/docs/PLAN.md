@@ -1,9 +1,25 @@
 # Pasqal Track A plan: classical vs quantum capacity-constrained clustering
 
+> **Current implementation scope (updated by user): S only.**
+> Only `demands[0]` is currently processed. Other input rows are retained but
+> skipped. Single-instance evidence lives under `outputs/first_demand/`,
+> separate from the earlier multi-instance results.
+> M/L execution and scaling are deferred. The input in `inputs/seeds_s.json`
+> contains `N`, `K`, `Q`, `demand_range`, explicit customer `coordinates`,
+> the fixed `depot`, and an array of demand vectors. It does not require
+> permutation provenance, retry counts, or saved feasibility certificates.
+> Coordinates are read directly from the input; feasibility witnesses are computed
+> internally for validation and penalty bounds. This supersedes the original
+> three-tier generator/JSON requirements below for the current implementation.
+> The user also revised the presentation: core algorithms and experiment loops
+> now live visibly in the notebooks, with beginner-friendly explanations.
+> Shared modules remain for CLI reproduction and infrastructure. Automated
+> tests have been removed at the user's request; model and input validation remain.
+
 ## Scope
 
 Focus exclusively on the **capacity-constrained clustering** problem from
-Track A of [the challenge guide](../Pasqal-challenge-final.pdf), version 3.0,
+Track A of [the challenge guide](../../Pasqal-challenge-final.pdf), version 3.0,
 October 24, 2026: assign customers to vehicles, ignoring visit order.
 Both clustering optimizers output customer groups. Add exact classical routing
 and full-CVRP reference computation solely to evaluate the required CVRP gap.
@@ -40,8 +56,9 @@ covers the shared CVRP formulation and Track A evaluation requirements.
 
 ## Planned notebooks and shared modules
 
-The existing `track_a/` folder contains this plan (`PLAN.md`). After plan
-approval, add the following notebooks alongside it:
+Only the following three notebooks live directly in `track_a/`. Documentation
+is grouped in `docs/`, Python helpers and CLI code in `common/`, seed definitions
+in `inputs/`, and saved evidence in `outputs/`:
 
 - `classical_capacity_constrained_clustering.ipynb`: shared instance generation
   and validation, constrained clustering formulation, classical solutions, and
@@ -81,9 +98,11 @@ calibration needed to deliver and explain the binary-slack quantum baseline.
 Do not remove slack in this phase; alternatives such as unbalanced penalization
 are later follow-up work.
 
-Keep notebooks thin: configuration, calls into shared code, experiment
-orchestration, plots, and explanatory discussion. Extract reusable logic into
-small Python modules under `track_a/common/`, rather than copying cells:
+Make notebooks understandable without opening implementation files:
+include executable core modeling, solving, embedding, pulse, and analysis
+code alongside plain-language explanations. Retain small Python modules under
+`track_a/common/` for the CLI and genuinely shared infrastructure. The intentional
+visible copies of core definitions also support the CLI workflow:
 
 | Planned module | Shared responsibility |
 |---|---|
@@ -96,8 +115,8 @@ small Python modules under `track_a/common/`, rather than copying cells:
 Use the same objective evaluator, decoder, and feasibility validator in
 classical solving, quantum execution, and reporting. Save results with encoding
 and configuration identifiers so `results.ipynb` can join them to instances and
-references unambiguously. Test shared logic directly, independently of notebook
-execution. Add helpers only when needed; no generic plugin framework or separate
+references unambiguously. Keep runtime model and input checks visible in the
+notebooks. Add helpers only when needed; no generic plugin framework or separate
 implementations of the same algorithm in notebooks. These are planned modules,
 not files to create before implementation approval.
 
@@ -106,9 +125,9 @@ runners rather than duplicating seeds or demand generation in notebooks:
 
 | Planned file | Fixed PDF parameters | Saved instances |
 |---|---|---|
-| `track_a/seeds_s.json` | `N=4, K=2, Q=7`, integer demands `1-4` | 10 |
-| `track_a/seeds_m.json` | `N=10, K=3, Q=20`, integer demands `1-8` | 10 |
-| `track_a/seeds_l.json` | `N=15, K=4, Q=30`, integer demands `1-10` | 10 |
+| `track_a/inputs/seeds_s.json` | `N=4, K=2, Q=7`, integer demands `1-4` | 10 |
+| `track_a/inputs/seeds_m.json` (deferred) | `N=10, K=3, Q=20`, integer demands `1-8` | 10 |
+| `track_a/inputs/seeds_l.json` (deferred) | `N=15, K=4, Q=30`, integer demands `1-10` | 10 |
 
 Each file stores its tier parameters, fixed depot and customer coordinates,
 base demand vector, base feasibility certificate, base seed, generator
@@ -335,7 +354,7 @@ own derivation and validation against the binary-slack baseline.
    coefficient and atom positions, and report both approximation errors.
    Do not describe an approximate embedding as an exact QUBO implementation.
 4. **Enforce the AnalogDevice hardware envelope.** The following values are
-   quoted from [the challenge guide, Section 3.1, page 4](../Pasqal-challenge-final.pdf#page=4):
+   quoted from [the challenge guide, Section 3.1, page 4](../../Pasqal-challenge-final.pdf#page=4):
 
    | Parameter | Value stated in the challenge PDF |
    |---|---|

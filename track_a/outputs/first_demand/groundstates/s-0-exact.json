@@ -1,0 +1,196 @@
+{
+  "instance_id": "s-0",
+  "instance_hash": "2927c939534d886e",
+  "variable_order": [
+    "x_0_0",
+    "x_0_1",
+    "x_1_0",
+    "x_1_1",
+    "x_2_0",
+    "x_2_1",
+    "x_3_0",
+    "x_3_1",
+    "y_0_0",
+    "y_0_1",
+    "y_0_2",
+    "y_1_0",
+    "y_1_1",
+    "y_1_2"
+  ],
+  "bit_layout": [
+    {
+      "position_from_left": 1,
+      "python_index": 0,
+      "variable": "x_0_0",
+      "kind": "assignment",
+      "vehicle": 0,
+      "customer": 0,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 2,
+      "python_index": 1,
+      "variable": "x_0_1",
+      "kind": "assignment",
+      "vehicle": 1,
+      "customer": 0,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 3,
+      "python_index": 2,
+      "variable": "x_1_0",
+      "kind": "assignment",
+      "vehicle": 0,
+      "customer": 1,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 4,
+      "python_index": 3,
+      "variable": "x_1_1",
+      "kind": "assignment",
+      "vehicle": 1,
+      "customer": 1,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 5,
+      "python_index": 4,
+      "variable": "x_2_0",
+      "kind": "assignment",
+      "vehicle": 0,
+      "customer": 2,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 6,
+      "python_index": 5,
+      "variable": "x_2_1",
+      "kind": "assignment",
+      "vehicle": 1,
+      "customer": 2,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 7,
+      "python_index": 6,
+      "variable": "x_3_0",
+      "kind": "assignment",
+      "vehicle": 0,
+      "customer": 3,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 8,
+      "python_index": 7,
+      "variable": "x_3_1",
+      "kind": "assignment",
+      "vehicle": 1,
+      "customer": 3,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 9,
+      "python_index": 8,
+      "variable": "y_0_0",
+      "kind": "slack",
+      "vehicle": 0,
+      "customer": null,
+      "slack_weight": 1
+    },
+    {
+      "position_from_left": 10,
+      "python_index": 9,
+      "variable": "y_0_1",
+      "kind": "slack",
+      "vehicle": 0,
+      "customer": null,
+      "slack_weight": 2
+    },
+    {
+      "position_from_left": 11,
+      "python_index": 10,
+      "variable": "y_0_2",
+      "kind": "slack",
+      "vehicle": 0,
+      "customer": null,
+      "slack_weight": 4
+    },
+    {
+      "position_from_left": 12,
+      "python_index": 11,
+      "variable": "y_1_0",
+      "kind": "slack",
+      "vehicle": 1,
+      "customer": null,
+      "slack_weight": 1
+    },
+    {
+      "position_from_left": 13,
+      "python_index": 12,
+      "variable": "y_1_1",
+      "kind": "slack",
+      "vehicle": 1,
+      "customer": null,
+      "slack_weight": 2
+    },
+    {
+      "position_from_left": 14,
+      "python_index": 13,
+      "variable": "y_1_2",
+      "kind": "slack",
+      "vehicle": 1,
+      "customer": null,
+      "slack_weight": 4
+    }
+  ],
+  "ground_state_details": [
+    {
+      "instance": "s-0",
+      "bitstring": "10010110110000",
+      "assignment_bits": "10010110",
+      "slack_bits": "110000",
+      "slack_bits_vehicle_0": "110",
+      "slack_value_vehicle_0": 3,
+      "slack_bits_vehicle_1": "000",
+      "slack_value_vehicle_1": 0,
+      "grouped_bitstring": "10010110 | 110 | 000",
+      "target_energy": 1.134193726864254,
+      "customer_groups": [
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "instance": "s-0",
+      "bitstring": "01101001000110",
+      "assignment_bits": "01101001",
+      "slack_bits": "000110",
+      "slack_bits_vehicle_0": "000",
+      "slack_value_vehicle_0": 0,
+      "slack_bits_vehicle_1": "110",
+      "slack_value_vehicle_1": 3,
+      "grouped_bitstring": "01101001 | 000 | 110",
+      "target_energy": 1.1341937268642255,
+      "customer_groups": [
+        0,
+        1,
+        1,
+        0
+      ]
+    }
+  ],
+  "instance": "s-0",
+  "checked_bitstrings": 16384,
+  "ground_states": 2,
+  "ground_state_bitstrings": [
+    "10010110110000",
+    "01101001000110"
+  ],
+  "distinct_ground_partitions": 1,
+  "passed": true,
+  "minimum_energy": 1.1341937268641686
+}

@@ -12,6 +12,107 @@
 The first build requires internet access. The pre-reading notebooks run locally
 without credentials.
 
+## Track A: small-tier clustering benchmark
+
+The current implementation deliberately runs **S only**: four customers, two
+vehicles, capacity seven. M/L experiments are deferred.
+
+Only the **first demand vector** (`demands[0]`, currently `[2, 3, 4, 2]`) is
+processed. The remaining vectors stay in the input file but are not run.
+The notebooks and CLI use the same selection.
+
+The quantum notebook displays the exact 14-bit target-QUBO ground states and
+the lowest-energy strings actually sampled, including counts, feasibility and
+assignment/slack bit splits. It explicitly reports when no exact target ground
+state was sampled. The full bitstring evidence is saved under
+`outputs/first_demand/groundstates/`.
+The notebook also maps every bit position to its variable and shows each
+vehicle's slack group with weights 1, 2, 4 and its decoded unused-capacity value.
+
+From the repository root, reproduce the classical references, binary-slack
+QUBO checks, legal 14-atom embeddings, bounded local quantum emulation,
+comparison metrics, exact classical routing evaluation, and four-page report:
+
+```bash
+uv run --locked python -m track_a.common.run
+```
+
+The default is 256 raw shots per stochastic method, sampling seed 0, and
+per-emulation limits of 180 seconds / 4096 MB address space.
+All execution is local and requires no credentials. The quantum phase can
+take several minutes. Resource failures are recorded, not replaced by
+fabricated success metrics. No classical repair or cloud/QPU jobs are used.
+
+Edit [track_a/inputs/seeds_s.json](track_a/inputs/seeds_s.json) to specify the
+fleet parameters, allowed demand range, customer coordinates, depot, and demand vectors:
+
+```json
+{
+  "N": 4,
+  "K": 2,
+  "Q": 7,
+  "demand_range": [1, 4],
+  "depot": [50, 50],
+  "coordinates": [[10, 10], [20, 30], [60, 70], [80, 90]],
+  "demands": [[2, 3, 4, 2], [4, 2, 2, 3]]
+}
+```
+
+Each demand row defines an instance (`s-0`, `s-1`, ...). `coordinates[i]` is the
+`[x, y]` location of customer `i`, corresponding to entry `i` in each demand
+vector. Coordinates are shared across vectors and read directly from the JSON,
+never regenerated. The depot remains fixed at `(50, 50)`. The input needs no
+`certificate`, `permutation` or `attempts` fields.
+An internal feasibility witness is computed and independently checked for
+validation and penalty bounds; it is **not** a solver warm start. Arbitrary
+feasible S vectors are accepted, not just permutations of one multiset.
+Malformed and capacity-infeasible inputs are rejected explicitly.
+
+Outputs for this single instance are saved in
+[track_a/outputs/first_demand/](track_a/outputs/first_demand/): references, validation
+evidence, configurations, geometry, atom layouts, complete interaction matrices,
+serialized sequences, raw shot counts, exact evaluation tours,
+`results.csv`, and `report.pdf`. Separate references and gaps are reported for
+pairwise clustering compactness and full CVRP. The deterministic constrained
+baseline repeats one result to the shot budget and is labeled accordingly.
+Physical embedding is approximate; its errors are reported separately from
+target-QUBO correctness.
+
+Earlier multi-instance outputs remain in the parent `outputs/` folder and are
+not included in this run's results. Notebook outputs are cleared when switching
+to this scope; rerun classical, quantum, then results to display the single-instance tables.
+
+Useful commands:
+
+```bash
+# Reassemble saved evidence without rerunning optimization or emulation.
+uv run --locked python -m track_a.common.run --stage results
+# Run just classical references/comparisons, or just quantum experiments.
+uv run --locked python -m track_a.common.run --stage classical
+uv run --locked python -m track_a.common.run --stage quantum
+# Use a separate output directory when changing demands or geometry.
+uv run --locked python -m track_a.common.run --input track_a/inputs/seeds_s.json --output track_a/outputs_custom
+```
+
+See the step-by-step notebooks, which contain their executable core algorithms:
+[classical](track_a/classical_capacity_constrained_clustering.ipynb),
+[quantum](track_a/quantum_capacity_constrained_clustering.ipynb), and
+[results](track_a/results.ipynb), plus the complete
+[model derivations](track_a/docs/MODEL.md) and [original plan](track_a/docs/PLAN.md).
+Only the three notebooks sit directly in `track_a/`; supporting files are
+grouped into `common/` (Python helpers and CLI), `docs/` (write-ups),
+`inputs/` (seed JSON), and `outputs/` (saved evidence).
+Each notebook introduces the problem in plain language before the equations,
+with worked bit/slack examples and explanations of neutral atoms, pulse
+controls, and shot statistics. Input validation, file utilities, emulator
+resource protection, and PDF layout remain shared. The modules also preserve
+the command-line workflow. No automated test suite is included.
+The plan's scope note records the S-only/input-schema/presentation revisions.
+[requirements.txt](requirements.txt) is pinned and hash-locked, exported from
+[uv.lock](uv.lock) with
+`uv export --locked --no-dev --no-emit-project --format requirements-txt --output-file requirements.txt`.
+AI implementation assistance is disclosed in the results notebook and report.
+
 ## Repository structure
 
 | Path | Contents |
