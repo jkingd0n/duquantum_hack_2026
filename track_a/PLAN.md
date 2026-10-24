@@ -5,16 +5,23 @@
 Focus exclusively on the **capacity-constrained clustering** problem from
 Track A of [the challenge guide](../Pasqal-challenge-final.pdf), version 3.0,
 October 24, 2026: assign customers to vehicles, ignoring visit order.
-Both the classical baseline and quantum solution stop at customer groups.
-No TSP solver, route construction, or full-CVRP reference computation is in scope.
+Both clustering optimizers output customer groups. Add exact classical routing
+and full-CVRP reference computation solely to evaluate the required CVRP gap.
+Routing does not change the sampled groups or feed back into optimization.
 Compare both approaches on the same instances, clustering objective, assignment
 constraints, and capacity constraints. No Track B modeling or implementation is
 included.
 
-**Submission boundary:** the guide also requires a CVRP gap for Track A, which
-needs classical routing and a full-CVRP reference. Defer that evaluation and the
-guide's full-CVRP derivation to a later phase. This phase addresses clustering,
-not every requirement of a complete Track A submission.
+**Primary goal:** as the guide states, quantum speedup over a well-tuned
+classical solver is not being evaluated. Prioritize efficient encoding into
+native neutral-atom physics and extraction of feasible solutions. Classical
+solutions establish correctness and solution-quality references, not an
+expectation that quantum execution will be faster.
+
+**Track A evaluation boundary:** include both the clustering-model gap and the
+CVRP gap required by Section 9.2. All routing is classical evaluation; quantum
+TSP, alternative quantum routing encodings, and Track B-specific metrics remain
+out of scope. Include the original CVRP derivation requested by Derive 2.1.
 
 ## Track A task checklist
 
@@ -28,25 +35,69 @@ These are the four tasks in Section 5.1, page 6 of the challenge PDF:
 | **5.4 / A4: shape the pulse** | Section 4: explicit amplitude/detuning waveforms, execution on multiple instances, saved pulse/emulation settings, and results reported through Section 5. |
 
 The checklist defines implementation acceptance criteria, not a claim that the
-unimplemented models or experiments have already passed them. The separate
-full-submission requirements deferred above remain deferred.
+unimplemented models or experiments have already passed them. Section 2 also
+covers the shared CVRP formulation and Track A evaluation requirements.
 
-## Planned notebook structure
+## Planned notebooks and shared modules
 
 The existing `track_a/` folder contains this plan (`PLAN.md`). After plan
 approval, add the following notebooks alongside it:
 
 - `classical_capacity_constrained_clustering.ipynb`: shared instance generation
   and validation, constrained clustering formulation, classical solutions, and
-  clustering reference values.
+  clustering reference values; also document the original CVRP formulation and
+  compute the separate full-CVRP references for evaluation.
 - `quantum_capacity_constrained_clustering.ipynb`: load the same saved instances,
-  derive and validate QUBOs, embed on `AnalogDevice`, design pulses, emulate, and
-  save raw-shot clustering results.
-- `classical_vs_quantum_comparison.ipynb`: load both sets of saved results and
-  compare feasibility, clustering-model gaps, reference-hit probabilities, atom
-  counts, and runtimes without rerunning the solvers.
+  derive and validate the chosen QUBO against the textbook control, embed on
+  `AnalogDevice`, design pulses, emulate, and save raw-shot clustering results.
+- `results.ipynb`: assemble the Track A evidence required by Sections 9-10,
+  using saved classical and quantum outputs. Include:
+  1. A concise model/penalty summary and the required variable-count table,
+     explaining the chosen formulation's compromises.
+  2. Instance seeds, tier parameters, certificate-validation status, load
+     ratios, largest-demand ratios, and clustering/full-CVRP reference values,
+     statuses, and solver settings.
+  3. Legal atom layouts, target-versus-realized embedding errors with their
+     formula, pulse waveforms/parameters, and emulator settings, including
+     MPS bond dimensions where used. Separate global-only and DMM results.
+  4. Tables for every `(instance, method, seed)` with the required best feasible
+     model/CVRP gaps, feasibility rate, reference-hit probabilities and tolerance,
+     atom count, embedding fidelity, and reference status. Include classical
+     and random-sampler comparisons without making quantum speedup a goal.
+  5. Explicit **what did not work**, limitations, and AI-use disclosure.
+  Use the shared exact classical routing evaluator for saved feasible
+  clusterings, caching its outputs; do not rerun clustering solvers or quantum
+  jobs. Produce the required `results.csv` and the evidence for the separate
+  report of at most four pages. The notebook does not replace that report,
+  the model write-up, or the README's one-command reproduction instructions.
 
-Keep all three notebooks limited to Track A clustering; no routing or TSP cells.
+Keep all three notebooks limited to Track A optimization and its required
+evaluation. Classical routing-evaluation cells are allowed; quantum TSP and
+Track B implementation are not.
+
+The dedicated encoding-efficiency notebook and broad search across alternative
+encoding families are deferred. Keep only the formulation and limited
+calibration needed to deliver and explain one defensible quantum approach.
+
+Keep notebooks thin: configuration, calls into shared code, experiment
+orchestration, plots, and explanatory discussion. Extract reusable logic into
+small Python modules under `track_a/common/`, rather than copying cells:
+
+| Planned module | Shared responsibility |
+|---|---|
+| `instances.py` | Tier parameters, seeded generation, tier-JSON loading/saving, instance/certificate validation, and distance matrices. |
+| `models.py` | Clustering objective and original constraints, encoding construction and metadata, penalty configuration, and candidate decoding. |
+| `classical.py` | Partition enumeration, classical solver adapters, clustering/full-CVRP references, and cached exact classical routing for fixed groups. |
+| `quantum.py` | Embedding, device validation, pulse construction, emulation, and raw-shot extraction for the quantum notebook. |
+| `analysis.py` | Consistent feasibility/gap metrics, result persistence/loading, Track A summary tables, and reusable plotting helpers. |
+
+Use the same objective evaluator, decoder, and feasibility validator in
+classical solving, quantum execution, and reporting. Save results with encoding
+and configuration identifiers so `results.ipynb` can join them to instances and
+references unambiguously. Test shared logic directly, independently of notebook
+execution. Add helpers only when needed; no generic plugin framework or separate
+implementations of the same algorithm in notebooks. These are planned modules,
+not files to create before implementation approval.
 
 Also plan three shared instance JSON files, loaded by both classical and quantum
 runners rather than duplicating seeds or demand generation in notebooks:
@@ -154,8 +205,43 @@ Use this same constrained objective to evaluate both approaches.
 Record the CPLEX time limit. For annealing, record initial/final temperatures,
 cooling rate, iteration limit, time limit, number of restarts, and seeds.
 Treat vehicle relabelings as the same partition. Reference computation is
-offline benchmarking, not part of the quantum optimization loop. All references
-in this phase are for clustering only.
+offline benchmarking, not part of the quantum optimization loop. Keep clustering
+and full-CVRP references distinct: neither is a substitute for the other.
+
+### Original CVRP formulation and classical evaluation
+
+- For guide Derive 2.1, state the customer/depot sets, demands, fleet size,
+  capacity, and travel costs. Derive the original total-distance minimization
+  model with vehicle-assignment and route-arc variables. Explicitly distinguish
+  equalities from inequalities, including exactly-once service, depot
+  departure/return for used vehicles, flow conservation, capacity, and
+  connectivity/subtour elimination. Preserve unused vehicles, one trip per
+  vehicle, and no split deliveries or reloading. This is a classical reference
+  formulation, not an additional quantum encoding.
+- Compute a separate **full-CVRP reference** that can choose both groups and
+  visit orders. Apply Section 9.3's hierarchy to this original constrained
+  problem: exhaustive search where practical; otherwise time-limited CPLEX,
+  optionally supplemented by multi-restart annealing. On S, obtain the
+  exhaustive optimum, count distinct optima modulo vehicle labels and route
+  reversal, and verify CPLEX agreement. Record all settings and reference
+  statuses; never use the clustering optimum or penalized QUBO energy as the
+  full-CVRP reference.
+- For every distinct feasible partition returned by a clustering method, solve
+  each group's depot-to-depot TSP **exactly and classically**, using exhaustive
+  tours for small groups or Held-Karp dynamic programming for larger ones.
+  Keep the groups fixed: no reassignment, repair, or routing-based feedback.
+  Empty groups cost zero. Cache exact group tours across partitions and
+  methods, and validate coverage, depot endpoints, and capacity.
+- Define `C_route(x)` as the sum of these exact tour lengths and report
+  `CVRP_gap(x) = 100*(C_route(x) - C_CVRP_ref)/C_CVRP_ref`.
+  Report the best CVRP gap over feasible sampled partitions separately from
+  the best clustering-model gap: the two best partitions may differ. Preserve
+  raw shot counts when computing reference-hit probabilities, even when routing
+  only unique partitions. No feasible shots means an undefined gap.
+- Route classical and random-sampler clusterings with the same evaluator.
+  Report routing/reference computation time separately from clustering,
+  embedding, and emulation. This measures grouping quality on delivery distance
+  without claiming a quantum routing result.
 
 ## 3. QUBO: textbook baseline and proposed atom saving
 
@@ -215,6 +301,21 @@ candidates. Retain this encoding only if the checks support it; otherwise revisi
 the capacity encoding, using the exact slack QUBO as the control. Freeze settings
 before benchmarking. Record the symmetric-matrix convention: pair coefficients
 in `x^T Q x` equal `2*Q_ij`.
+
+### Required encoding validation
+
+Perform the small-instance derivation, decoding, and penalty checks in the
+quantum clustering notebook, reusing shared modules. Count every assignment,
+slack, and auxiliary atom, and explicitly identify nonquadratic terms,
+unsupported coupling signs, and unequal linear terms before embedding.
+Never silently discard unsupported terms or claim atom savings from an encoding
+that cannot be implemented on the stated device.
+
+Use the textbook slack QUBO as the exact-constraint control and treat the
+slack-free surrogate as conditional on the validation above. Freeze the chosen
+formulation and limited calibration settings before the shared 30-instance
+benchmark. Report the actual model, its limitations, and any failed checks in
+`results.ipynb`; no multi-family encoding sweep is required in this phase.
 
 ## 4. Quantum Track A clustering with Pasqal
 
@@ -303,21 +404,31 @@ fails, report it and revise its penalties/encoding before scaling.
   the same decoding/filtering and sample budget. Separate raw-shot results
   from any later repaired results.
 - For each `(instance, method, seed)`, report atom count, shot budget, feasibility
-  rate, best feasible **clustering-model gap**, reference status, runtimes,
-  and probability of reaching reference. Choose and record a gap tolerance,
-  initially `epsilon = 0.1%`; count only feasible hits over all shots.
+  rate, best feasible **clustering-model gap** and **CVRP gap**, their separate
+  reference costs/statuses, runtimes, and reference-hit probabilities at each
+  gap level. Choose and record a gap tolerance, initially `epsilon = 0.1%`;
+  count only feasible hits over all shots, without renormalizing after filtering.
 - Report embedding error as
   `||J_realized - s*J_target||_F / ||s*J_target||_F`, over all off-diagonal
   pairs, stating the fitted positive scale `s`; also report linear-term error.
   Report undefined gaps when no feasible shot exists. Never clip negative gaps
   against best-known references; handle zero reference costs explicitly.
 - Deliver customer-to-vehicle assignments, generator, certificates, validator,
-  clustering references, model derivation and variable table, `results.csv`,
+  clustering and full-CVRP references, exact evaluation tours, model derivations
+  and variable table, `results.csv`,
+  the required variable-count comparison against the textbook formulation,
+  shared modules used by the notebooks, and a `results.ipynb` narrative covering
+  the chosen model, embedding, pulse design, required metrics, classical
+  comparisons, and what did not work,
   a one-command reproduction in the README, a
   pinned `requirements.txt` exported from the existing lock, and a report of
   at most four pages including **what did not work** and AI-use disclosure.
 
-**Execution order after approval:** shared model/validator and S references ->
-textbook and slack-free QUBO checks -> legal S quantum pipeline -> M/L ->
-comparison tables and report. Stop at validated customer groups; no classical
-or quantum routing in this phase.
+**Execution order after approval:** shared instance/model/validation modules
+and S clustering/CVRP references ->
+textbook/chosen QUBO checks and a legal S quantum baseline ->
+validated quantum clustering pipeline on M/L ->
+exact classical routing evaluation and remaining full-CVRP references ->
+`results.ipynb`, comparison tables, and report. Extract reused logic into the
+shared modules as each stage is implemented. Quantum optimization stops at
+validated customer groups; routing is classical evaluation only.
