@@ -16,6 +16,21 @@ needs classical routing and a full-CVRP reference. Defer that evaluation and the
 guide's full-CVRP derivation to a later phase. This phase addresses clustering,
 not every requirement of a complete Track A submission.
 
+## Track A task checklist
+
+These are the four tasks in Section 5.1, page 6 of the challenge PDF:
+
+| PDF task | Planned work and required evidence |
+|---|---|
+| **5.1 / A1: clustering model** | Sections 2-3: binary variables, compactness objective, assignment equality, capacity inequality, unconstrained QUBOs, and explicit penalty-weight selection and validation. |
+| **5.2 / A2: generate instances** | Section 1: seeded generator, prescribed tiers and assumptions, saved feasible assignment for every instance, independent validator, and both demand ratios. |
+| **5.3 / A3: embed** | Section 4: variable-to-atom mapping, legal coordinates, realized interactions, and quantified target-versus-realized interaction error. |
+| **5.4 / A4: shape the pulse** | Section 4: explicit amplitude/detuning waveforms, execution on multiple instances, saved pulse/emulation settings, and results reported through Section 5. |
+
+The checklist defines implementation acceptance criteria, not a claim that the
+unimplemented models or experiments have already passed them. The separate
+full-submission requirements deferred above remain deferred.
+
 ## Planned notebook structure
 
 The existing `track_a/` folder contains this plan (`PLAN.md`). After plan
@@ -33,7 +48,26 @@ approval, add the following notebooks alongside it:
 
 Keep all three notebooks limited to Track A clustering; no routing or TSP cells.
 
-## 1. Shared problem and instances
+Also plan three shared instance JSON files, loaded by both classical and quantum
+runners rather than duplicating seeds or demand generation in notebooks:
+
+| Planned file | Fixed PDF parameters | Saved instances |
+|---|---|---|
+| `track_a/seeds_s.json` | `N=4, K=2, Q=7`, integer demands `1-4` | 10 |
+| `track_a/seeds_m.json` | `N=10, K=3, Q=20`, integer demands `1-8` | 10 |
+| `track_a/seeds_l.json` | `N=15, K=4, Q=30`, integer demands `1-10` | 10 |
+
+Each file stores its tier parameters, fixed depot and customer coordinates,
+base demand vector, base feasibility certificate, base seed, generator
+settings/version, and an `instances` list. Each entry stores `instance_seed`,
+the actual permuted demand vector in customer-ID order, and its feasibility
+certificate. Use permutation seeds `0` through `9` within each tier, giving
+**30 instances total**: 10 unique permutations of one feasible demand multiset
+per tier, not 10 independently generated multisets or exhaustive enumeration.
+Include all three JSON files in the submission. Keep solver/sampling seeds
+separate from generation seeds and record them in results.
+
+## 1. Shared problem and instances (Task 5.2 / A2)
 
 - Formally derive capacity-constrained clustering: each customer belongs to
   exactly one vehicle, demands are not split, each vehicle's total load is at
@@ -48,14 +82,52 @@ Keep all three notebooks limited to Track A clustering; no routing or TSP cells.
   | M | 10 | 3 | 20 | 1-8 |
   | L | 15 | 4 | 30 | 1-10 |
 
-- Start with three seeds per tier. Construct a feasible assignment first, then
-  generate demands within its capacities and independently generate locations.
-  Save the seed and assignment certificate; validate every instance. Report
-  `rho = sum(d_i)/(K*Q)` and `max(d_i)/Q`; include capacity-tight examples rather
-  than only easy low-load cases.
+- Initially construct each tier's JSON using a local seeded generator; record
+  the base seed, permutation seeds, generator settings, and library versions:
+  1. Sample customer coordinates uniformly in `[0, 100]^2`, independently of
+     demands. Keep these coordinates and the depot fixed across the tier's
+     10 permutations, so only customer demands change.
+  2. Construct one feasible base demand vector and certificate. Distribute
+     customers round-robin over `K` vehicles. Within each group, sample each
+     integer demand from `1` to the smaller of the tier demand ceiling and
+     remaining vehicle capacity minus one unit reserved for each customer
+     still to receive a demand. This guarantees a feasible base assignment.
+  3. Ensure the base multiset has at least 10 distinct orderings:
+     `N! / product_v count(v)! >= 10`. Redraw the base demands if needed.
+     This matters especially on S, where repeated demands may allow fewer
+     than 10 unique permutations.
+  4. Use seeds `0` through `9` to sample 10 unique demand permutations, rejecting
+     duplicate demand vectors. For a permutation `p`, set `d'_i = d_p(i)` and
+     certificate label `a'_i = a_p(i)`: every vehicle retains its original
+     load, so feasibility is preserved. Coordinates are not permuted.
+  5. Save the explicit vectors and certificates in the tier JSON, not just
+     the seeds. Use stated finite retry limits for base-demand and permutation
+     sampling, record attempt counts, and fail explicitly if exhausted.
+     Include generator code and seeds in the submission.
+- Independently validate each saved instance: exact tier parameters and customer
+  count, finite coordinates in the square, fixed depot, integer demands in the
+  tier range and at most `Q`, and a complete certificate assigning every
+  customer exactly once to a legal vehicle with load at most `Q`. Use Euclidean
+  distances, ensuring symmetry and the triangle inequality. Interpret each
+  group as one unsplit load for one trip, without reloading; no tour is computed.
+  Reject invalid instances explicitly before either solver runs.
+- Report the actual `rho = sum(d_i)/(K*Q)` and `max(d_i)/Q` for every instance.
+  Both ratios are constant across permutations within a tier. This simple
+  benchmark tests different assignments of demands to fixed locations; it does
+  not cover different demand multisets or load ratios within that tier.
+  The certificate is only a feasibility witness: do not fix its groups, their sizes, or their
+  number of nonempty vehicles in either optimization model. Unused vehicles
+  remain permitted. Both solvers load the identical frozen entries from
+  `seeds_s.json`, `seeds_m.json`, and `seeds_l.json`; they do not independently
+  regenerate demands or coordinates. Neither receives the certificate as a warm
+  start or a repair result. Identify instances by `(tier, instance_seed)` and
+  verify each file's tier parameters, 10-entry count, unique seeds, distinct
+  demand vectors with the same base multiset, and entry metadata before either
+  runner proceeds.
 
-## 2. Classical Track A formulation and baseline
+## 2. Classical Track A formulation and baseline (Task 5.1 / A1)
 
+Let customers be `i in {1, ..., N}` and vehicles `k in {1, ..., K}`.
 Use binary `x_ik = 1` when customer `i` belongs to vehicle `k`, and load
 `L_k = sum_i d_i*x_ik`. Choose one simple clustering objective:
 
@@ -163,30 +235,59 @@ in `x^T Q x` equal `2*Q_ij`.
    Map these linear and pair coefficients to the chosen QUBO, stating the
    positive energy scale and irrelevant constant offset. Global detuning
    controls the shared linear coefficient; atom positions control positive,
-   distance-dependent pair couplings. The interaction coefficient is fixed
-   (`C6/hbar` approximately `8.657e5 rad/us*um^6` in the guide); use Pulser's
-   device value, which already includes this unit conversion.
+   distance-dependent pair couplings. The interaction coefficient is fixed;
+   use Pulser's device value, which already includes the conversion to
+   angular-frequency units.
 3. **Check physical compatibility before scaling.** Expanding the reduced QUBO
    gives nonnegative pair couplings, but generally unequal linear coefficients.
    Global detuning cannot reproduce those exactly; 2D `C6/r^6` interactions
    cannot reproduce an arbitrary coupling matrix either. Fit a common linear
    coefficient and atom positions, and report both approximation errors.
    Do not describe an approximate embedding as an exact QUBO implementation.
-4. Enforce the guide's envelope: at most 80 atoms, separation at least
-   `5 um`, radius at most `38 um`, amplitude at most `12.57 rad/us`,
-   detuning within `+/-125.66 rad/us`, and duration at most `6000 ns`.
-   Validate against the installed device; do not relax constraints to make a
-   run succeed. Include unwanted interactions in the realized model.
+4. **Enforce the AnalogDevice hardware envelope.** The following values are
+   quoted from [the challenge guide, Section 3.1, page 4](../Pasqal-challenge-final.pdf#page=4):
+
+   | Parameter | Value stated in the challenge PDF |
+   |---|---|
+   | Maximum atoms | `80` |
+   | Minimum atom separation | `5 um` |
+   | Maximum register radius | `38 um` |
+   | Maximum Rabi frequency, `Omega_max` | `12.57 rad/us` (`2*pi * 2 MHz`) |
+   | Detuning range | `+/-125.66 rad/us` (`+/-2*pi * 20 MHz`) |
+   | Maximum sequence duration | `6000 ns` |
+   | Fixed interaction coefficient, `C6/hbar` | `8.657 * 10^5 rad/us * um^6` |
+
+   Positions are in micrometers, pulse durations in nanoseconds, and amplitude,
+   detuning, and interaction strengths in radians per microsecond. The PDF's
+   decimal frequency values are rounded; validate numerical limits against the
+   installed `AnalogDevice` at its full precision rather than using rounded
+   constants as overrides. Record its parameters and flag any discrepancy with
+   the guide beyond rounding before proceeding. Do not relax constraints to
+   make a run succeed. Include unwanted interactions in the realized model.
+   For Task 5.3 / A3, save the variable-to-atom order, coordinates, target
+   couplings, realized couplings, fitted scale, and embedding error for every
+   instance and embedding seed. Compute realized interactions over all atom
+   pairs, including pairs whose target coupling is zero.
 5. Start with a smooth three-point amplitude ramp and linear detuning sweep:
    negative initial detuning, final model detuning, zero final amplitude.
    Try only a small fixed set of legal durations and amplitudes. Select using
    best feasible gap, reference-hit probability, and feasibility, not mean cost.
+   For Task 5.4 / A4, save both waveforms and all pulse parameters, run the
+   selected design on the multiple saved instances in each tier, and record
+   the shot budget, sampling seed, raw counts, and emulator settings with the
+   reported results. Decode shots using the saved variable-to-atom order and
+   validate against the original assignment and capacity constraints.
 6. Use exact state-vector emulation for S and `emu-mps` for M/L. Record bond
    dimension and other emulator settings, and check convergence on representative
    runs. Sixty atoms fitting the device does not guarantee tractable emulation.
-7. Primary results use **global detuning only**. If unequal linear terms dominate
-   errors, add a separately labeled **emulation-only DMM** comparison respecting
-   its one-sided detuning restrictions. No QPU execution during the hackathon.
+7. Primary results use **global detuning only**: every atom sees the same
+   `delta(t)`. If unequal linear terms dominate errors, add a separately labeled
+   **emulation-only DMM** comparison. As specified in Section 3.1, page 5, its
+   additional detuning is `epsilon_a * delta_DMM(t)`, with fixed
+   `epsilon_a in [0, 1]` and `delta_DMM(t) <= 0`; it can only make excitation
+   less favorable relative to the global drive. Compare DMM and global-only
+   results separately. QPU operation permits global detuning only, and the
+   hackathon itself uses emulators only; no QPU execution is planned.
 
 **Checkpoint:** do not scale beyond S until decoding, device legality, QUBO
 coefficients, and feasible sampling have been checked. If the reduced model
