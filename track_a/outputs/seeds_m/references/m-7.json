@@ -1,0 +1,42 @@
+{
+  "clustering": {
+    "cost": 272.11085767136245,
+    "labels": [
+      0,
+      1,
+      0,
+      2,
+      2,
+      2,
+      2,
+      0,
+      1,
+      1
+    ],
+    "distinct_optima": 1,
+    "status": "proven_optimum"
+  },
+  "status": "proven_optimum",
+  "algorithm": "exhaustive-clustering-partitions",
+  "settings": {
+    "maximum_customers": 10,
+    "vehicle_labels_quotiented": true,
+    "equality_tolerance": 1e-08
+  },
+  "feasible_partitions": 4232,
+  "seconds": 0.162423250003485,
+  "cplex_crosscheck": {
+    "settings": {
+      "time_limit_seconds": 30.0,
+      "threads": 1,
+      "seed": 0
+    },
+    "seconds": 0.03968412299582269,
+    "clustering": {
+      "status": "integer optimal solution",
+      "cost": 272.11085767136245,
+      "agrees": true
+    }
+  },
+  "instance_hash": "829822c32bded75d"
+}

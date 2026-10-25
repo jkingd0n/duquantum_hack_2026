@@ -1,0 +1,5482 @@
+{
+  "instance_id": "s-2",
+  "instance_hash": "a276b9f7be468010",
+  "source_run_hash": "7fc1e3360da0be08",
+  "encoding": "variable-reduction-complemented-v1",
+  "variable_order": [
+    "x_0_0",
+    "x_0_1",
+    "x_1_0",
+    "x_1_1",
+    "x_2_0",
+    "x_2_1",
+    "x_3_0",
+    "x_3_1",
+    "z_0",
+    "z_1"
+  ],
+  "status": "completed",
+  "error": null,
+  "configuration": {
+    "alpha": 3.301381342702836,
+    "beta": 3.301381342702836,
+    "capacity_penalty": 3.301381342702836,
+    "assignment_penalty": 3.301381342702836,
+    "normalization": 71.31661138759598,
+    "logical_capacity_residual": "load/Q - 1 - b",
+    "auxiliary_mapping": "b_k = 1 - z_k",
+    "binary_slack_bits_per_vehicle": 1,
+    "ground_state_feasibility_guaranteed": false,
+    "warm_start": false,
+    "repair": false,
+    "pulse": {
+      "duration_ns": 2000,
+      "amplitude": 8.0,
+      "initial_detuning": -8.0
+    },
+    "embedding_seed": 0,
+    "sampling_seed": 0,
+    "shots": 256,
+    "backend": "emu-sv",
+    "dt_ns": 10,
+    "interaction_cutoff": 0.0,
+    "memory_mb": 4096,
+    "timeout_seconds": 180,
+    "embedding_swap_attempts": 1200,
+    "postprocessing": false
+  },
+  "sampled_states": [
+    {
+      "bitstring": "1010011011",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 2.586128643458835,
+      "feasible": true,
+      "customer_labels": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "canonical_assignment_bits": "10100110",
+      "model_cost": 107.55447668517513,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        0,
+        4
+      ],
+      "physical_auxiliary_bits": "11",
+      "logical_binary_slack": [
+        0,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        0.0,
+        -0.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "0110101011",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 4.948480180577917,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -2,
+        6
+      ],
+      "physical_auxiliary_bits": "11",
+      "logical_binary_slack": [
+        0,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        0.2857142857142858,
+        -0.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "1000100111",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 5.1668299620568945,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        3,
+        3
+      ],
+      "physical_auxiliary_bits": "11",
+      "logical_binary_slack": [
+        0,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.4285714285714286,
+        -0.4285714285714286
+      ]
+    },
+    {
+      "bitstring": "1001101001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 5.425000122938087,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -1,
+        5
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.8571428571428572,
+        -0.7142857142857143
+      ]
+    },
+    {
+      "bitstring": "0101101001",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 5.556295677785258,
+      "feasible": true,
+      "customer_labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "canonical_assignment_bits": "10100101",
+      "model_cost": 83.93339456868273,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        0,
+        4
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -0.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "1010010110",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 5.556295677785258,
+      "feasible": true,
+      "customer_labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "canonical_assignment_bits": "10100101",
+      "model_cost": 83.93339456868273,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        4,
+        0
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.5714285714285714,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "1010011001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 5.887509986161675,
+      "feasible": true,
+      "customer_labels": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "canonical_assignment_bits": "10100110",
+      "model_cost": 107.55447668517513,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        0,
+        4
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -0.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "1001100110",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 6.296328530901164,
+      "feasible": true,
+      "customer_labels": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "canonical_assignment_bits": "10011001",
+      "model_cost": 98.27030257904937,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        3,
+        1
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.4285714285714286,
+        -1.1428571428571428
+      ]
+    },
+    {
+      "bitstring": "0110101001",
+      "count": 4,
+      "probability": 0.015625,
+      "target_energy": 6.363357898879137,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -2,
+        6
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857142,
+        -0.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "0110001011",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 6.519508924277474,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        1,
+        6
+      ],
+      "physical_auxiliary_bits": "11",
+      "logical_binary_slack": [
+        0,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.1428571428571429,
+        -0.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "0110100101",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 6.8610797295119355,
+      "feasible": true,
+      "customer_labels": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "canonical_assignment_bits": "10010110",
+      "model_cost": 80.88685325702023,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        2,
+        2
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.2857142857142856,
+        -0.2857142857142857
+      ]
+    },
+    {
+      "bitstring": "1001011001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 6.8610797295119355,
+      "feasible": true,
+      "customer_labels": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "canonical_assignment_bits": "10010110",
+      "model_cost": 80.88685325702023,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        2,
+        2
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.2857142857142856,
+        -0.2857142857142857
+      ]
+    },
+    {
+      "bitstring": "0101011010",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 7.219765792035631,
+      "feasible": true,
+      "customer_labels": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "canonical_assignment_bits": "10101001",
+      "model_cost": 164.12671887220202,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        3,
+        1
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.4285714285714286,
+        -1.1428571428571428
+      ]
+    },
+    {
+      "bitstring": "1010100101",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 7.219765792035631,
+      "feasible": true,
+      "customer_labels": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "canonical_assignment_bits": "10101001",
+      "model_cost": 164.12671887220202,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        1,
+        3
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.1428571428571428,
+        -0.4285714285714286
+      ]
+    },
+    {
+      "bitstring": "1010101011",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 7.596807580117385,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -3,
+        7
+      ],
+      "physical_auxiliary_bits": "11",
+      "logical_binary_slack": [
+        0,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        0.4285714285714286,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "0110101101",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 7.642928826272847,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "capacity_headroom": [
+        -2,
+        2
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857142,
+        -0.2857142857142857
+      ]
+    },
+    {
+      "bitstring": "1010101001",
+      "count": 7,
+      "probability": 0.02734375,
+      "target_energy": 8.068433486217788,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -3,
+        7
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.5714285714285714,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "1010001011",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 8.110889257777867,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        0,
+        7
+      ],
+      "physical_auxiliary_bits": "11",
+      "logical_binary_slack": [
+        0,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "1001111001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 8.311503747339707,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "capacity_headroom": [
+        -1,
+        2
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.8571428571428572,
+        -0.2857142857142857
+      ]
+    },
+    {
+      "bitstring": "1010011101",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 8.639116468452396,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "capacity_headroom": [
+        0,
+        0
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        0.0
+      ]
+    },
+    {
+      "bitstring": "1010011110",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 8.639116468452396,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "capacity_headroom": [
+        0,
+        0
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "0101101110",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 8.6391164684524,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "capacity_headroom": [
+        0,
+        0
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "1101101001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 8.768690353975941,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -1,
+        4
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.8571428571428572,
+        -0.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "1010100110",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 9.106269416437257,
+      "feasible": true,
+      "customer_labels": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "canonical_assignment_bits": "10101001",
+      "model_cost": 164.12671887220202,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        1,
+        3
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.1428571428571429,
+        -1.4285714285714286
+      ]
+    },
+    {
+      "bitstring": "0101101010",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 9.329302926588497,
+      "feasible": true,
+      "customer_labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "canonical_assignment_bits": "10100101",
+      "model_cost": 83.93339456868273,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        0,
+        4
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        0.0,
+        -1.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "0010011001",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 9.41663949032283,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        1,
+        4
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.1428571428571428,
+        -0.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "1000010110",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 9.556494556025143,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        6,
+        0
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.8571428571428572,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "0100001011",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 9.634643510336844,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        3,
+        6
+      ],
+      "physical_auxiliary_bits": "11",
+      "logical_binary_slack": [
+        0,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.4285714285714286,
+        -0.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "1000011001",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 9.97096262552975,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        2,
+        4
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.2857142857142856,
+        -0.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "0100100110",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 9.97096262552975,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        4,
+        2
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.5714285714285714,
+        -1.2857142857142856
+      ]
+    },
+    {
+      "bitstring": "1000101001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 10.343384572270882,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -1,
+        7
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.8571428571428572,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "1110101001",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 10.493938146162726,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -3,
+        6
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.5714285714285714,
+        -0.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "0010101001",
+      "count": 10,
+      "probability": 0.0390625,
+      "target_energy": 10.540615924339864,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -2,
+        7
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857142,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "0001010110",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 10.540615924339864,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        7,
+        -2
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -0.7142857142857142
+      ]
+    },
+    {
+      "bitstring": "0001000111",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 10.696766949738212,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        7,
+        1
+      ],
+      "physical_auxiliary_bits": "11",
+      "logical_binary_slack": [
+        0,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -0.1428571428571429
+      ]
+    },
+    {
+      "bitstring": "0111011010",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 10.70739389138194,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        1,
+        1
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.1428571428571429,
+        -1.1428571428571428
+      ]
+    },
+    {
+      "bitstring": "0110000011",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 10.712645581423487,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        -1,
+        -1
+      ],
+      "capacity_headroom": [
+        5,
+        6
+      ],
+      "physical_auxiliary_bits": "11",
+      "logical_binary_slack": [
+        0,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857143,
+        -0.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "0100101101",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 10.836065483418853,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        0,
+        1
+      ],
+      "capacity_headroom": [
+        0,
+        2
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -0.2857142857142857
+      ]
+    },
+    {
+      "bitstring": "1000101101",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 10.949760737257115,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        0,
+        1
+      ],
+      "capacity_headroom": [
+        -1,
+        3
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.8571428571428572,
+        -0.4285714285714286
+      ]
+    },
+    {
+      "bitstring": "0010101101",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 11.146992089326098,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        0,
+        1
+      ],
+      "capacity_headroom": [
+        -2,
+        3
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857142,
+        -0.4285714285714286
+      ]
+    },
+    {
+      "bitstring": "0001101101",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 11.224994160412741,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        0,
+        1
+      ],
+      "capacity_headroom": [
+        0,
+        1
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -0.1428571428571429
+      ]
+    },
+    {
+      "bitstring": "1011011010",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 11.266893399951151,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        0,
+        2
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        0.0,
+        -1.2857142857142856
+      ]
+    },
+    {
+      "bitstring": "0001011001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 11.308394804766,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        3,
+        2
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.4285714285714286,
+        -0.2857142857142857
+      ]
+    },
+    {
+      "bitstring": "0010100110",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 11.308394804766,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        2,
+        3
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.2857142857142857,
+        -1.4285714285714286
+      ]
+    },
+    {
+      "bitstring": "1000111001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 11.421386643357522,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        1,
+        0
+      ],
+      "capacity_headroom": [
+        -1,
+        4
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.8571428571428572,
+        -0.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "0010111001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 11.618617995426504,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        1,
+        0
+      ],
+      "capacity_headroom": [
+        -2,
+        4
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857142,
+        -0.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "0001111001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 11.701871756554699,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        1,
+        0
+      ],
+      "capacity_headroom": [
+        0,
+        2
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -0.2857142857142857
+      ]
+    },
+    {
+      "bitstring": "0101001001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 11.76558141140223,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        3,
+        4
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.4285714285714286,
+        -0.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "0101101100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 11.940497811155236,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "capacity_headroom": [
+        0,
+        0
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "1001011000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 12.048964696616391,
+      "feasible": true,
+      "customer_labels": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "canonical_assignment_bits": "10010110",
+      "model_cost": 80.88685325702023,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        2,
+        2
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.2857142857142856,
+        -1.2857142857142856
+      ]
+    },
+    {
+      "bitstring": "0110011100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 12.079259306101395,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "capacity_headroom": [
+        1,
+        -1
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.1428571428571428,
+        -0.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "0110100001",
+      "count": 3,
+      "probability": 0.01171875,
+      "target_energy": 12.184271487523894,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        -1
+      ],
+      "capacity_headroom": [
+        2,
+        6
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.2857142857142856,
+        -0.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "0011101001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 12.224994160412741,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -2,
+        5
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857142,
+        -0.7142857142857143
+      ]
+    },
+    {
+      "bitstring": "0001100101",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 12.246394926925255,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        4,
+        1
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.5714285714285714,
+        -0.1428571428571429
+      ]
+    },
+    {
+      "bitstring": "0010011010",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 12.246394926925255,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        1,
+        4
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.1428571428571429,
+        -1.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "1001100100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 12.427465310206436,
+      "feasible": true,
+      "customer_labels": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "canonical_assignment_bits": "10011001",
+      "model_cost": 98.27030257904937,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        3,
+        1
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.4285714285714286,
+        -1.1428571428571428
+      ]
+    },
+    {
+      "bitstring": "0101101000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 12.630684269291336,
+      "feasible": true,
+      "customer_labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "canonical_assignment_bits": "10100101",
+      "model_cost": 83.93339456868273,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        0,
+        4
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -1.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "1010010100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 12.630684269291336,
+      "feasible": true,
+      "customer_labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "canonical_assignment_bits": "10100101",
+      "model_cost": 83.93339456868273,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        4,
+        0
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.5714285714285714,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "1000011101",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 12.722569107820473,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        0,
+        1
+      ],
+      "capacity_headroom": [
+        2,
+        0
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.2857142857142856,
+        0.0
+      ]
+    },
+    {
+      "bitstring": "0110101100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 12.830813793377303,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "capacity_headroom": [
+        -2,
+        2
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857142,
+        -1.2857142857142856
+      ]
+    },
+    {
+      "bitstring": "0101100100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 12.961898577667753,
+      "feasible": true,
+      "customer_labels": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "canonical_assignment_bits": "10100110",
+      "model_cost": 107.55447668517513,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        4,
+        0
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.5714285714285714,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "1010011000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 12.961898577667753,
+      "feasible": true,
+      "customer_labels": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "canonical_assignment_bits": "10100110",
+      "model_cost": 107.55447668517513,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        0,
+        4
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -1.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "1010010001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 13.18045912970345,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        -1
+      ],
+      "capacity_headroom": [
+        4,
+        4
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.5714285714285714,
+        -0.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "0110111010",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 13.214566097008898,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "capacity_headroom": [
+        -2,
+        3
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        0.2857142857142858,
+        -1.4285714285714286
+      ]
+    },
+    {
+      "bitstring": "0101011000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 13.350902571340903,
+      "feasible": true,
+      "customer_labels": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "canonical_assignment_bits": "10101001",
+      "model_cost": 164.12671887220202,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        3,
+        1
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.4285714285714286,
+        -1.1428571428571428
+      ]
+    },
+    {
+      "bitstring": "1010100100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 13.350902571340903,
+      "feasible": true,
+      "customer_labels": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "canonical_assignment_bits": "10101001",
+      "model_cost": 164.12671887220202,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        1,
+        3
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.1428571428571428,
+        -1.4285714285714286
+      ]
+    },
+    {
+      "bitstring": "1001111000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 13.499388714444166,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "capacity_headroom": [
+        -1,
+        2
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.8571428571428572,
+        -1.2857142857142856
+      ]
+    },
+    {
+      "bitstring": "0000101001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 13.733752581485874,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        -1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        0,
+        7
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "0101111000",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 13.744379523129602,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "capacity_headroom": [
+        0,
+        1
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -1.1428571428571428
+      ]
+    },
+    {
+      "bitstring": "1010110100",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 13.744379523129602,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "capacity_headroom": [
+        1,
+        0
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.1428571428571428,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "0000000111",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 13.811901535797578,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        -1,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        7,
+        3
+      ],
+      "physical_auxiliary_bits": "11",
+      "logical_binary_slack": [
+        0,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -0.4285714285714286
+      ]
+    },
+    {
+      "bitstring": "1000111101",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 14.172993125648247,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        1,
+        1
+      ],
+      "capacity_headroom": [
+        -1,
+        0
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.8571428571428572,
+        0.0
+      ]
+    },
+    {
+      "bitstring": "0000101101",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 14.340128746472107,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        -1,
+        0,
+        1
+      ],
+      "capacity_headroom": [
+        0,
+        3
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -0.4285714285714286
+      ]
+    },
+    {
+      "bitstring": "1100100101",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 14.396666163714578,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        -1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        3,
+        2
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.4285714285714286,
+        -0.2857142857142857
+      ]
+    },
+    {
+      "bitstring": "0111100100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 14.568274742653987,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        2,
+        0
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.2857142857142856,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "0111101010",
+      "count": 4,
+      "probability": 0.015625,
+      "target_energy": 14.625432579249782,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -2,
+        4
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        0.2857142857142858,
+        -1.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "0010000011",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 14.889903606884218,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        -1,
+        -1
+      ],
+      "capacity_headroom": [
+        5,
+        7
+      ],
+      "physical_auxiliary_bits": "11",
+      "logical_binary_slack": [
+        0,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857143,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "0010001001",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 14.941400104641858,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        1,
+        7
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.1428571428571428,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "0011111001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 15.111497784814361,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        1,
+        1,
+        0
+      ],
+      "capacity_headroom": [
+        -2,
+        2
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857142,
+        -0.2857142857142857
+      ]
+    },
+    {
+      "bitstring": "0101111100",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 15.199423382297987,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "capacity_headroom": [
+        0,
+        -3
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -0.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "1010111100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 15.199423382297987,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "capacity_headroom": [
+        -3,
+        0
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.5714285714285714,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "0110110010",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 15.26247243685042,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        1,
+        -1
+      ],
+      "capacity_headroom": [
+        2,
+        3
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.2857142857142857,
+        -1.4285714285714286
+      ]
+    },
+    {
+      "bitstring": "0110101000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 15.324250114786832,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -2,
+        6
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857142,
+        -1.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "1001010100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 15.324250114786832,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        6,
+        -2
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.8571428571428572,
+        -0.7142857142857142
+      ]
+    },
+    {
+      "bitstring": "0010011100",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 15.469627315316387,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        0,
+        1
+      ],
+      "capacity_headroom": [
+        1,
+        0
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.1428571428571428,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "0100000110",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 15.495723239848783,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        7,
+        2
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -1.2857142857142856
+      ]
+    },
+    {
+      "bitstring": "1000000110",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 15.765780289642116,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        6,
+        3
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.8571428571428572,
+        -1.4285714285714286
+      ]
+    },
+    {
+      "bitstring": "0110100010",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 15.957278736327137,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        -1
+      ],
+      "capacity_headroom": [
+        2,
+        6
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.2857142857142857,
+        -1.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "0100101100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 16.02395045052331,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        0,
+        1
+      ],
+      "capacity_headroom": [
+        0,
+        2
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -1.2857142857142856
+      ]
+    },
+    {
+      "bitstring": "0111101000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 16.040310297551002,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -2,
+        4
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857142,
+        -1.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "1110111101",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 16.053688527986644,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "capacity_headroom": [
+        -3,
+        -1
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -0.5714285714285714,
+        0.1428571428571428
+      ]
+    },
+    {
+      "bitstring": "0111001010",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 16.196461322949347,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        1,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        1,
+        4
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.1428571428571429,
+        -1.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "1010111000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 16.220824148810507,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "capacity_headroom": [
+        -3,
+        4
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.5714285714285714,
+        -1.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "0010100001",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 16.361529512984625,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        0,
+        -1
+      ],
+      "capacity_headroom": [
+        2,
+        7
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.2857142857142856,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "0001011000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 16.496279771870455,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        3,
+        2
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.4285714285714286,
+        -1.2857142857142856
+      ]
+    },
+    {
+      "bitstring": "0010100100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 16.496279771870455,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        2,
+        3
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.2857142857142856,
+        -1.4285714285714286
+      ]
+    },
+    {
+      "bitstring": "0011001001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 16.62577834071473,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        1,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        1,
+        5
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.1428571428571428,
+        -0.7142857142857143
+      ]
+    },
+    {
+      "bitstring": "0111100010",
+      "count": 3,
+      "probability": 0.01171875,
+      "target_energy": 16.673338919091304,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        1,
+        0,
+        -1
+      ],
+      "capacity_headroom": [
+        2,
+        4
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.2857142857142857,
+        -1.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "1110101100",
+      "count": 3,
+      "probability": 0.01171875,
+      "target_energy": 16.961394040660895,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "capacity_headroom": [
+        -3,
+        2
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.5714285714285714,
+        -1.2857142857142856
+      ]
+    },
+    {
+      "bitstring": "0100100100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 17.04535121703583,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        4,
+        2
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.5714285714285714,
+        -1.2857142857142856
+      ]
+    },
+    {
+      "bitstring": "1000101100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 17.080897516562384,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        0,
+        1
+      ],
+      "capacity_headroom": [
+        -1,
+        3
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.8571428571428572,
+        -1.4285714285714286
+      ]
+    },
+    {
+      "bitstring": "0101110001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 17.123909820144142,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        1,
+        -1
+      ],
+      "capacity_headroom": [
+        4,
+        1
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.5714285714285714,
+        -0.1428571428571429
+      ]
+    },
+    {
+      "bitstring": "0111111000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 17.154005551389265,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "capacity_headroom": [
+        -2,
+        1
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857142,
+        -1.1428571428571428
+      ]
+    },
+    {
+      "bitstring": "0000101110",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 17.16988418307454,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        -1,
+        0,
+        1
+      ],
+      "capacity_headroom": [
+        0,
+        3
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        0.0,
+        -1.4285714285714286
+      ]
+    },
+    {
+      "bitstring": "0100100001",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 17.18065800794333,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        0,
+        -1
+      ],
+      "capacity_headroom": [
+        4,
+        6
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.5714285714285714,
+        -0.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "1000010010",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 17.18065800794333,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        0,
+        -1
+      ],
+      "capacity_headroom": [
+        6,
+        4
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.8571428571428572,
+        -1.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "0010101100",
+      "count": 3,
+      "probability": 0.01171875,
+      "target_energy": 17.278128868631367,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        0,
+        1
+      ],
+      "capacity_headroom": [
+        -2,
+        3
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857142,
+        -1.4285714285714286
+      ]
+    },
+    {
+      "bitstring": "0001011100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 17.278128868631367,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        0,
+        1
+      ],
+      "capacity_headroom": [
+        3,
+        -2
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.4285714285714286,
+        -0.7142857142857142
+      ]
+    },
+    {
+      "bitstring": "1000100001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 17.294353261781595,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        0,
+        -1
+      ],
+      "capacity_headroom": [
+        3,
+        7
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.4285714285714286,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "0001100010",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 17.382783396272075,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        0,
+        -1
+      ],
+      "capacity_headroom": [
+        4,
+        5
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.5714285714285714,
+        -1.7142857142857144
+      ]
+    },
+    {
+      "bitstring": "0100011000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 17.429103520667425,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        3,
+        3
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.4285714285714286,
+        -1.4285714285714286
+      ]
+    },
+    {
+      "bitstring": "0010110001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 17.43953158407127,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        1,
+        -1
+      ],
+      "capacity_headroom": [
+        2,
+        4
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.2857142857142856,
+        -0.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "1000111100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 17.474374468351083,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        1,
+        1
+      ],
+      "capacity_headroom": [
+        -1,
+        0
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.8571428571428572,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "1010101010",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 17.50095160822589,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -3,
+        7
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        0.4285714285714286,
+        -2.0
+      ]
+    },
+    {
+      "bitstring": "0001111100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 17.671605820420066,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        1,
+        1
+      ],
+      "capacity_headroom": [
+        0,
+        -2
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -0.7142857142857142
+      ]
+    },
+    {
+      "bitstring": "0010111100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 17.671605820420066,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        1,
+        1
+      ],
+      "capacity_headroom": [
+        -2,
+        0
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857142,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "1011101000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 17.77045212599755,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -3,
+        5
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.5714285714285714,
+        -1.7142857142857144
+      ]
+    },
+    {
+      "bitstring": "1000110100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 17.822580472456124,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        1,
+        0
+      ],
+      "capacity_headroom": [
+        3,
+        0
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.4285714285714286,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "1011111000",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 17.827200313796737,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "capacity_headroom": [
+        -3,
+        2
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.5714285714285714,
+        -1.2857142857142856
+      ]
+    },
+    {
+      "bitstring": "1100000110",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 17.92122789979372,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        -1,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        6,
+        2
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.8571428571428572,
+        -1.2857142857142856
+      ]
+    },
+    {
+      "bitstring": "0101010100",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 17.972577514326296,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        7,
+        -3
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -2.0,
+        -0.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "1010101000",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 17.972577514326296,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -3,
+        7
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.5714285714285714,
+        -2.0
+      ]
+    },
+    {
+      "bitstring": "1010001010",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 18.015033285886375,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        0,
+        7
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        0.0,
+        -2.0
+      ]
+    },
+    {
+      "bitstring": "1111011000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 18.025660227530103,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        0,
+        1
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -1.1428571428571428
+      ]
+    },
+    {
+      "bitstring": "1010001100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 18.14978354477221,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        -1,
+        1
+      ],
+      "capacity_headroom": [
+        0,
+        3
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -1.4285714285714286
+      ]
+    },
+    {
+      "bitstring": "1110111010",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 18.2883981564933,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "capacity_headroom": [
+        -3,
+        3
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        0.4285714285714286,
+        -1.4285714285714286
+      ]
+    },
+    {
+      "bitstring": "0100110100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 18.4957752348636,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        1,
+        0
+      ],
+      "capacity_headroom": [
+        4,
+        -1
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.5714285714285714,
+        -0.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "1000111000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 18.4957752348636,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        1,
+        0
+      ],
+      "capacity_headroom": [
+        -1,
+        4
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.8571428571428572,
+        -1.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "1000010100",
+      "count": 3,
+      "probability": 0.01171875,
+      "target_energy": 18.51738677193284,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        6,
+        0
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.8571428571428572,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "0100101000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 18.51738677193284,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        0,
+        6
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -1.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "1001001000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 18.594979194222873,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        2,
+        5
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.2857142857142856,
+        -1.7142857142857144
+      ]
+    },
+    {
+      "bitstring": "0100001010",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 18.595535726244545,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        3,
+        6
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.4285714285714286,
+        -1.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "0111111100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 18.609049410557652,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "capacity_headroom": [
+        -2,
+        -3
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857142,
+        -0.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "0010111000",
+      "count": 3,
+      "probability": 0.01171875,
+      "target_energy": 18.693006586932583,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        1,
+        0
+      ],
+      "capacity_headroom": [
+        -2,
+        4
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857142,
+        -1.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "1010000001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 18.70521974402248,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        -1,
+        -1
+      ],
+      "capacity_headroom": [
+        4,
+        7
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.5714285714285714,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "0111110001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 18.73028598513038,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        1,
+        1,
+        -1
+      ],
+      "capacity_headroom": [
+        2,
+        1
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.2857142857142856,
+        -0.1428571428571429
+      ]
+    },
+    {
+      "bitstring": "0011101010",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 18.82775684581841,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -2,
+        5
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        0.2857142857142858,
+        -1.7142857142857144
+      ]
+    },
+    {
+      "bitstring": "1010100010",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 18.87566318565993,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        -1
+      ],
+      "capacity_headroom": [
+        1,
+        7
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.1428571428571429,
+        -2.0
+      ]
+    },
+    {
+      "bitstring": "1110101010",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 18.983204455970018,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -3,
+        6
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        0.4285714285714286,
+        -1.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "1100011100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 19.236345126713992,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        -1,
+        0,
+        1
+      ],
+      "capacity_headroom": [
+        2,
+        -1
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.2857142857142856,
+        -0.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "1110001010",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 19.497286133630507,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        0,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        0,
+        6
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        0.0,
+        -1.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "0110000010",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 19.673537797331186,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        -1,
+        -1
+      ],
+      "capacity_headroom": [
+        5,
+        6
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857143,
+        -1.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "1111101010",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 19.699264638734185,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -3,
+        4
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        0.4285714285714286,
+        -1.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "1100100001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 19.719857921726536,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        -1,
+        0,
+        -1
+      ],
+      "capacity_headroom": [
+        3,
+        6
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -1.4285714285714286,
+        -0.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "1111001010",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 20.213346316394677,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        1,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        0,
+        4
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        0.0,
+        -1.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "0011101000",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 20.242634564119626,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -2,
+        5
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857142,
+        -1.7142857142857144
+      ]
+    },
+    {
+      "bitstring": "0100010100",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 20.24752860037939,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        7,
+        -1
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -2.0,
+        -0.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "0101100000",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 20.254847721209526,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        -1
+      ],
+      "capacity_headroom": [
+        4,
+        4
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.5714285714285714,
+        -1.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "1010010000",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 20.254847721209526,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        -1
+      ],
+      "capacity_headroom": [
+        4,
+        4
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.5714285714285714,
+        -1.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "0011111000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 20.29938275191882,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        1,
+        1,
+        0
+      ],
+      "capacity_headroom": [
+        -2,
+        2
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857142,
+        -1.2857142857142856
+      ]
+    },
+    {
+      "bitstring": "0000101010",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 20.336515266891546,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        -1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        0,
+        7
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        0.0,
+        -2.0
+      ]
+    },
+    {
+      "bitstring": "0111001000",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 20.441094477852992,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        1,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        1,
+        4
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.1428571428571428,
+        -1.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "0010101000",
+      "count": 3,
+      "probability": 0.01171875,
+      "target_energy": 20.444759952448372,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -2,
+        7
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857142,
+        -2.0
+      ]
+    },
+    {
+      "bitstring": "0010001010",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 20.600910977846716,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        1,
+        7
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.1428571428571429,
+        -2.0
+      ]
+    },
+    {
+      "bitstring": "1101001000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 20.995417613059917,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        0,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        2,
+        4
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.2857142857142856,
+        -1.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "1100110100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 21.034975148646804,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        -1,
+        1,
+        0
+      ],
+      "capacity_headroom": [
+        3,
+        -1
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.4285714285714286,
+        -0.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "1100111000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 21.034975148646804,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        -1,
+        1,
+        0
+      ],
+      "capacity_headroom": [
+        -1,
+        3
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.8571428571428572,
+        -1.4285714285714286
+      ]
+    },
+    {
+      "bitstring": "0010100010",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 21.077788573988677,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        0,
+        -1
+      ],
+      "capacity_headroom": [
+        2,
+        7
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.2857142857142857,
+        -2.0
+      ]
+    },
+    {
+      "bitstring": "1001010000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 21.145163703431592,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        -1
+      ],
+      "capacity_headroom": [
+        6,
+        2
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.8571428571428572,
+        -1.2857142857142856
+      ]
+    },
+    {
+      "bitstring": "0101000100",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 21.316414628589214,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        7,
+        0
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -2.0,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "1010001000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 21.316414628589214,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        0,
+        7
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -2.0
+      ]
+    },
+    {
+      "bitstring": "1010000010",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 21.53497518062491,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        -1,
+        -1
+      ],
+      "capacity_headroom": [
+        4,
+        7
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.5714285714285714,
+        -2.0
+      ]
+    },
+    {
+      "bitstring": "1100010100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 21.72978144812352,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        -1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        6,
+        -1
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.8571428571428572,
+        -0.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "1100101000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 21.72978144812352,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        -1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        -1,
+        6
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.8571428571428572,
+        -1.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "0000111000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 21.886143244078593,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        -1,
+        1,
+        0
+      ],
+      "capacity_headroom": [
+        0,
+        4
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -1.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "1111110010",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 22.1876714700065,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        1,
+        1,
+        -1
+      ],
+      "capacity_headroom": [
+        1,
+        1
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.1428571428571429,
+        -1.1428571428571428
+      ]
+    },
+    {
+      "bitstring": "1110000010",
+      "count": 4,
+      "probability": 0.015625,
+      "target_energy": 23.01722802836904,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        0,
+        -1,
+        -1
+      ],
+      "capacity_headroom": [
+        4,
+        6
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.5714285714285714,
+        -1.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "1010100000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 23.12029634056358,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        0,
+        0,
+        -1
+      ],
+      "capacity_headroom": [
+        1,
+        7
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.1428571428571428,
+        -2.0
+      ]
+    },
+    {
+      "bitstring": "1111001000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 23.514727659097513,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        1,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        0,
+        4
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.0,
+        -1.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "0000010100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 23.63789660959438,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        -1,
+        0,
+        0
+      ],
+      "capacity_headroom": [
+        7,
+        0
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -2.0,
+        -1.0
+      ]
+    },
+    {
+      "bitstring": "1101110000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 23.907742888830995,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        0,
+        1,
+        -1
+      ],
+      "capacity_headroom": [
+        3,
+        1
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.4285714285714286,
+        -1.1428571428571428
+      ]
+    },
+    {
+      "bitstring": "0010010000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 24.457171987778153,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        0,
+        -1
+      ],
+      "capacity_headroom": [
+        5,
+        4
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.7142857142857144,
+        -1.5714285714285714
+      ]
+    },
+    {
+      "bitstring": "0011000010",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 24.591922246663984,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        1,
+        -1,
+        -1
+      ],
+      "capacity_headroom": [
+        5,
+        5
+      ],
+      "physical_auxiliary_bits": "10",
+      "logical_binary_slack": [
+        0,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -0.7142857142857143,
+        -1.7142857142857144
+      ]
+    },
+    {
+      "bitstring": "1000000100",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 24.726672505549814,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        6,
+        3
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.8571428571428572,
+        -1.4285714285714286
+      ]
+    },
+    {
+      "bitstring": "0100000001",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 25.535174058864794,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        -1,
+        -1
+      ],
+      "capacity_headroom": [
+        7,
+        6
+      ],
+      "physical_auxiliary_bits": "01",
+      "logical_binary_slack": [
+        1,
+        0
+      ],
+      "normalized_capacity_residuals": [
+        -2.0,
+        -0.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "0100100000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 26.14155022385103,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        0,
+        -1
+      ],
+      "capacity_headroom": [
+        4,
+        6
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.5714285714285714,
+        -1.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "1100001000",
+      "count": 3,
+      "probability": 0.01171875,
+      "target_energy": 26.88212011570142,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        -1,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        2,
+        6
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.2857142857142856,
+        -1.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "1000100000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 27.198497289890103,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        0,
+        -1,
+        0,
+        -1
+      ],
+      "capacity_headroom": [
+        3,
+        7
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.4285714285714286,
+        -2.0
+      ]
+    },
+    {
+      "bitstring": "0000001000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 29.847182343211355,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        -1,
+        -1,
+        0
+      ],
+      "capacity_headroom": [
+        3,
+        7
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.4285714285714286,
+        -2.0
+      ]
+    },
+    {
+      "bitstring": "1110000000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 30.09161661987512,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        1,
+        0,
+        -1,
+        -1
+      ],
+      "capacity_headroom": [
+        4,
+        6
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.5714285714285714,
+        -1.8571428571428572
+      ]
+    },
+    {
+      "bitstring": "0000100000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 31.26206006151257,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        -1,
+        0,
+        -1
+      ],
+      "capacity_headroom": [
+        4,
+        7
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.5714285714285714,
+        -2.0
+      ]
+    },
+    {
+      "bitstring": "0011000000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 32.60956265037087,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        1,
+        -1,
+        -1
+      ],
+      "capacity_headroom": [
+        5,
+        5
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.7142857142857144,
+        -1.7142857142857144
+      ]
+    },
+    {
+      "bitstring": "0010000000",
+      "count": 2,
+      "probability": 0.0078125,
+      "target_energy": 32.811688038699614,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        -1,
+        -1
+      ],
+      "capacity_headroom": [
+        5,
+        7
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -1.7142857142857144,
+        -2.0
+      ]
+    },
+    {
+      "bitstring": "0001000000",
+      "count": 1,
+      "probability": 0.00390625,
+      "target_energy": 32.811688038699614,
+      "feasible": false,
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
+      "model_cost": null,
+      "assignment_residuals": [
+        -1,
+        0,
+        -1,
+        -1
+      ],
+      "capacity_headroom": [
+        7,
+        5
+      ],
+      "physical_auxiliary_bits": "00",
+      "logical_binary_slack": [
+        1,
+        1
+      ],
+      "normalized_capacity_residuals": [
+        -2.0,
+        -1.7142857142857144
+      ]
+    }
+  ],
+  "exact_ground_states_verified": false
+}

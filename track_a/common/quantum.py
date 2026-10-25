@@ -9,12 +9,29 @@ import subprocess
 import sys
 from tempfile import TemporaryDirectory
 from time import perf_counter
+from typing import Literal
 
 import numpy as np
 from pulser import AnalogDevice, Pulse, Register, Sequence
 from pulser.waveforms import InterpolatedWaveform, RampWaveform
 
 from .models import Qubo
+from .instances import Instance
+
+EMBEDDING_SWAPS = 1200
+EMULATOR_DT_NS = 10
+INTERACTION_CUTOFF = 0.0
+MPS_MAX_BOND_DIM = 64
+MPS_PRECISION = 1e-5
+EmulatorBackend = Literal["sv", "mps"]
+
+
+def backend_for(instance: Instance) -> EmulatorBackend:
+    if instance.tier == "s":
+        return "sv"
+    if instance.tier == "m":
+        return "mps"
+    raise ValueError(f"No emulator is configured for tier {instance.tier}")
 
 
 @dataclass(frozen=True)
@@ -42,7 +59,7 @@ def device_metadata() -> dict:
             "abstract_device": json.loads(AnalogDevice.to_abstract_repr())}
 
 
-def embedding(qubo: Qubo, seed: int, swaps: int = 1200) -> dict:
+def embedding(qubo: Qubo, seed: int, swaps: int = EMBEDDING_SWAPS) -> dict:
     """Fit atom permutation on a legal triangular grid, then a positive scale."""
     start = perf_counter()
     device_metadata()
@@ -130,22 +147,67 @@ def sequence_for(layout: dict, settings: PulseSettings) -> Sequence:
 
 
 def emulate(layout: dict, settings: PulseSettings, shots: int, seed: int,
-            timeout_seconds: float = 180, memory_mb: int = 4096) -> dict:
+            timeout_seconds: float = 180, memory_mb: int = 4096, *,
+            dt_ns: int = EMULATOR_DT_NS, interaction_cutoff: float = INTERACTION_CUTOFF,
+            backend: EmulatorBackend = "sv", mps_max_bond_dim: int = MPS_MAX_BOND_DIM,
+            mps_precision: float = MPS_PRECISION) -> dict:
     result = emulate_sequence(sequence_for(layout, settings), shots, seed,
-                              timeout_seconds=timeout_seconds, memory_mb=memory_mb)
+                              timeout_seconds=timeout_seconds, memory_mb=memory_mb,
+                              dt_ns=dt_ns, interaction_cutoff=interaction_cutoff,
+                              backend=backend, mps_max_bond_dim=mps_max_bond_dim,
+                              mps_precision=mps_precision)
     result["settings"] = {**asdict(settings), **result["settings"]}
     return result
 
 
+def validate_emulation_settings(shots: int, timeout_seconds: float, memory_mb: int,
+                                dt_ns: int, interaction_cutoff: float, *,
+                                backend: EmulatorBackend = "sv",
+                                mps_max_bond_dim: int = MPS_MAX_BOND_DIM,
+                                mps_precision: float = MPS_PRECISION) -> None:
+    if type(shots) is not int or not 1 <= shots <= 2000:
+        raise ValueError("Require 1-2000 shots")
+    if (not np.isfinite(timeout_seconds) or timeout_seconds <= 0
+            or type(memory_mb) is not int or memory_mb < 1024):
+        raise ValueError("Require a finite positive timeout and at least 1024 MB memory")
+    if type(dt_ns) is not int or dt_ns <= 0:
+        raise ValueError("Emulator time step must be a positive integer")
+    if not np.isfinite(interaction_cutoff) or interaction_cutoff < 0:
+        raise ValueError("Interaction cutoff must be finite and nonnegative")
+    if backend not in ("sv", "mps"):
+        raise ValueError("Emulator backend must be 'sv' or 'mps'")
+    if backend == "mps":
+        if type(mps_max_bond_dim) is not int or mps_max_bond_dim <= 0:
+            raise ValueError("MPS maximum bond dimension must be a positive integer")
+        if not np.isfinite(mps_precision) or not 0 < mps_precision < 1:
+            raise ValueError("MPS truncation precision must be finite and between zero and one")
+
+
 def emulate_sequence(sequence: Sequence, shots: int, seed: int,
-                     timeout_seconds: float = 180, memory_mb: int = 4096) -> dict:
+                     timeout_seconds: float = 180, memory_mb: int = 4096, *,
+                     dt_ns: int = EMULATOR_DT_NS,
+                     interaction_cutoff: float = INTERACTION_CUTOFF,
+                     backend: EmulatorBackend = "sv",
+                     mps_max_bond_dim: int = MPS_MAX_BOND_DIM,
+                     mps_precision: float = MPS_PRECISION) -> dict:
     """Isolate emulators to bound wall time and address-space use."""
+    validate_emulation_settings(shots, timeout_seconds, memory_mb, dt_ns, interaction_cutoff,
+                                backend=backend, mps_max_bond_dim=mps_max_bond_dim,
+                                mps_precision=mps_precision)
     job = {
-        "sequence": sequence.to_abstract_repr(), "backend": "sv",
+        "sequence": sequence.to_abstract_repr(), "backend": backend,
         "shots": shots, "seed": seed,
-        "memory_mb": memory_mb, "dt_ns": 10,
+        "memory_mb": memory_mb, "dt_ns": dt_ns, "interaction_cutoff": interaction_cutoff,
+        "timeout_seconds": timeout_seconds, "with_modulation": False, "noise": "noiseless",
     }
+    if backend == "mps":
+        job.update({"max_bond_dim": mps_max_bond_dim, "precision": mps_precision,
+                    "optimize_qubit_ordering": False})
     start = perf_counter()
+    if backend == "sv" and 16 * (1 << len(sequence.register.qubits)) > memory_mb * 1024**2:
+        return {"status": "resource_limited",
+                "error": "A single complex128 state vector exceeds the memory limit; use emu-mps",
+                "seconds": perf_counter() - start, "settings": job | {"sequence": None}}
     with TemporaryDirectory(prefix="track-a-emulation-") as directory:
         input_path, output_path = Path(directory) / "job.json", Path(directory) / "result.json"
         input_path.write_text(json.dumps(job))
@@ -165,17 +227,13 @@ def emulate_sequence(sequence: Sequence, shots: int, seed: int,
                     "stdout": completed.stdout[-2000:], "returncode": completed.returncode,
                     "seconds": perf_counter() - start, "settings": job | {"sequence": None}}
         result = json.loads(output_path.read_text())
-    return {**result, "seconds": perf_counter() - start,
-            "settings": {**job, "sequence": None,
-                         "interaction_cutoff": 0.0, "with_modulation": False,
-                         "timeout_seconds": timeout_seconds, "noise": "noiseless"}}
+    return {**result, "seconds": perf_counter() - start, "settings": job | {"sequence": None}}
 
 
 def _worker(input_path: Path, output_path: Path) -> None:
     import resource
     import torch
     from pulser.backend import BitStrings
-    from emu_sv import SVBackend, SVConfig
 
     job = json.loads(input_path.read_text())
     limit = job["memory_mb"] * 1024**2
@@ -184,13 +242,25 @@ def _worker(input_path: Path, output_path: Path) -> None:
     np.random.seed(job["seed"])
     torch.manual_seed(job["seed"])
     sequence = Sequence.from_abstract_repr(job["sequence"])
-    options = {"dt": job["dt_ns"], "gpu": False, "interaction_cutoff": 0.0,
+    options = {"dt": job["dt_ns"], "gpu": False, "interaction_cutoff": job["interaction_cutoff"],
                "log_level": 40, "observables": [BitStrings(num_shots=job["shots"])],
                "with_modulation": False}
-    results = SVBackend(sequence, config=SVConfig(**options)).run()
+    if job["backend"] == "sv":
+        from emu_sv import SVBackend, SVConfig
+        results = SVBackend(sequence, config=SVConfig(**options)).run()
+    elif job["backend"] == "mps":
+        from emu_mps import MPSBackend, MPSConfig
+        options.update({"max_bond_dim": job["max_bond_dim"], "precision": job["precision"],
+                        "optimize_qubit_ordering": job["optimize_qubit_ordering"],
+                        "autosave_prefix": str(output_path.parent / "mps_")})
+        results = MPSBackend(sequence, config=MPSConfig(**options)).run()
+    else:
+        raise ValueError("Unsupported emulator backend in worker job")
     if isinstance(results, list):
         raise RuntimeError("Expected a single noiseless emulator result")
     counts = Counter(results.final_bitstrings)
+    if any(len(bits) != len(sequence.register.qubits) or set(bits) - {"0", "1"} for bits in counts):
+        raise AssertionError("Emulator returned invalid bitstring dimensions")
     if sum(counts.values()) != job["shots"]:
         raise AssertionError("Emulator shot count mismatch")
     output_path.write_text(json.dumps({"status": "completed", "counts": dict(counts)}))

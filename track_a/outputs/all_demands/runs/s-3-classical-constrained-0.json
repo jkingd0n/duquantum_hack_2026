@@ -44,29 +44,8 @@
   "method": "classical-constrained",
   "seed": 0,
   "encoding": "binary-slack-v1",
-  "configuration_id": "50832a909c07de54",
-  "configuration": {
-    "shots": 256,
-    "seed": 0,
-    "annealing_steps": 400,
-    "initial_temperature": 25.08126572372197,
-    "final_temperature": 0.02508126572372197,
-    "cooling": "geometric",
-    "restarts": 256,
-    "warm_start": false,
-    "repair": false,
-    "penalty": 2.508126572372197,
-    "time_limit_seconds": null,
-    "method": "classical-constrained"
-  },
-  "status": "completed",
-  "counts": {
-    "10010110010100": 256
-  },
   "shot_budget": 256,
   "atom_count": 14,
-  "clustering_seconds": 0.00021204899530857801,
-  "deterministic_solver_result_repeated": true,
   "variable_order": [
     "x_0_0",
     "x_0_1",
@@ -82,5 +61,20 @@
     "y_1_0",
     "y_1_1",
     "y_1_2"
-  ]
+  ],
+  "configuration": {
+    "method": "classical-constrained",
+    "shots": 256,
+    "seed": 0,
+    "warm_start": false,
+    "repair": false,
+    "time_limit_seconds": null
+  },
+  "configuration_id": "ddf0d451a038de26",
+  "status": "completed",
+  "counts": {
+    "10010110010100": 256
+  },
+  "clustering_seconds": 0.0002285959926666692,
+  "deterministic_solver_result_repeated": true
 }

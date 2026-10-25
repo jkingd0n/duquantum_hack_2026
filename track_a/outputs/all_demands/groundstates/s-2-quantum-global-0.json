@@ -1,7 +1,7 @@
 {
   "instance_id": "s-2",
   "instance_hash": "a276b9f7be468010",
-  "source_run_hash": "45074c4217f520e4",
+  "source_run_hash": "fcf29ea03be7c09e",
   "variable_order": [
     "x_0_0",
     "x_0_1",
@@ -151,10 +151,13 @@
     "10010110010010",
     "01101001010010"
   ],
+  "status": "completed",
   "observed_ground_states": [],
   "lowest_sampled_energy": 3.435575069566994,
   "lowest_sampled_states": [
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10010010010101",
       "assignment_bits": "10010010",
       "slack_bits": "010101",
@@ -168,11 +171,14 @@
       "target_energy": 3.435575069566994,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     }
   ],
   "sampled_states": [
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10010010010101",
       "assignment_bits": "10010010",
       "slack_bits": "010101",
@@ -186,9 +192,12 @@
       "target_energy": 3.435575069566994,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10100100001001",
       "assignment_bits": "10100100",
       "slack_bits": "001001",
@@ -202,9 +211,17 @@
       "target_energy": 3.9500663960241127,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "canonical_assignment_bits": "10100110",
       "bitstring": "10100110000101",
       "assignment_bits": "10100110",
       "slack_bits": "000101",
@@ -223,9 +240,12 @@
         1,
         0
       ],
+      "model_cost": 107.55447668517513,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10001001001110",
       "assignment_bits": "10001001",
       "slack_bits": "001110",
@@ -239,9 +259,12 @@
       "target_energy": 7.2554589747872456,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10101101010000",
       "assignment_bits": "10101101",
       "slack_bits": "010000",
@@ -255,9 +278,12 @@
       "target_energy": 9.432371238783048,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10000110110110",
       "assignment_bits": "10000110",
       "slack_bits": "110110",
@@ -271,9 +297,12 @@
       "target_energy": 10.038337754972645,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00100101011100",
       "assignment_bits": "00100101",
       "slack_bits": "011100",
@@ -287,9 +316,12 @@
       "target_energy": 10.432371238783048,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11000110010010",
       "assignment_bits": "11000110",
       "slack_bits": "010010",
@@ -303,9 +335,12 @@
       "target_energy": 10.691034044354183,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00111000010101",
       "assignment_bits": "00111000",
       "slack_bits": "010101",
@@ -319,9 +354,12 @@
       "target_energy": 10.904144028108476,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01110001001000",
       "assignment_bits": "01110001",
       "slack_bits": "001000",
@@ -335,9 +373,12 @@
       "target_energy": 11.412270600480667,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00101101100000",
       "assignment_bits": "00101101",
       "slack_bits": "100000",
@@ -351,9 +392,12 @@
       "target_energy": 11.432371238782991,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00001001101001",
       "assignment_bits": "00001001",
       "slack_bits": "101001",
@@ -367,9 +411,12 @@
       "target_energy": 13.205525370811301,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01000001011100",
       "assignment_bits": "01000001",
       "slack_bits": "011100",
@@ -383,9 +430,12 @@
       "target_energy": 13.339719097675413,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10001000001011",
       "assignment_bits": "10001000",
       "slack_bits": "001011",
@@ -399,9 +449,12 @@
       "target_energy": 13.858221660192896,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00110001101000",
       "assignment_bits": "00110001",
       "slack_bits": "101000",
@@ -415,9 +468,12 @@
       "target_energy": 13.930773162998094,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01100011010100",
       "assignment_bits": "01100011",
       "slack_bits": "010100",
@@ -431,9 +487,12 @@
       "target_energy": 14.064966889862205,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10010011100010",
       "assignment_bits": "10010011",
       "slack_bits": "100010",
@@ -447,9 +506,12 @@
       "target_energy": 14.064966889862205,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00101000110011",
       "assignment_bits": "00101000",
       "slack_bits": "110011",
@@ -463,9 +525,17 @@
       "target_energy": 14.205525370811358,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "canonical_assignment_bits": "10010110",
       "bitstring": "01101001010000",
       "assignment_bits": "01101001",
       "slack_bits": "010000",
@@ -484,9 +554,12 @@
         1,
         0
       ],
+      "model_cost": 80.88685325702023,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01001110100010",
       "assignment_bits": "01001110",
       "slack_bits": "100010",
@@ -500,9 +573,12 @@
       "target_energy": 14.386448870867468,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10001110000110",
       "assignment_bits": "10001110",
       "slack_bits": "000110",
@@ -516,9 +592,12 @@
       "target_energy": 14.52064259773158,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10010010000101",
       "assignment_bits": "10010010",
       "slack_bits": "000101",
@@ -532,9 +611,12 @@
       "target_energy": 16.641100440378295,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01001100110010",
       "assignment_bits": "01001100",
       "slack_bits": "110010",
@@ -548,9 +630,12 @@
       "target_energy": 17.15960300289578,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010011001000",
       "assignment_bits": "00010011",
       "slack_bits": "001000",
@@ -564,9 +649,12 @@
       "target_energy": 17.23215450570092,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00110001001000",
       "assignment_bits": "00110001",
       "slack_bits": "001000",
@@ -580,9 +668,12 @@
       "target_energy": 17.232154505700976,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010110101010",
       "assignment_bits": "00010110",
       "slack_bits": "101010",
@@ -596,9 +687,12 @@
       "target_energy": 17.50690671351407,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00101001010100",
       "assignment_bits": "00101001",
       "slack_bits": "010100",
@@ -612,9 +706,12 @@
       "target_energy": 17.50690671351407,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010010100101",
       "assignment_bits": "00010010",
       "slack_bits": "100101",
@@ -628,9 +725,12 @@
       "target_energy": 19.808288056216952,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01100001001000",
       "assignment_bits": "01100001",
       "slack_bits": "001000",
@@ -644,9 +744,12 @@
       "target_energy": 19.942481783081178,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01001010100001",
       "assignment_bits": "01001010",
       "slack_bits": "100001",
@@ -660,9 +763,12 @@
       "target_energy": 20.336515266891524,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01010010101110",
       "assignment_bits": "01010010",
       "slack_bits": "101110",
@@ -676,9 +782,12 @@
       "target_energy": 20.456973109538183,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01010010010010",
       "assignment_bits": "01010010",
       "slack_bits": "010010",
@@ -692,9 +801,12 @@
       "target_energy": 20.45697310953824,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01000110001100",
       "assignment_bits": "01000110",
       "slack_bits": "001100",
@@ -708,9 +820,12 @@
       "target_energy": 20.460984345598547,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01001011000000",
       "assignment_bits": "01001011",
       "slack_bits": "000000",
@@ -724,9 +839,12 @@
       "target_energy": 20.470708993755693,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010110010001",
       "assignment_bits": "00010110",
       "slack_bits": "010001",
@@ -740,9 +858,12 @@
       "target_energy": 20.808288056216952,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01101100010100",
       "assignment_bits": "01101100",
       "slack_bits": "010100",
@@ -756,9 +877,12 @@
       "target_energy": 21.460984345598547,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010010101001",
       "assignment_bits": "00010010",
       "slack_bits": "101001",
@@ -772,9 +896,12 @@
       "target_energy": 23.109669398919834,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00011000010001",
       "assignment_bits": "00011000",
       "slack_bits": "010001",
@@ -788,9 +915,12 @@
       "target_energy": 23.109669398919834,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00100100001010",
       "assignment_bits": "00100100",
       "slack_bits": "001010",
@@ -804,9 +934,12 @@
       "target_energy": 23.109669398919834,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10010000001001",
       "assignment_bits": "10010000",
       "slack_bits": "001001",
@@ -820,9 +953,12 @@
       "target_energy": 23.109669398919834,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00001101001010",
       "assignment_bits": "00001101",
       "slack_bits": "001010",
@@ -836,9 +972,12 @@
       "target_energy": 23.63789660959435,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00001110000010",
       "assignment_bits": "00001110",
       "slack_bits": "000010",
@@ -852,9 +991,12 @@
       "target_energy": 23.637896609594407,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11100000011011",
       "assignment_bits": "11100000",
       "slack_bits": "011011",
@@ -868,9 +1010,12 @@
       "target_energy": 23.758354452241065,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10001000001101",
       "assignment_bits": "10001000",
       "slack_bits": "001101",
@@ -884,9 +1029,12 @@
       "target_energy": 23.76236568830143,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01001011100000",
       "assignment_bits": "01001011",
       "slack_bits": "100000",
@@ -900,9 +1048,12 @@
       "target_energy": 23.77209033645852,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11001001010000",
       "assignment_bits": "11001001",
       "slack_bits": "010000",
@@ -916,9 +1067,12 @@
       "target_energy": 23.89655941516554,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10010011001000",
       "assignment_bits": "10010011",
       "slack_bits": "001000",
@@ -932,9 +1086,12 @@
       "target_energy": 23.96911091797074,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00011100001001",
       "assignment_bits": "00011100",
       "slack_bits": "001001",
@@ -948,9 +1105,12 @@
       "target_energy": 24.109669398919834,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00011100010010",
       "assignment_bits": "00011100",
       "slack_bits": "010010",
@@ -964,9 +1124,12 @@
       "target_energy": 24.109669398919834,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10110001010010",
       "assignment_bits": "10110001",
       "slack_bits": "010010",
@@ -980,9 +1143,12 @@
       "target_energy": 24.483602244427914,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10101100110110",
       "assignment_bits": "10101100",
       "slack_bits": "110110",
@@ -996,9 +1162,12 @@
       "target_energy": 25.41105074162266,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00001000110101",
       "assignment_bits": "00001000",
       "slack_bits": "110101",
@@ -1012,9 +1181,12 @@
       "target_energy": 26.41105074162266,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11001000010001",
       "assignment_bits": "11001000",
       "slack_bits": "010001",
@@ -1028,9 +1200,12 @@
       "target_energy": 27.063747031004254,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01001100110101",
       "assignment_bits": "01001100",
       "slack_bits": "110101",
@@ -1044,9 +1219,12 @@
       "target_energy": 27.063747031004254,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10001100010011",
       "assignment_bits": "10001100",
       "slack_bits": "010011",
@@ -1060,9 +1238,12 @@
       "target_energy": 27.063747031004254,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10001100010010",
       "assignment_bits": "10001100",
       "slack_bits": "010010",
@@ -1076,9 +1257,12 @@
       "target_energy": 27.06374703100431,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010011100010",
       "assignment_bits": "00010011",
       "slack_bits": "100010",
@@ -1092,9 +1276,12 @@
       "target_energy": 27.136298533809395,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010011101000",
       "assignment_bits": "00010011",
       "slack_bits": "101000",
@@ -1108,9 +1295,12 @@
       "target_energy": 27.136298533809395,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00110001110000",
       "assignment_bits": "00110001",
       "slack_bits": "110000",
@@ -1124,9 +1314,12 @@
       "target_energy": 27.136298533809452,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00110000011110",
       "assignment_bits": "00110000",
       "slack_bits": "011110",
@@ -1140,9 +1333,12 @@
       "target_energy": 29.712432084325542,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01100001110000",
       "assignment_bits": "01100001",
       "slack_bits": "110000",
@@ -1156,9 +1352,17 @@
       "target_energy": 29.846625811189654,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "canonical_assignment_bits": "10011001",
       "bitstring": "10011001110001",
       "assignment_bits": "10011001",
       "slack_bits": "110001",
@@ -1177,9 +1381,17 @@
         0,
         1
       ],
+      "model_cost": 98.27030257904937,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "canonical_assignment_bits": "10100110",
       "bitstring": "01011001100000",
       "assignment_bits": "01011001",
       "slack_bits": "100000",
@@ -1198,9 +1410,12 @@
         1,
         0
       ],
+      "model_cost": 107.55447668517513,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01101110000101",
       "assignment_bits": "01101110",
       "slack_bits": "000101",
@@ -1214,9 +1429,12 @@
       "target_energy": 32.61860337656839,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010010100111",
       "assignment_bits": "00010010",
       "slack_bits": "100111",
@@ -1230,9 +1448,12 @@
       "target_energy": 33.01381342702831,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01010010110100",
       "assignment_bits": "01010010",
       "slack_bits": "110100",
@@ -1246,9 +1467,12 @@
       "target_energy": 33.6624984803496,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11011000100010",
       "assignment_bits": "11011000",
       "slack_bits": "100010",
@@ -1262,9 +1486,17 @@
       "target_energy": 34.31519476973119,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "canonical_assignment_bits": "10101001",
       "bitstring": "10101001000000",
       "assignment_bits": "10101001",
       "slack_bits": "000000",
@@ -1283,9 +1515,17 @@
         0,
         1
       ],
+      "model_cost": 164.12671887220202,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "canonical_assignment_bits": "10101001",
       "bitstring": "10101001010000",
       "assignment_bits": "10101001",
       "slack_bits": "010000",
@@ -1304,9 +1544,12 @@
         0,
         1
       ],
+      "model_cost": 164.12671887220202,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10101101001000",
       "assignment_bits": "10101101",
       "slack_bits": "001000",
@@ -1320,9 +1563,12 @@
       "target_energy": 35.84342198040571,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00001001001000",
       "assignment_bits": "00001001",
       "slack_bits": "001000",
@@ -1336,9 +1582,12 @@
       "target_energy": 36.31519476973119,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01001000100011",
       "assignment_bits": "01001000",
       "slack_bits": "100011",
@@ -1352,9 +1601,12 @@
       "target_energy": 36.31519476973119,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10000001011000",
       "assignment_bits": "10000001",
       "slack_bits": "011000",
@@ -1368,9 +1620,12 @@
       "target_energy": 36.31519476973119,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01000011100000",
       "assignment_bits": "01000011",
       "slack_bits": "100000",
@@ -1384,9 +1639,12 @@
       "target_energy": 36.449388496595304,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11000001001001",
       "assignment_bits": "11000001",
       "slack_bits": "001001",
@@ -1400,9 +1658,12 @@
       "target_energy": 36.449388496595304,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00000111100010",
       "assignment_bits": "00000111",
       "slack_bits": "100010",
@@ -1416,9 +1677,12 @@
       "target_energy": 36.84342198040565,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00100101011110",
       "assignment_bits": "00100101",
       "slack_bits": "011110",
@@ -1432,9 +1696,12 @@
       "target_energy": 36.84342198040571,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01100100010010",
       "assignment_bits": "01100100",
       "slack_bits": "010010",
@@ -1448,9 +1715,12 @@
       "target_energy": 36.96789105911273,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10001000000111",
       "assignment_bits": "10001000",
       "slack_bits": "000111",
@@ -1464,9 +1734,12 @@
       "target_energy": 36.96789105911279,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010100001010",
       "assignment_bits": "00010100",
       "slack_bits": "001010",
@@ -1480,9 +1753,12 @@
       "target_energy": 37.315194769731136,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00101100001010",
       "assignment_bits": "00101100",
       "slack_bits": "001010",
@@ -1496,9 +1772,12 @@
       "target_energy": 37.31519476973119,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01001110000000",
       "assignment_bits": "01001110",
       "slack_bits": "000000",
@@ -1512,9 +1791,12 @@
       "target_energy": 37.4961182697873,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00100001001000",
       "assignment_bits": "00100001",
       "slack_bits": "001000",
@@ -1528,9 +1810,12 @@
       "target_energy": 39.61657611243402,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10000001110010",
       "assignment_bits": "10000001",
       "slack_bits": "110010",
@@ -1544,9 +1829,12 @@
       "target_energy": 39.61657611243402,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00001011000000",
       "assignment_bits": "00001011",
       "slack_bits": "000000",
@@ -1560,9 +1848,12 @@
       "target_energy": 40.14480332310853,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010001001000",
       "assignment_bits": "00010001",
       "slack_bits": "001000",
@@ -1576,9 +1867,12 @@
       "target_energy": 40.34182390462075,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01000000011110",
       "assignment_bits": "01000000",
       "slack_bits": "011110",
@@ -1592,9 +1886,12 @@
       "target_energy": 42.91795745513684,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010000001011",
       "assignment_bits": "00010000",
       "slack_bits": "001011",
@@ -1608,9 +1905,12 @@
       "target_energy": 42.9179574551369,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01000011010101",
       "assignment_bits": "01000011",
       "slack_bits": "010101",
@@ -1624,9 +1924,17 @@
       "target_energy": 43.052151182000955,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "canonical_assignment_bits": "10011001",
       "bitstring": "01100110001100",
       "assignment_bits": "01100110",
       "slack_bits": "001100",
@@ -1645,9 +1953,12 @@
         0,
         1
       ],
+      "model_cost": 98.27030257904937,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11110010100100",
       "assignment_bits": "11110010",
       "slack_bits": "100100",
@@ -1661,9 +1972,12 @@
       "target_energy": 45.07476908083032,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00000011000001",
       "assignment_bits": "00000011",
       "slack_bits": "000001",
@@ -1677,9 +1991,12 @@
       "target_energy": 46.21933879783961,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01000110000100",
       "assignment_bits": "01000110",
       "slack_bits": "000100",
@@ -1693,9 +2010,12 @@
       "target_energy": 46.87203508722126,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01000110101011",
       "assignment_bits": "01000110",
       "slack_bits": "101011",
@@ -1709,9 +2029,12 @@
       "target_energy": 46.87203508722126,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00101001001000",
       "assignment_bits": "00101001",
       "slack_bits": "001000",
@@ -1725,9 +2048,12 @@
       "target_energy": 47.21933879783967,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10101101001010",
       "assignment_bits": "10101101",
       "slack_bits": "001010",
@@ -1741,9 +2067,12 @@
       "target_energy": 49.048947351217066,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010010000110",
       "assignment_bits": "00010010",
       "slack_bits": "000110",
@@ -1757,9 +2086,12 @@
       "target_energy": 49.520720140542494,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00100001010100",
       "assignment_bits": "00100001",
       "slack_bits": "010100",
@@ -1773,9 +2105,12 @@
       "target_energy": 49.520720140542494,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01001000100001",
       "assignment_bits": "01001000",
       "slack_bits": "100001",
@@ -1789,9 +2124,12 @@
       "target_energy": 49.520720140542494,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11100001111000",
       "assignment_bits": "11100001",
       "slack_bits": "111000",
@@ -1805,9 +2143,12 @@
       "target_energy": 50.30359892072789,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00000010000101",
       "assignment_bits": "00000010",
       "slack_bits": "000101",
@@ -1821,9 +2162,12 @@
       "target_energy": 52.82210148324532,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00000010100001",
       "assignment_bits": "00000010",
       "slack_bits": "100001",
@@ -1837,9 +2181,12 @@
       "target_energy": 52.822101483245376,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10000000110101",
       "assignment_bits": "10000000",
       "slack_bits": "110101",
@@ -1853,9 +2200,12 @@
       "target_energy": 52.822101483245376,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01000011000001",
       "assignment_bits": "01000011",
       "slack_bits": "000001",
@@ -1869,9 +2219,12 @@
       "target_energy": 52.95629521010949,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00000111000010",
       "assignment_bits": "00000111",
       "slack_bits": "000010",
@@ -1885,9 +2238,12 @@
       "target_energy": 53.350328693919835,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10110000011010",
       "assignment_bits": "10110000",
       "slack_bits": "011010",
@@ -1901,9 +2257,12 @@
       "target_energy": 53.47078653656661,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10001100000011",
       "assignment_bits": "10001100",
       "slack_bits": "000011",
@@ -1917,9 +2276,12 @@
       "target_energy": 53.474797772626914,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10001100100100",
       "assignment_bits": "10001100",
       "slack_bits": "100100",
@@ -1933,9 +2295,12 @@
       "target_energy": 53.474797772626914,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11001000000001",
       "assignment_bits": "11001000",
       "slack_bits": "000001",
@@ -1949,9 +2314,12 @@
       "target_energy": 53.474797772626914,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00000011100000",
       "assignment_bits": "00000011",
       "slack_bits": "100000",
@@ -1965,9 +2333,12 @@
       "target_energy": 56.123482825948145,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00110000010110",
       "assignment_bits": "00110000",
       "slack_bits": "010110",
@@ -1981,9 +2352,12 @@
       "target_energy": 56.1234828259482,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00110000111010",
       "assignment_bits": "00110000",
       "slack_bits": "111010",
@@ -1997,9 +2371,12 @@
       "target_energy": 56.1234828259482,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01001001000010",
       "assignment_bits": "01001001",
       "slack_bits": "000010",
@@ -2013,9 +2390,12 @@
       "target_energy": 56.25767655281231,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10010001010100",
       "assignment_bits": "10010001",
       "slack_bits": "010100",
@@ -2029,9 +2409,17 @@
       "target_energy": 56.848730618134994,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "canonical_assignment_bits": "10100101",
       "bitstring": "01011010100000",
       "assignment_bits": "01011010",
       "slack_bits": "100000",
@@ -2050,9 +2438,12 @@
         1,
         1
       ],
+      "model_cost": 83.93339456868273,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10000100011000",
       "assignment_bits": "10000100",
       "slack_bits": "011000",
@@ -2066,9 +2457,12 @@
       "target_energy": 59.42486416865103,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10010010100100",
       "assignment_bits": "10010010",
       "slack_bits": "100100",
@@ -2082,9 +2476,12 @@
       "target_energy": 59.55905789551514,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01011000000101",
       "assignment_bits": "01011000",
       "slack_bits": "000101",
@@ -2098,9 +2495,12 @@
       "target_energy": 60.073549221972314,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10010100010100",
       "assignment_bits": "10010100",
       "slack_bits": "010100",
@@ -2114,9 +2514,12 @@
       "target_energy": 60.42486416865103,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10010100101011",
       "assignment_bits": "10010100",
       "slack_bits": "101011",
@@ -2130,9 +2533,12 @@
       "target_energy": 60.42486416865103,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01000101011110",
       "assignment_bits": "01000101",
       "slack_bits": "011110",
@@ -2146,9 +2552,12 @@
       "target_energy": 60.739981395571306,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00000110010000",
       "assignment_bits": "00000110",
       "slack_bits": "010000",
@@ -2162,9 +2571,12 @@
       "target_energy": 62.72624551135385,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00001001000001",
       "assignment_bits": "00001001",
       "slack_bits": "000001",
@@ -2178,9 +2590,12 @@
       "target_energy": 62.72624551135385,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010010001100",
       "assignment_bits": "00010010",
       "slack_bits": "001100",
@@ -2194,9 +2609,12 @@
       "target_energy": 62.72624551135385,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00100001100010",
       "assignment_bits": "00100001",
       "slack_bits": "100010",
@@ -2210,9 +2628,12 @@
       "target_energy": 62.72624551135385,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10010000010001",
       "assignment_bits": "10010000",
       "slack_bits": "010001",
@@ -2226,9 +2647,12 @@
       "target_energy": 62.72624551135385,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00001110000000",
       "assignment_bits": "00001110",
       "slack_bits": "000000",
@@ -2242,9 +2666,12 @@
       "target_energy": 63.254472722028424,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10001001000000",
       "assignment_bits": "10001001",
       "slack_bits": "000000",
@@ -2258,9 +2685,12 @@
       "target_energy": 63.37894180073545,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10011000011010",
       "assignment_bits": "10011000",
       "slack_bits": "011010",
@@ -2274,9 +2704,12 @@
       "target_energy": 63.37894180073545,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00100010010110",
       "assignment_bits": "00100010",
       "slack_bits": "010110",
@@ -2290,9 +2723,12 @@
       "target_energy": 63.451493303540644,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01001110001001",
       "assignment_bits": "01001110",
       "slack_bits": "001001",
@@ -2306,9 +2742,12 @@
       "target_energy": 63.90716901140996,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10001110000000",
       "assignment_bits": "10001110",
       "slack_bits": "000000",
@@ -2322,9 +2761,12 @@
       "target_energy": 64.04136273827413,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11000101010000",
       "assignment_bits": "11000101",
       "slack_bits": "010000",
@@ -2338,9 +2780,12 @@
       "target_energy": 64.04136273827413,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01001101000000",
       "assignment_bits": "01001101",
       "slack_bits": "000000",
@@ -2354,9 +2799,12 @@
       "target_energy": 64.04136273827419,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10110010100100",
       "assignment_bits": "10110010",
       "slack_bits": "100100",
@@ -2370,9 +2818,12 @@
       "target_energy": 64.2343720837261,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00101010100001",
       "assignment_bits": "00101010",
       "slack_bits": "100001",
@@ -2386,9 +2837,12 @@
       "target_energy": 64.97972051421522,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010000110001",
       "assignment_bits": "00010000",
       "slack_bits": "110001",
@@ -2402,9 +2856,12 @@
       "target_energy": 66.02762685405668,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00100001010000",
       "assignment_bits": "00100001",
       "slack_bits": "010000",
@@ -2418,9 +2875,12 @@
       "target_energy": 66.02762685405668,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00100100010100",
       "assignment_bits": "00100100",
       "slack_bits": "010100",
@@ -2434,9 +2894,12 @@
       "target_energy": 66.02762685405668,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10001000000001",
       "assignment_bits": "10001000",
       "slack_bits": "000001",
@@ -2450,9 +2913,12 @@
       "target_energy": 66.68032314343833,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00101110100100",
       "assignment_bits": "00101110",
       "slack_bits": "100100",
@@ -2466,9 +2932,12 @@
       "target_energy": 68.28110185691799,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10000110001000",
       "assignment_bits": "10000110",
       "slack_bits": "001000",
@@ -2482,9 +2951,12 @@
       "target_energy": 69.46320192362367,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10010010000100",
       "assignment_bits": "10010010",
       "slack_bits": "000100",
@@ -2498,9 +2970,12 @@
       "target_energy": 69.46320192362367,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01011000000010",
       "assignment_bits": "01011000",
       "slack_bits": "000010",
@@ -2514,9 +2989,12 @@
       "target_energy": 69.97769325008079,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00100110110000",
       "assignment_bits": "00100110",
       "slack_bits": "110000",
@@ -2530,9 +3008,12 @@
       "target_energy": 70.0542559889463,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01001000000001",
       "assignment_bits": "01001000",
       "slack_bits": "000001",
@@ -2546,9 +3027,12 @@
       "target_energy": 72.63038953946239,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10000001010100",
       "assignment_bits": "10000001",
       "slack_bits": "010100",
@@ -2562,9 +3046,12 @@
       "target_energy": 72.63038953946239,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10000010011101",
       "assignment_bits": "10000010",
       "slack_bits": "011101",
@@ -2578,9 +3065,12 @@
       "target_energy": 72.7645832663265,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00000101110010",
       "assignment_bits": "00000101",
       "slack_bits": "110010",
@@ -2594,9 +3084,12 @@
       "target_energy": 73.1586167501369,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11011000100000",
       "assignment_bits": "11011000",
       "slack_bits": "100000",
@@ -2610,9 +3103,12 @@
       "target_energy": 73.93177088216521,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11000001010000",
       "assignment_bits": "11000001",
       "slack_bits": "010000",
@@ -2626,9 +3122,12 @@
       "target_energy": 76.06596460902938,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11000010000010",
       "assignment_bits": "11000010",
       "slack_bits": "000010",
@@ -2642,9 +3141,17 @@
       "target_energy": 76.06596460902938,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "canonical_assignment_bits": "10100101",
       "bitstring": "01011010110000",
       "assignment_bits": "01011010",
       "slack_bits": "110000",
@@ -2663,9 +3170,12 @@
         1,
         1
       ],
+      "model_cost": 83.93339456868273,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00100001100000",
       "assignment_bits": "00100001",
       "slack_bits": "100000",
@@ -2679,9 +3189,12 @@
       "target_energy": 89.13729625297654,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010010110000",
       "assignment_bits": "00010010",
       "slack_bits": "110000",
@@ -2695,9 +3208,12 @@
       "target_energy": 89.13729625297654,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10010000010010",
       "assignment_bits": "10010000",
       "slack_bits": "010010",
@@ -2711,9 +3227,12 @@
       "target_energy": 89.13729625297657,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00101000010010",
       "assignment_bits": "00101000",
       "slack_bits": "010010",
@@ -2727,9 +3246,12 @@
       "target_energy": 90.13729625297654,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01001101000010",
       "assignment_bits": "01001101",
       "slack_bits": "000010",
@@ -2743,9 +3265,12 @@
       "target_energy": 90.45241347989682,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10001010000010",
       "assignment_bits": "10001010",
       "slack_bits": "000010",
@@ -2759,9 +3284,12 @@
       "target_energy": 90.45241347989682,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11100010110010",
       "assignment_bits": "11100010",
       "slack_bits": "110010",
@@ -2775,9 +3303,12 @@
       "target_energy": 90.64542282534873,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00100000010110",
       "assignment_bits": "00100000",
       "slack_bits": "010110",
@@ -2791,9 +3322,12 @@
       "target_energy": 92.4386775956794,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00001110110000",
       "assignment_bits": "00001110",
       "slack_bits": "110000",
@@ -2807,9 +3341,12 @@
       "target_energy": 92.96690480635388,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00001101100001",
       "assignment_bits": "00001101",
       "slack_bits": "100001",
@@ -2823,9 +3360,12 @@
       "target_energy": 92.96690480635391,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00000101010100",
       "assignment_bits": "00000101",
       "slack_bits": "010100",
@@ -2839,9 +3379,12 @@
       "target_energy": 92.96690480635394,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00001010100010",
       "assignment_bits": "00001010",
       "slack_bits": "100010",
@@ -2855,9 +3398,12 @@
       "target_energy": 92.96690480635394,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00000010010010",
       "assignment_bits": "00000010",
       "slack_bits": "010010",
@@ -2871,9 +3417,12 @@
       "target_energy": 95.74005893838222,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00001100111000",
       "assignment_bits": "00001100",
       "slack_bits": "111000",
@@ -2887,9 +3436,12 @@
       "target_energy": 95.74005893838222,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00110000010100",
       "assignment_bits": "00110000",
       "slack_bits": "010100",
@@ -2903,9 +3455,12 @@
       "target_energy": 95.74005893838222,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11001000001100",
       "assignment_bits": "11001000",
       "slack_bits": "001100",
@@ -2919,9 +3474,12 @@
       "target_energy": 96.39275522776381,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11101111100010",
       "assignment_bits": "11101111",
       "slack_bits": "100010",
@@ -2935,9 +3493,12 @@
       "target_energy": 97.44284489502797,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00000000011010",
       "assignment_bits": "00000000",
       "slack_bits": "011010",
@@ -2951,9 +3512,12 @@
       "target_energy": 99.04144028108507,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00110000001000",
       "assignment_bits": "00110000",
       "slack_bits": "001000",
@@ -2967,9 +3531,12 @@
       "target_energy": 99.04144028108507,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10011000100000",
       "assignment_bits": "10011000",
       "slack_bits": "100000",
@@ -2983,9 +3550,12 @@
       "target_energy": 99.69413657046664,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010001101011",
       "assignment_bits": "00010001",
       "slack_bits": "101011",
@@ -2999,9 +3569,12 @@
       "target_energy": 103.06806941597469,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00100000000101",
       "assignment_bits": "00100000",
       "slack_bits": "000101",
@@ -3015,9 +3588,12 @@
       "target_energy": 105.64420296649075,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00110000111000",
       "assignment_bits": "00110000",
       "slack_bits": "111000",
@@ -3031,9 +3607,12 @@
       "target_energy": 108.94558430919358,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01101000011010",
       "assignment_bits": "01101000",
       "slack_bits": "011010",
@@ -3047,9 +3626,12 @@
       "target_energy": 109.94558430919358,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10000010011110",
       "assignment_bits": "10000010",
       "slack_bits": "011110",
@@ -3063,9 +3645,17 @@
       "target_energy": 112.38115937876057,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "canonical_assignment_bits": "10010110",
       "bitstring": "01101001111101",
       "assignment_bits": "01101001",
       "slack_bits": "111101",
@@ -3084,9 +3674,12 @@
         1,
         0
       ],
+      "model_cost": 80.88685325702023,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11100101100001",
       "assignment_bits": "11100101",
       "slack_bits": "100001",
@@ -3100,9 +3693,12 @@
       "target_energy": 117.51214927484077,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00100001000000",
       "assignment_bits": "00100001",
       "slack_bits": "000000",
@@ -3116,9 +3712,12 @@
       "target_energy": 118.84972833730205,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01000010000100",
       "assignment_bits": "01000010",
       "slack_bits": "000100",
@@ -3132,9 +3731,12 @@
       "target_energy": 118.84972833730205,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00001100000000",
       "assignment_bits": "00001100",
       "slack_bits": "000000",
@@ -3148,9 +3750,12 @@
       "target_energy": 118.84972833730208,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11010101100000",
       "assignment_bits": "11010101",
       "slack_bits": "100000",
@@ -3164,9 +3769,12 @@
       "target_energy": 119.23739706702753,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01010000010100",
       "assignment_bits": "01010000",
       "slack_bits": "010100",
@@ -3180,9 +3788,12 @@
       "target_energy": 119.49841339062334,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00100000010010",
       "assignment_bits": "00100000",
       "slack_bits": "010010",
@@ -3196,9 +3807,12 @@
       "target_energy": 122.15110968000491,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010000010010",
       "assignment_bits": "00010000",
       "slack_bits": "010010",
@@ -3212,9 +3826,12 @@
       "target_energy": 122.15110968000494,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00100000000001",
       "assignment_bits": "00100000",
       "slack_bits": "000001",
@@ -3228,9 +3845,12 @@
       "target_energy": 122.15110968000494,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01001010000000",
       "assignment_bits": "01001010",
       "slack_bits": "000000",
@@ -3244,9 +3864,12 @@
       "target_energy": 122.67933689067945,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00110010001000",
       "assignment_bits": "00110010",
       "slack_bits": "001000",
@@ -3260,9 +3883,12 @@
       "target_energy": 122.8763574721917,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01001010100000",
       "assignment_bits": "01001010",
       "slack_bits": "100000",
@@ -3276,9 +3902,12 @@
       "target_energy": 125.98071823338228,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10010100000100",
       "assignment_bits": "10010100",
       "slack_bits": "000100",
@@ -3292,9 +3921,12 @@
       "target_energy": 126.45249102270773,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11010100000100",
       "assignment_bits": "11010100",
       "slack_bits": "000100",
@@ -3308,9 +3940,12 @@
       "target_energy": 127.75387236541056,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010000100101",
       "assignment_bits": "00010000",
       "slack_bits": "100101",
@@ -3324,9 +3959,12 @@
       "target_energy": 128.7538723654106,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10010000000011",
       "assignment_bits": "10010000",
       "slack_bits": "000011",
@@ -3340,9 +3978,12 @@
       "target_energy": 128.75387236541061,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010001100010",
       "assignment_bits": "00010001",
       "slack_bits": "100010",
@@ -3356,9 +3997,12 @@
       "target_energy": 129.47912015759738,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11010100000010",
       "assignment_bits": "11010100",
       "slack_bits": "000010",
@@ -3372,9 +4016,12 @@
       "target_energy": 131.0552537081134,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010000100011",
       "assignment_bits": "00010000",
       "slack_bits": "100011",
@@ -3388,9 +4035,12 @@
       "target_energy": 132.0552537081134,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11000000000101",
       "assignment_bits": "11000000",
       "slack_bits": "000101",
@@ -3404,9 +4054,12 @@
       "target_energy": 135.35663505081627,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01000001100000",
       "assignment_bits": "01000001",
       "slack_bits": "100000",
@@ -3420,9 +4073,12 @@
       "target_energy": 138.79221012038326,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10001000101100",
       "assignment_bits": "10001000",
       "slack_bits": "101100",
@@ -3436,9 +4092,12 @@
       "target_energy": 139.3107126829007,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00011000000000",
       "assignment_bits": "00011000",
       "slack_bits": "000000",
@@ -3452,9 +4111,12 @@
       "target_energy": 141.95939773622194,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00100100000000",
       "assignment_bits": "00100100",
       "slack_bits": "000000",
@@ -3468,9 +4130,12 @@
       "target_energy": 141.95939773622194,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01110100000101",
       "assignment_bits": "01110100",
       "slack_bits": "000101",
@@ -3484,9 +4149,12 @@
       "target_energy": 144.26077907892477,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00100000100010",
       "assignment_bits": "00100000",
       "slack_bits": "100010",
@@ -3500,9 +4168,12 @@
       "target_energy": 145.26077907892477,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00110000000100",
       "assignment_bits": "00110000",
       "slack_bits": "000100",
@@ -3516,9 +4187,12 @@
       "target_energy": 148.56216042162762,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010000100010",
       "assignment_bits": "00010000",
       "slack_bits": "100010",
@@ -3532,9 +4206,12 @@
       "target_energy": 158.46630444973613,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01000000001000",
       "assignment_bits": "01000000",
       "slack_bits": "001000",
@@ -3548,9 +4225,12 @@
       "target_energy": 158.46630444973613,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10010000100000",
       "assignment_bits": "10010000",
       "slack_bits": "100000",
@@ -3564,9 +4244,12 @@
       "target_energy": 171.67182982054746,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10000000011000",
       "assignment_bits": "10000000",
       "slack_bits": "011000",
@@ -3580,9 +4263,12 @@
       "target_energy": 171.6718298205475,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01000001000110",
       "assignment_bits": "01000001",
       "slack_bits": "000110",
@@ -3596,9 +4282,12 @@
       "target_energy": 171.8060235474116,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00001010101010",
       "assignment_bits": "00001010",
       "slack_bits": "101010",
@@ -3612,9 +4301,12 @@
       "target_energy": 172.20005703122197,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010001000000",
       "assignment_bits": "00010001",
       "slack_bits": "000000",
@@ -3628,9 +4320,12 @@
       "target_energy": 172.39707761273422,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00100010000000",
       "assignment_bits": "00100010",
       "slack_bits": "000000",
@@ -3644,9 +4339,12 @@
       "target_energy": 172.39707761273422,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00000010010000",
       "assignment_bits": "00000010",
       "slack_bits": "010000",
@@ -3660,9 +4358,12 @@
       "target_energy": 174.97321116325028,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00000000000111",
       "assignment_bits": "00000000",
       "slack_bits": "000111",
@@ -3676,9 +4377,12 @@
       "target_energy": 174.9732111632503,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010000000001",
       "assignment_bits": "00010000",
       "slack_bits": "000001",
@@ -3692,9 +4396,12 @@
       "target_energy": 174.9732111632503,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010000000011",
       "assignment_bits": "00010000",
       "slack_bits": "000011",
@@ -3708,9 +4415,12 @@
       "target_energy": 174.9732111632503,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01000000010100",
       "assignment_bits": "01000000",
       "slack_bits": "010100",
@@ -3724,9 +4434,12 @@
       "target_energy": 174.9732111632503,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01001010011010",
       "assignment_bits": "01001010",
       "slack_bits": "011010",
@@ -3740,9 +4453,12 @@
       "target_energy": 175.50143837392483,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10100000000100",
       "assignment_bits": "10100000",
       "slack_bits": "000100",
@@ -3756,9 +4472,12 @@
       "target_energy": 178.92327755927437,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01000101000100",
       "assignment_bits": "01000101",
       "slack_bits": "000100",
@@ -3772,9 +4491,12 @@
       "target_energy": 179.58970973287342,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01010100000110",
       "assignment_bits": "01010100",
       "slack_bits": "000110",
@@ -3788,9 +4510,12 @@
       "target_energy": 180.57597384865593,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01000001000000",
       "assignment_bits": "01000001",
       "slack_bits": "000000",
@@ -3804,9 +4529,12 @@
       "target_energy": 181.71016757552013,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "11100000000000",
       "assignment_bits": "11100000",
       "slack_bits": "000000",
@@ -3820,9 +4548,12 @@
       "target_energy": 182.22465890197722,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010001000110",
       "assignment_bits": "00010001",
       "slack_bits": "000110",
@@ -3836,9 +4567,12 @@
       "target_energy": 182.30122164084273,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00000001000100",
       "assignment_bits": "00000001",
       "slack_bits": "000100",
@@ -3852,9 +4586,12 @@
       "target_energy": 184.8773551913588,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01010000000100",
       "assignment_bits": "01010000",
       "slack_bits": "000100",
@@ -3868,9 +4605,12 @@
       "target_energy": 198.73156561549138,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00101000101000",
       "assignment_bits": "00101000",
       "slack_bits": "101000",
@@ -3884,9 +4624,12 @@
       "target_energy": 199.08288056217015,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00000010000000",
       "assignment_bits": "00000010",
       "slack_bits": "000000",
@@ -3900,9 +4643,12 @@
       "target_energy": 201.38426190487297,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00001000100000",
       "assignment_bits": "00001000",
       "slack_bits": "100000",
@@ -3916,9 +4662,12 @@
       "target_energy": 201.38426190487297,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10111010110000",
       "assignment_bits": "10111010",
       "slack_bits": "110000",
@@ -3932,9 +4681,12 @@
       "target_energy": 208.37469332000413,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010001100011",
       "assignment_bits": "00010001",
       "slack_bits": "100011",
@@ -3948,9 +4700,12 @@
       "target_energy": 208.71227238246541,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00100010111010",
       "assignment_bits": "00100010",
       "slack_bits": "111010",
@@ -3964,9 +4719,12 @@
       "target_energy": 208.71227238246541,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00000100000000",
       "assignment_bits": "00000100",
       "slack_bits": "000000",
@@ -3980,9 +4738,12 @@
       "target_energy": 224.49393130379283,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00000000000110",
       "assignment_bits": "00000000",
       "slack_bits": "000110",
@@ -3996,9 +4757,12 @@
       "target_energy": 227.7953126464957,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "01000000100000",
       "assignment_bits": "01000000",
       "slack_bits": "100000",
@@ -4012,9 +4776,12 @@
       "target_energy": 247.6036007027127,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10000000000100",
       "assignment_bits": "10000000",
       "slack_bits": "000100",
@@ -4028,9 +4795,12 @@
       "target_energy": 247.6036007027127,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00010000000000",
       "assignment_bits": "00010000",
       "slack_bits": "000000",
@@ -4044,9 +4814,12 @@
       "target_energy": 254.20636338811835,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10000000100000",
       "assignment_bits": "10000000",
       "slack_bits": "100000",
@@ -4060,9 +4833,12 @@
       "target_energy": 254.20636338811835,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "00000101000011",
       "assignment_bits": "00000101",
       "slack_bits": "000011",
@@ -4076,9 +4852,12 @@
       "target_energy": 287.74840402582123,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     },
     {
+      "customer_labels": null,
+      "canonical_assignment_bits": null,
       "bitstring": "10000000000000",
       "assignment_bits": "10000000",
       "slack_bits": "000000",
@@ -4092,7 +4871,24 @@
       "target_energy": 290.52155815784954,
       "feasible": false,
       "customer_groups": null,
+      "model_cost": null,
       "exact_target_ground_state": false
     }
-  ]
+  ],
+  "summary": {
+    "instance": "s-2",
+    "status": "completed",
+    "actual_shots": 256,
+    "customer_labels": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "canonical_assignment_bits": "10010110",
+    "model_cost": 80.88685325702023,
+    "feasible_shots": 10,
+    "exact_ground_shots": 0,
+    "lowest_sampled_target_energy": 3.435575069566994
+  }
 }

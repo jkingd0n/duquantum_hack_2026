@@ -1,0 +1,25 @@
+{
+  "checked_bitstrings": 2972,
+  "checked_feasible_partitions": 2967,
+  "ground_states": 6,
+  "ground_state_bitstrings": [
+    "001010001100100100100001010010111000001000000",
+    "001100001010010010010001100100000101110000000",
+    "010001010100100100100010001001111000000000010",
+    "010100010001001001001010100100000100000011100",
+    "100001100010010010010100001001000001110000010",
+    "100010100001001001001100010010000000001011100"
+  ],
+  "distinct_ground_partitions": 1,
+  "passed": true,
+  "minimum_energy": 3.2733035444846617,
+  "validation_method": "penalty-proof-and-feasible-partitions",
+  "exhaustive_binary_space": false,
+  "penalty": 5.74662980142169,
+  "feasible_certificate_bound": 4.74662980142169,
+  "independent_clustering_solver": {
+    "status": "integer optimal solution",
+    "cost": 272.11085767136245,
+    "agrees": true
+  }
+}

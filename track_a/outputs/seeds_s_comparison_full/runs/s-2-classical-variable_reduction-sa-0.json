@@ -1,0 +1,100 @@
+{
+  "instance": {
+    "tier": "s",
+    "instance_seed": 2,
+    "coordinates": [
+      [
+        75.83870728974628,
+        49.11253161311042
+      ],
+      [
+        33.70471341884663,
+        68.21491476481467
+      ],
+      [
+        64.60508973656114,
+        3.940302333209811
+      ],
+      [
+        76.78306447458468,
+        39.58899661045909
+      ]
+    ],
+    "demands": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "certificate": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "vehicles": 2,
+    "capacity": 7,
+    "depot": [
+      50.0,
+      50.0
+    ]
+  },
+  "instance_id": "s-2",
+  "instance_hash": "a276b9f7be468010",
+  "method": "classical-variable_reduction-sa",
+  "seed": 0,
+  "encoding": "variable-reduction-complemented-v1",
+  "shot_budget": 256,
+  "atom_count": 10,
+  "variable_order": [
+    "x_0_0",
+    "x_0_1",
+    "x_1_0",
+    "x_1_1",
+    "x_2_0",
+    "x_2_1",
+    "x_3_0",
+    "x_3_1",
+    "z_0",
+    "z_1"
+  ],
+  "configuration": {
+    "alpha": 3.301381342702836,
+    "beta": 3.301381342702836,
+    "capacity_penalty": 3.301381342702836,
+    "assignment_penalty": 3.301381342702836,
+    "normalization": 71.31661138759598,
+    "logical_capacity_residual": "load/Q - 1 - b",
+    "auxiliary_mapping": "b_k = 1 - z_k",
+    "binary_slack_bits_per_vehicle": 1,
+    "ground_state_feasibility_guaranteed": false,
+    "warm_start": false,
+    "repair": false,
+    "annealing_steps": 400,
+    "initial_temperature": 33.01381342702836,
+    "final_temperature": 0.03301381342702836,
+    "cooling": "geometric",
+    "restarts": 256,
+    "shots": 256,
+    "seed": 0
+  },
+  "configuration_id": "89debf0c8a763184",
+  "status": "completed",
+  "counts": {
+    "1010011011": 18,
+    "1001011011": 23,
+    "1010010111": 27,
+    "0110010111": 18,
+    "0110011011": 32,
+    "0110100111": 31,
+    "1001100111": 19,
+    "0101101011": 22,
+    "1001101011": 13,
+    "1010100111": 18,
+    "0101100111": 18,
+    "0101011011": 11,
+    "0110101011": 4,
+    "1001010111": 2
+  },
+  "clustering_seconds": 0.04341874399688095
+}

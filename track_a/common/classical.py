@@ -11,6 +11,10 @@ import numpy as np
 from .instances import Instance, feasible
 from .models import Qubo, build_qubo, canonical, objective
 
+ANNEALING_STEPS = 400
+INITIAL_TEMPERATURE_FACTOR = 10.0
+FINAL_TEMPERATURE_FACTOR = 0.01
+
 
 def partitions(n: int, vehicles: int):
     """Restricted-growth strings: each unlabeled partition exactly once."""
@@ -41,13 +45,16 @@ def clustering_reference(instance: Instance) -> dict:
                        "distinct_optima": sum(abs(cost - best) <= 1e-8 for cost in costs),
                        "status": "proven_optimum"},
         "status": "proven_optimum", "algorithm": "exhaustive-clustering-partitions",
-        "settings": {"maximum_customers": 4, "vehicle_labels_quotiented": True,
+        "settings": {"maximum_customers": instance.n, "vehicle_labels_quotiented": True,
                      "equality_tolerance": 1e-8},
         "feasible_partitions": len(candidates), "seconds": perf_counter() - start,
     }
-    result["cplex_crosscheck"] = {
-        "clustering": installed_qubo_crosscheck(instance, build_qubo(instance), best),
-    }
+    if instance.tier == "s":
+        result["cplex_crosscheck"] = {
+            "clustering": installed_qubo_crosscheck(instance, build_qubo(instance), best),
+        }
+    else:
+        result["cplex_crosscheck"] = cplex_crosscheck(instance, result)
     return result
 
 
@@ -227,7 +234,7 @@ def exact_references(instance: Instance) -> dict:
             route_optima += multiplicity
         result["cvrp"]["distinct_optima_modulo_reversal"] = route_optima
         result["feasible_partitions"] = feasible_partitions
-        result["cplex_crosscheck"] = cplex_crosscheck(instance, result)
+    result["cplex_crosscheck"] = cplex_crosscheck(instance, result)
     return result
 
 
@@ -243,6 +250,8 @@ def cplex_crosscheck(instance: Instance, reference: dict, time_limit: float = 30
     ) <= instance.capacity]
     outputs = {}
     for name, costs in (("clustering", compactness), ("cvrp", tours)):
+        if name not in reference:
+            continue
         try:
             with Model(name=f"track_a_{name}") as model:
                 variables = model.binary_var_list(len(groups))
@@ -292,7 +301,7 @@ def installed_qubo_crosscheck(instance: Instance, qubo: Qubo, reference: float) 
             "time_limit_seconds": 30}
 
 
-def anneal(qubo: Qubo, shots: int, seed: int, steps: int = 400) -> Counter[str]:
+def anneal(qubo: Qubo, shots: int, seed: int, steps: int = ANNEALING_STEPS) -> Counter[str]:
     """Independent Metropolis chains, no repair or certificate warm start."""
     rng = np.random.default_rng(seed)
     size = len(qubo.variable_order)
@@ -300,7 +309,8 @@ def anneal(qubo: Qubo, shots: int, seed: int, steps: int = 400) -> Counter[str]:
     diagonal = np.diag(qubo.matrix)
     pairs = 2 * (qubo.matrix - np.diag(diagonal))
     fields = z @ pairs + diagonal
-    temperatures = np.geomspace(10 * qubo.penalty, 0.01 * qubo.penalty, steps)
+    temperatures = np.geomspace(INITIAL_TEMPERATURE_FACTOR * qubo.penalty,
+                                FINAL_TEMPERATURE_FACTOR * qubo.penalty, steps)
     rows = np.arange(shots)
     for temperature in temperatures:
         columns = rng.integers(size, size=shots)

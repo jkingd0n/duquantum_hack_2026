@@ -46,6 +46,22 @@
   "encoding": "binary-slack-v1",
   "shot_budget": 256,
   "atom_count": 14,
+  "variable_order": [
+    "x_0_0",
+    "x_0_1",
+    "x_1_0",
+    "x_1_1",
+    "x_2_0",
+    "x_2_1",
+    "x_3_0",
+    "x_3_1",
+    "y_0_0",
+    "y_0_1",
+    "y_0_2",
+    "y_1_0",
+    "y_1_1",
+    "y_1_2"
+  ],
   "configuration": {
     "pulse": {
       "duration_ns": 1000,
@@ -315,7 +331,7 @@
     "10010110000000": 1,
     "10011110101110": 1
   },
-  "seconds": 12.80442102100642,
+  "seconds": 9.391517470008694,
   "settings": {
     "duration_ns": 1000,
     "amplitude": 8.0,
@@ -331,24 +347,8 @@
     "timeout_seconds": 180,
     "noise": "noiseless"
   },
-  "variable_order": [
-    "x_0_0",
-    "x_0_1",
-    "x_1_0",
-    "x_1_1",
-    "x_2_0",
-    "x_2_1",
-    "x_3_0",
-    "x_3_1",
-    "y_0_0",
-    "y_0_1",
-    "y_0_2",
-    "y_1_0",
-    "y_1_1",
-    "y_1_2"
-  ],
-  "embedding_seconds": 0.06717929500155151,
-  "emulation_seconds": 12.80442102100642,
+  "embedding_seconds": 0.054792092996649444,
+  "emulation_seconds": 9.391517470008694,
   "pair_relative_error": 1.0176834649504491,
   "linear_relative_error": 0.30614994630623726,
   "scale": 0.05002381889388164,

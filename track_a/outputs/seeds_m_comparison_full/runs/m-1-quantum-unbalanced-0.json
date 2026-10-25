@@ -1,0 +1,171 @@
+{
+  "instance": {
+    "tier": "m",
+    "instance_seed": 1,
+    "coordinates": [
+      [
+        11.91,
+        50.25
+      ],
+      [
+        51.18,
+        86.0
+      ],
+      [
+        10.26,
+        22.33
+      ],
+      [
+        60.1,
+        55.66
+      ],
+      [
+        78.34,
+        54.78
+      ],
+      [
+        73.05,
+        76.81
+      ],
+      [
+        75.1,
+        58.65
+      ],
+      [
+        23.99,
+        61.42
+      ],
+      [
+        11.07,
+        81.68
+      ],
+      [
+        44.97,
+        81.48
+      ]
+    ],
+    "demands": [
+      2,
+      5,
+      5,
+      8,
+      3,
+      5,
+      1,
+      6,
+      6,
+      8
+    ],
+    "certificate": [
+      1,
+      1,
+      2,
+      0,
+      0,
+      2,
+      0,
+      1,
+      1,
+      0
+    ],
+    "vehicles": 3,
+    "capacity": 20,
+    "depot": [
+      50.0,
+      50.0
+    ]
+  },
+  "instance_id": "m-1",
+  "instance_hash": "8aa37f5b9fb7ba1a",
+  "method": "quantum-unbalanced",
+  "seed": 0,
+  "encoding": "unbalanced-v1",
+  "shot_budget": 256,
+  "atom_count": 30,
+  "variable_order": [
+    "x_0_0",
+    "x_0_1",
+    "x_0_2",
+    "x_1_0",
+    "x_1_1",
+    "x_1_2",
+    "x_2_0",
+    "x_2_1",
+    "x_2_2",
+    "x_3_0",
+    "x_3_1",
+    "x_3_2",
+    "x_4_0",
+    "x_4_1",
+    "x_4_2",
+    "x_5_0",
+    "x_5_1",
+    "x_5_2",
+    "x_6_0",
+    "x_6_1",
+    "x_6_2",
+    "x_7_0",
+    "x_7_1",
+    "x_7_2",
+    "x_8_0",
+    "x_8_1",
+    "x_8_2",
+    "x_9_0",
+    "x_9_1",
+    "x_9_2"
+  ],
+  "configuration": {
+    "lambda1": 0.75,
+    "lambda2": 0.02,
+    "assignment_penalty": 6.223407255080527,
+    "normalization": 83.1303464446047,
+    "warm_start": false,
+    "repair": false,
+    "ground_state_feasibility_guaranteed": false,
+    "pulse": {
+      "duration_ns": 1000,
+      "amplitude": 8.0,
+      "initial_detuning": -8.0
+    },
+    "embedding_seed": 0,
+    "sampling_seed": 0,
+    "shots": 256,
+    "backend": "emu-mps",
+    "dt_ns": 10,
+    "interaction_cutoff": 0.0,
+    "memory_mb": 4096,
+    "timeout_seconds": 180,
+    "embedding_swap_attempts": 1200,
+    "postprocessing": false,
+    "max_bond_dim": 64,
+    "precision": 1e-05,
+    "optimize_qubit_ordering": false
+  },
+  "configuration_id": "736754556e73d44c",
+  "status": "resource_limited",
+  "error": "Command '['/workspaces/duquantum_hack_2026/.venv/bin/python', '-m', 'track_a.common.quantum', '/tmp/track-a-emulation-igfve2xp/job.json', '/tmp/track-a-emulation-igfve2xp/result.json']' timed out after 180 seconds",
+  "seconds": 180.26847020100104,
+  "settings": {
+    "duration_ns": 1000,
+    "amplitude": 8.0,
+    "initial_detuning": -8.0,
+    "sequence": null,
+    "backend": "mps",
+    "shots": 256,
+    "seed": 0,
+    "memory_mb": 4096,
+    "dt_ns": 10,
+    "interaction_cutoff": 0.0,
+    "timeout_seconds": 180,
+    "with_modulation": false,
+    "noise": "noiseless",
+    "max_bond_dim": 64,
+    "precision": 1e-05,
+    "optimize_qubit_ordering": false
+  },
+  "embedding_seconds": 0.07047109601262491,
+  "emulation_seconds": 180.26847020100104,
+  "pair_relative_error": 1.3302292779317517,
+  "linear_relative_error": 0.05313578508420963,
+  "scale": 0.2335138029563068
+}

@@ -1,0 +1,11 @@
+{
+  "tier": "m",
+  "passed": false,
+  "m_passed": false,
+  "instance_ids": [
+    "m-0",
+    "m-1",
+    "m-2"
+  ],
+  "requirements": "validated QUBO, legal device, feasible raw M shots"
+}

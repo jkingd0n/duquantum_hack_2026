@@ -1,0 +1,13 @@
+tier,method,solver,expected_runs,completed_runs,failed_runs,missing_runs,feasible_result_runs,actual_shots,feasibility_percent,optimal_hit_percent,mean_best_gap_percent,worst_best_gap_percent,median_solver_seconds
+S,classical-qubo-sa,Classical slack,3,3,0,0,3,768,20.963541666666668,5.598958333333333,0.0,0.0,0.02661244699265808
+S,classical-unbalanced-sa,Classical unbalanced,3,3,0,0,3,768,89.453125,27.213541666666668,0.0,0.0,0.02810303600563202
+S,classical-variable_reduction-sa,Classical variable reduction,3,3,0,0,3,768,87.36979166666667,23.307291666666668,0.0,0.0,0.03997791701112874
+S,quantum-global,Quantum slack,3,3,0,0,3,768,2.8645833333333335,0.390625,1.255474443204437,3.766423329613311,14.141476407006849
+S,quantum-unbalanced,Quantum unbalanced,3,3,0,0,3,768,1.3020833333333333,0.9114583333333334,0.0,0.0,10.348468044001493
+S,quantum-variable_reduction,Quantum variable reduction,3,3,0,0,3,768,7.552083333333333,1.8229166666666667,0.0,0.0,22.443124776997138
+M,classical-qubo-sa,Classical slack,3,3,0,0,0,768,0.0,0.0,,,0.029778727010125294
+M,classical-unbalanced-sa,Classical unbalanced,3,3,0,0,3,768,59.635416666666664,0.390625,10.90812800092295,32.72438400276885,0.03150907899544109
+M,classical-variable_reduction-sa,Classical variable reduction,3,3,0,0,3,768,27.864583333333332,0.0,26.0804713035506,37.24929424718243,0.032394628986367024
+M,quantum-global,Quantum slack,3,3,0,0,0,768,0.0,0.0,,,55.29499338401365
+M,quantum-unbalanced,Quantum unbalanced,3,1,2,0,0,256,0.0,0.0,,,113.65122539499134
+M,quantum-variable_reduction,Quantum variable reduction,3,1,2,0,0,256,0.0,0.0,,,176.045748782999

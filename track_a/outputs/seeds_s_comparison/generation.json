@@ -1,0 +1,61 @@
+{
+  "input_path": "/workspaces/duquantum_hack_2026/track_a/inputs/seeds_s.json",
+  "numpy": "2.5.4",
+  "coordinates": "explicit input coordinates, shared across demand vectors",
+  "selected_demand_indices": [
+    0,
+    1,
+    2
+  ],
+  "input": {
+    "N": 4,
+    "K": 2,
+    "Q": 7,
+    "demand_range": [
+      1,
+      4
+    ],
+    "depot": [
+      50,
+      50
+    ],
+    "coordinates": [
+      [
+        75.83870728974628,
+        49.11253161311042
+      ],
+      [
+        33.70471341884663,
+        68.21491476481467
+      ],
+      [
+        64.60508973656114,
+        3.940302333209811
+      ],
+      [
+        76.78306447458468,
+        39.58899661045909
+      ]
+    ],
+    "demands": [
+      [
+        2,
+        3,
+        4,
+        2
+      ],
+      [
+        3,
+        4,
+        2,
+        2
+      ],
+      [
+        1,
+        2,
+        3,
+        4
+      ]
+    ]
+  }
+}

@@ -1,12 +1,4 @@
 {
-  "status": "proven_optimum",
-  "algorithm": "exhaustive-partitions-and-tours",
-  "settings": {
-    "maximum_customers": 4,
-    "vehicle_labels_quotiented": true,
-    "equality_tolerance": 1e-08
-  },
-  "feasible_partitions": 4,
   "clustering": {
     "cost": 80.88685325702023,
     "labels": [
@@ -15,38 +7,27 @@
       1,
       0
     ],
-    "status": "proven_optimum",
-    "distinct_optima": 1
+    "distinct_optima": 1,
+    "status": "proven_optimum"
   },
-  "cvrp": {
-    "cost": 208.23610162704392,
-    "labels": [
-      0,
-      1,
-      1,
-      0
-    ],
-    "status": "proven_optimum",
-    "optimal_partitions": 1,
-    "distinct_optima_modulo_reversal": 1
+  "status": "proven_optimum",
+  "algorithm": "exhaustive-clustering-partitions",
+  "settings": {
+    "maximum_customers": 4,
+    "vehicle_labels_quotiented": true,
+    "equality_tolerance": 1e-08
   },
-  "seconds": 0.00044599898683372885,
+  "feasible_partitions": 4,
+  "seconds": 0.00015204701048787683,
   "cplex_crosscheck": {
-    "settings": {
-      "time_limit_seconds": 30.0,
-      "threads": 1,
-      "seed": 0
-    },
-    "seconds": 0.022957100998610258,
     "clustering": {
-      "status": "integer optimal solution",
-      "cost": 80.88685325702023,
-      "agrees": true
-    },
-    "cvrp": {
-      "status": "integer optimal solution",
-      "cost": 208.23610162704392,
-      "agrees": true
+      "agrees": true,
+      "bitstring": "01101001010100",
+      "energy": 1.1341937268641118,
+      "preprocessing": false,
+      "postprocessing": false,
+      "algorithm": "cplex",
+      "time_limit_seconds": 30
     }
   },
   "instance_hash": "bf90be89adf13749"

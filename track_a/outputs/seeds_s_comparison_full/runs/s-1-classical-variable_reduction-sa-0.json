@@ -1,0 +1,98 @@
+{
+  "instance": {
+    "tier": "s",
+    "instance_seed": 1,
+    "coordinates": [
+      [
+        75.83870728974628,
+        49.11253161311042
+      ],
+      [
+        33.70471341884663,
+        68.21491476481467
+      ],
+      [
+        64.60508973656114,
+        3.940302333209811
+      ],
+      [
+        76.78306447458468,
+        39.58899661045909
+      ]
+    ],
+    "demands": [
+      3,
+      4,
+      2,
+      2
+    ],
+    "certificate": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "vehicles": 2,
+    "capacity": 7,
+    "depot": [
+      50.0,
+      50.0
+    ]
+  },
+  "instance_id": "s-1",
+  "instance_hash": "5a8af708422573eb",
+  "method": "classical-variable_reduction-sa",
+  "seed": 0,
+  "encoding": "variable-reduction-complemented-v1",
+  "shot_budget": 256,
+  "atom_count": 10,
+  "variable_order": [
+    "x_0_0",
+    "x_0_1",
+    "x_1_0",
+    "x_1_1",
+    "x_2_0",
+    "x_2_1",
+    "x_3_0",
+    "x_3_1",
+    "z_0",
+    "z_1"
+  ],
+  "configuration": {
+    "alpha": 2.1769122639957788,
+    "beta": 2.1769122639957788,
+    "capacity_penalty": 2.1769122639957788,
+    "assignment_penalty": 2.1769122639957788,
+    "normalization": 71.31661138759598,
+    "logical_capacity_residual": "load/Q - 1 - b",
+    "auxiliary_mapping": "b_k = 1 - z_k",
+    "binary_slack_bits_per_vehicle": 1,
+    "ground_state_feasibility_guaranteed": false,
+    "warm_start": false,
+    "repair": false,
+    "annealing_steps": 400,
+    "initial_temperature": 21.769122639957786,
+    "final_temperature": 0.021769122639957787,
+    "cooling": "geometric",
+    "restarts": 256,
+    "shots": 256,
+    "seed": 0
+  },
+  "configuration_id": "faf0380b2bc2a2f2",
+  "status": "completed",
+  "counts": {
+    "1010010111": 34,
+    "1001100111": 31,
+    "1010011011": 7,
+    "0110100111": 38,
+    "0110010111": 25,
+    "1001101011": 21,
+    "0101101011": 29,
+    "0110011011": 22,
+    "1001011011": 32,
+    "1001010111": 5,
+    "0110101011": 5,
+    "0101100111": 7
+  },
+  "clustering_seconds": 0.03997791701112874
+}

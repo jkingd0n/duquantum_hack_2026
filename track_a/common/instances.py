@@ -1,6 +1,6 @@
-"""Small-tier inputs and independently checked, reproducible geometry."""
+"""Selectable S/M inputs and independently checked, reproducible geometry."""
 
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, fields
 from itertools import product
 import json
 from pathlib import Path
@@ -11,6 +11,14 @@ from numpy.typing import NDArray
 ROOT = Path(__file__).resolve().parents[1]
 INPUT_PATH = ROOT / "inputs" / "seeds_s.json"
 OUTPUT_PATH = ROOT / "outputs" / "all_demands"
+TIER_CONFIGS = {"s": (4, 2, 7, 4), "m": (10, 3, 20, 8)}
+
+
+def _tier_for(n: int, vehicles: int, capacity: int) -> str:
+    for tier, (customers, fleet, limit, _) in TIER_CONFIGS.items():
+        if (n, vehicles, capacity) == (customers, fleet, limit):
+            return tier
+    raise ValueError("Supported tiers: S (N=4, K=2, Q=7) and M (N=10, K=3, Q=20)")
 
 
 @dataclass(frozen=True)
@@ -55,15 +63,17 @@ def feasible(instance: Instance, labels: tuple[int, ...] | list[int]) -> bool:
 
 
 def validate(instance: Instance) -> None:
-    if (instance.tier, instance.n, instance.vehicles, instance.capacity) != ("s", 4, 2, 7):
-        raise ValueError("Only prescribed S instances (N=4, K=2, Q=7) are supported")
+    tier = _tier_for(instance.n, instance.vehicles, instance.capacity)
+    if instance.tier != tier:
+        raise ValueError("Instance tier does not match N, K and Q")
     points = np.asarray(instance.coordinates)
     if points.shape != (instance.n, 2) or not np.isfinite(points).all():
         raise ValueError("Invalid customer coordinates")
     if np.any((points < 0) | (points > 100)) or instance.depot != (50.0, 50.0):
         raise ValueError("Invalid coordinates or depot")
-    if any(type(d) is not int or not 1 <= d <= 4 for d in instance.demands):
-        raise ValueError("S demands must be integers in 1..4")
+    maximum = TIER_CONFIGS[tier][3]
+    if any(type(d) is not int or not 1 <= d <= maximum for d in instance.demands):
+        raise ValueError(f"{tier.upper()} demands must be integers in 1..{maximum}")
     if not feasible(instance, instance.certificate):
         raise ValueError("Invalid internally computed feasibility witness")
     distances = instance.distances
@@ -71,6 +81,33 @@ def validate(instance: Instance) -> None:
         raise ValueError("Asymmetric distances")
     if np.any(distances[:, :, None] > distances[:, None, :] + distances[None, :, :] + 1e-10):
         raise ValueError("Triangle inequality violation")
+
+
+def _feasibility_witness(instance: Instance) -> tuple[int, ...] | None:
+    if instance.tier == "s":
+        return next((labels for labels in product(range(instance.vehicles), repeat=instance.n)
+                     if feasible(instance, labels)), None)
+    order = sorted(range(instance.n), key=lambda i: instance.demands[i], reverse=True)
+    loads = [0] * instance.vehicles
+    labels = [0] * instance.n
+
+    def place(index: int) -> bool:
+        if index == instance.n:
+            return True
+        customer = order[index]
+        seen = set()
+        for vehicle in range(instance.vehicles):
+            if loads[vehicle] in seen or loads[vehicle] + instance.demands[customer] > instance.capacity:
+                continue
+            seen.add(loads[vehicle])
+            loads[vehicle] += instance.demands[customer]
+            labels[customer] = vehicle
+            if place(index + 1):
+                return True
+            loads[vehicle] -= instance.demands[customer]
+        return False
+
+    return tuple(labels) if place(0) else None
 
 
 def load_tier(path: Path) -> list[Instance]:
@@ -81,13 +118,13 @@ def load_tier(path: Path) -> list[Instance]:
         raise ValueError(f"Input must contain exactly {sorted(expected)}")
     if any(type(data[key]) is not int for key in ("N", "K", "Q")):
         raise ValueError("N, K, Q must be integers")
-    if (data["N"], data["K"], data["Q"]) != (4, 2, 7):
-        raise ValueError("Only S (N=4, K=2, Q=7) is implemented")
+    tier = _tier_for(data["N"], data["K"], data["Q"])
+    maximum = TIER_CONFIGS[tier][3]
     demand_range = data["demand_range"]
     if (not isinstance(demand_range, list) or len(demand_range) != 2
             or any(type(v) is not int for v in demand_range)
-            or not 1 <= demand_range[0] <= demand_range[1] <= 4):
-        raise ValueError("demand_range must be [minimum, maximum] within S range 1..4")
+            or not 1 <= demand_range[0] <= demand_range[1] <= maximum):
+        raise ValueError(f"demand_range must be [minimum, maximum] within {tier.upper()} range 1..{maximum}")
     vectors = data["demands"]
     if not isinstance(vectors, list) or not vectors:
         raise ValueError("demands must be a nonempty array of explicit demand vectors")
@@ -99,7 +136,7 @@ def load_tier(path: Path) -> list[Instance]:
                    for point in points)):
         raise ValueError("coordinates must contain N finite numeric [x, y] pairs in [0, 100]")
     if data["depot"] != [50, 50]:
-        raise ValueError("S depot must be [50, 50]")
+        raise ValueError("Depot must be [50, 50]")
     coordinates = tuple((float(x), float(y)) for x, y in points)
     depot = (float(data["depot"][0]), float(data["depot"][1]))
     instances = []
@@ -108,12 +145,11 @@ def load_tier(path: Path) -> list[Instance]:
                 or any(type(d) is not int or not demand_range[0] <= d <= demand_range[1]
                        for d in vector)):
             raise ValueError(f"Invalid demand vector at index {index}")
-        instance = Instance("s", index, coordinates, tuple(vector), (), data["K"], data["Q"], depot)
-        witness = next((labels for labels in product(range(data["K"]), repeat=data["N"])
-                        if feasible(instance, labels)), None)
+        instance = Instance(tier, index, coordinates, tuple(vector), (), data["K"], data["Q"], depot)
+        witness = _feasibility_witness(instance)
         if witness is None:
             raise ValueError(f"Demand vector {index} is capacity-infeasible: {vector}")
-        instance = Instance("s", index, coordinates, tuple(vector), witness, data["K"], data["Q"], depot)
+        instance = Instance(tier, index, coordinates, tuple(vector), witness, data["K"], data["Q"], depot)
         validate(instance)
         instances.append(instance)
     return instances
@@ -126,3 +162,44 @@ def ensure_instances(input_path: Path = INPUT_PATH) -> list[Instance]:
 
 def instance_record(instance: Instance) -> dict:
     return {**asdict(instance), **instance.ratios, "certificate_valid": True}
+
+
+def instance_from_record(record: dict) -> Instance:
+    """Restore and validate a saved instance, including JSON tuple conversions."""
+    names = {field.name for field in fields(Instance)}
+    if set(record) - names - {"rho", "largest_demand_ratio", "certificate_valid"}:
+        raise ValueError("Unrecognized saved instance fields")
+    data = {name: record[name] for name in names}
+    instance = Instance(
+        **{**data, "coordinates": tuple(map(tuple, record["coordinates"])),
+           "demands": tuple(record["demands"]), "certificate": tuple(record["certificate"]),
+           "depot": tuple(record["depot"])}
+    )
+    validate(instance)
+    expected = {**instance.ratios, "certificate_valid": True}
+    if any(record[key] != value for key, value in expected.items() if key in record):
+        raise ValueError("Saved instance metadata does not match its validated values")
+    return instance
+
+
+def notebook_inputs(input_file: str | Path = "seeds_s.json",
+                    output_directory: str | Path | None = None) -> tuple[Path, Path, list[Instance]]:
+    """Resolve notebook paths independently of the kernel's working directory."""
+    input_path = Path(input_file).expanduser()
+    if not input_path.is_absolute():
+        input_path = (ROOT / "inputs" if len(input_path.parts) == 1 else ROOT.parent) / input_path
+    input_path = input_path.resolve()
+    instances = ensure_instances(input_path)
+    if output_directory is None:
+        output = OUTPUT_PATH if input_path == INPUT_PATH.resolve() else ROOT / "outputs" / input_path.stem
+    else:
+        output = Path(output_directory).expanduser()
+        if not output.is_absolute():
+            output = ROOT.parent / output
+    output = output.resolve()
+    manifest = output / "instances.json"
+    if manifest.exists():
+        saved = [instance_from_record(record) for record in json.loads(manifest.read_text())]
+        if saved != instances:
+            raise ValueError("Output directory belongs to different inputs/geometry; choose another output_directory")
+    return input_path, output, instances

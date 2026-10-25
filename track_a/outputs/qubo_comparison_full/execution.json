@@ -1,0 +1,124 @@
+{
+  "settings": {
+    "shots": 256,
+    "seed": 0,
+    "timeout_seconds": 180,
+    "memory_mb": 4096,
+    "dt_ns": 10,
+    "mps_max_bond_dim": 64,
+    "mps_precision": 1e-05
+  },
+  "directories": {
+    "S": "track_a/outputs/seeds_s_comparison_full",
+    "M": "track_a/outputs/seeds_m_comparison_full"
+  },
+  "input_fingerprints": {
+    "S": "481327d0b5a8ffc3",
+    "M": "0f6a0a6a1e2200c7"
+  },
+  "unbalanced_weights": {
+    "S": [
+      0.2,
+      0.01
+    ],
+    "M": [
+      0.75,
+      0.02
+    ]
+  },
+  "qubo_run_count": 36,
+  "statuses": {
+    "M:classical-qubo-sa": {
+      "completed": 3
+    },
+    "M:classical-unbalanced-sa": {
+      "completed": 3
+    },
+    "M:classical-variable_reduction-sa": {
+      "completed": 3
+    },
+    "M:quantum-global": {
+      "completed": 3
+    },
+    "M:quantum-unbalanced": {
+      "resource_limited": 2,
+      "completed": 1
+    },
+    "M:quantum-variable_reduction": {
+      "resource_limited": 2,
+      "completed": 1
+    },
+    "S:classical-qubo-sa": {
+      "completed": 3
+    },
+    "S:classical-unbalanced-sa": {
+      "completed": 3
+    },
+    "S:classical-variable_reduction-sa": {
+      "completed": 3
+    },
+    "S:quantum-global": {
+      "completed": 3
+    },
+    "S:quantum-unbalanced": {
+      "completed": 3
+    },
+    "S:quantum-variable_reduction": {
+      "completed": 3
+    }
+  },
+  "formulations": [
+    "slack",
+    "unbalanced_penalty",
+    "variable_reduction"
+  ],
+  "variable_reduction": {
+    "capacity_residual": "load/Q - 1 - b",
+    "physical_residual": "load/Q + z - 2",
+    "auxiliary_mapping": "b = 1-z",
+    "bits": {
+      "S": 10,
+      "M": 33
+    },
+    "weights": [
+      {
+        "tier": "S",
+        "instance_id": "s-0",
+        "alpha": 2.508126572372197,
+        "beta": 2.508126572372197
+      },
+      {
+        "tier": "S",
+        "instance_id": "s-1",
+        "alpha": 2.1769122639957788,
+        "beta": 2.1769122639957788
+      },
+      {
+        "tier": "S",
+        "instance_id": "s-2",
+        "alpha": 3.301381342702836,
+        "beta": 3.301381342702836
+      },
+      {
+        "tier": "M",
+        "instance_id": "m-0",
+        "alpha": 8.062849186828181,
+        "beta": 8.062849186828181
+      },
+      {
+        "tier": "M",
+        "instance_id": "m-1",
+        "alpha": 6.223407255080527,
+        "beta": 6.223407255080527
+      },
+      {
+        "tier": "M",
+        "instance_id": "m-2",
+        "alpha": 5.74662980142169,
+        "beta": 5.74662980142169
+      }
+    ],
+    "weights_tuned": false,
+    "ground_state_feasibility_guaranteed": false
+  }
+}

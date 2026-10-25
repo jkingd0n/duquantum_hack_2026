@@ -1,0 +1,91 @@
+{
+  "instance": {
+    "tier": "s",
+    "instance_seed": 0,
+    "coordinates": [
+      [
+        75.83870728974628,
+        49.11253161311042
+      ],
+      [
+        33.70471341884663,
+        68.21491476481467
+      ],
+      [
+        64.60508973656114,
+        3.940302333209811
+      ],
+      [
+        76.78306447458468,
+        39.58899661045909
+      ]
+    ],
+    "demands": [
+      2,
+      3,
+      4,
+      2
+    ],
+    "certificate": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "vehicles": 2,
+    "capacity": 7,
+    "depot": [
+      50.0,
+      50.0
+    ]
+  },
+  "instance_id": "s-0",
+  "instance_hash": "2927c939534d886e",
+  "method": "classical-unbalanced-sa",
+  "seed": 0,
+  "encoding": "unbalanced-v1",
+  "shot_budget": 256,
+  "atom_count": 8,
+  "variable_order": [
+    "x_0_0",
+    "x_0_1",
+    "x_1_0",
+    "x_1_1",
+    "x_2_0",
+    "x_2_1",
+    "x_3_0",
+    "x_3_1"
+  ],
+  "configuration": {
+    "lambda1": 0.2,
+    "lambda2": 0.01,
+    "assignment_penalty": 2.508126572372197,
+    "normalization": 71.31661138759598,
+    "warm_start": false,
+    "repair": false,
+    "ground_state_feasibility_guaranteed": false,
+    "annealing_steps": 400,
+    "initial_temperature": 25.08126572372197,
+    "final_temperature": 0.02508126572372197,
+    "cooling": "geometric",
+    "restarts": 256,
+    "shots": 256,
+    "seed": 0
+  },
+  "configuration_id": "298cf055c0e2ce71",
+  "status": "completed",
+  "counts": {
+    "01101001": 27,
+    "10010110": 35,
+    "01011010": 45,
+    "01100101": 22,
+    "01011001": 13,
+    "10100101": 33,
+    "01100110": 24,
+    "10011001": 24,
+    "10100110": 18,
+    "10011010": 14,
+    "10101001": 1
+  },
+  "clustering_seconds": 0.03487769200000912
+}

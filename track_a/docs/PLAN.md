@@ -1,23 +1,46 @@
 # Pasqal Track A plan: classical vs quantum capacity-constrained clustering
 
-> **Current implementation scope (updated by user): S only.**
-> All supplied demand vectors are processed (currently ten, `s-0` through `s-9`).
-> Evidence lives under `outputs/all_demands/`, separate from earlier outputs.
+> **Current implementation scope (updated by user): selectable S and M.**
+> Set `INPUT_FILE` and optional `OUTPUT_DIRECTORY` in each optimization notebook's parameter
+> cell. Every selected demand vector is processed. The current comparison uses
+> `outputs/seeds_s_comparison_full/` and `outputs/seeds_m_comparison_full/`.
 > The first instance has a detailed manual check in both notebooks; it is not
-> the only benchmark instance. Controls are calibrated on `s-0`, then frozen.
+> the only benchmark instance. Controls are calibrated on the first selected
+> instance, then frozen. Fixed numerical worked examples remain labeled as S.
 > Three supplied vectors include demand 1; the vectors need not share a multiset.
-> M/L execution and scaling are deferred. The input in `inputs/seeds_s.json`
+> S uses emu-sv; M requires emu-mps with recorded maximum bond dimension,
+> truncation precision, timestep, timeout and memory limits. M target validation
+> uses the penalty proof and all feasible partitions, never all 2^45 strings.
+> M routing uses subset/Held-Karp DP. L and convergence/scaling claims remain
+> deferred. The selected input in `inputs/seeds_s.json` or `inputs/seeds_m.json`
 > contains `N`, `K`, `Q`, `demand_range`, explicit customer `coordinates`,
 > the fixed `depot`, and an array of demand vectors. It does not require
 > permutation provenance, retry counts, or saved feasibility certificates.
 > Coordinates are read directly from the input; feasibility witnesses are computed
 > internally for validation and penalty bounds. This supersedes the original
 > three-tier generator/JSON requirements below for the current implementation.
-> The user also revised the presentation: core algorithms and experiment loops
-> now live visibly in the notebooks, with beginner-friendly explanations.
+> The user also revised the presentation: core mathematical algorithms
+> remain visible in the notebooks, with beginner-friendly explanations.
 > Classical/quantum walkthroughs contain clustering only, without customer-coordinate
-> tables. Required CVRP reference and routing analysis live in the results notebook.
-> Shared modules remain for CLI reproduction and infrastructure. Automated
+> tables. The results notebook is now a read-only S/M comparison of all six
+> QUBO methods, selected by `SAVED_OUTPUTS`. It never solves, emulates, routes,
+> or computes missing references. CVRP gaps are displayed only from matching
+> saved caches; explicit Python evaluation stages remain available separately.
+> The three formulations are `slack`, `unbalanced_penalty`, and
+> `variable_reduction`, each with classical and quantum sampling. The last
+> preserves the photo's literal `(load/Q - 1 - b)^2`, with one binary slack per
+> vehicle (S 10 / M 33 bits), physically complemented as `b=1-z` for repulsive
+> coupling. It can reward overload and is not an exact inequality encoding.
+> Alpha/beta defaults are untuned certificate-based starting weights.
+> All eight comparison/cluster figures export to `outputs/result_visuals/`.
+> Saved unbalanced presets are S (0.2, 0.01) and M (0.75, 0.02), with bounded
+> benchmark-tuning evidence and no global/quantum-optimality claim.
+> The notebooks are the primary workflow; there is no command-line runner.
+> Shared modules retain callable experiment stages, independent reference
+> algorithms, metrics, evidence writers and infrastructure. Experiment
+> bookkeeping and plotting are shared rather than copied into notebook cells.
+> Evaluation caches include run/reference hashes, evaluator version, routing
+> algorithm and hit thresholds. Automated
 > tests have been removed at the user's request; model and input validation remain.
 
 ## Scope
@@ -61,7 +84,7 @@ covers the shared CVRP formulation and Track A evaluation requirements.
 ## Planned notebooks and shared modules
 
 Only the following three notebooks live directly in `track_a/`. Documentation
-is grouped in `docs/`, Python helpers and CLI code in `common/`, seed definitions
+is grouped in `docs/`, Python helpers and callable stages in `common/`, seed definitions
 in `inputs/`, and saved evidence in `outputs/`:
 
 - `classical_capacity_constrained_clustering.ipynb`: shared instance generation
@@ -90,7 +113,7 @@ in `inputs/`, and saved evidence in `outputs/`:
   clusterings, caching its outputs; do not rerun clustering solvers or quantum
   jobs. Produce the required `results.csv` and the evidence for the separate
   report of at most four pages. The notebook does not replace that report,
-  the model write-up, or the README's one-command reproduction instructions.
+  the model write-up, or the README's notebook/Python reproduction instructions.
 
 Keep all three notebooks limited to Track A optimization and its required
 evaluation. Classical routing-evaluation cells are allowed; quantum TSP and
@@ -105,8 +128,9 @@ are later follow-up work.
 Make notebooks understandable without opening implementation files:
 include executable core modeling, solving, embedding, pulse, and analysis
 code alongside plain-language explanations. Retain small Python modules under
-`track_a/common/` for the CLI and genuinely shared infrastructure. The intentional
-visible copies of core definitions also support the CLI workflow:
+`track_a/common/` for callable stages and genuinely shared infrastructure. Retain
+visible core mathematical walkthroughs, but share bookkeeping and statistics.
+Independent exhaustive and dynamic-programming references remain available:
 
 | Planned module | Shared responsibility |
 |---|---|
@@ -115,6 +139,8 @@ visible copies of core definitions also support the CLI workflow:
 | `classical.py` | Partition enumeration, classical solver adapters, clustering/full-CVRP references, and cached exact classical routing for fixed groups. |
 | `quantum.py` | Embedding, device validation, pulse construction, emulation, and raw-shot extraction for the quantum notebook. |
 | `analysis.py` | Consistent feasibility/gap metrics, result persistence/loading, Track A summary tables, and reusable plotting helpers. |
+| `experiments.py` | Callable experiment preparation, classical/quantum stages and evaluation-reference preparation; no argument parser or command-line entry point. |
+| `evidence.py` | Exact ground-state and sampled-bitstring records used by both notebooks and Python calls. |
 
 Use the same objective evaluator, decoder, and feasibility validator in
 classical solving, quantum execution, and reporting. Save results with encoding
@@ -439,7 +465,7 @@ switch to a slack-free method as an undocumented fallback.
   shared modules used by the notebooks, and a `results.ipynb` narrative covering
   the chosen model, embedding, pulse design, required metrics, classical
   comparisons, and what did not work,
-  a one-command reproduction in the README, a
+  notebook/Python reproduction instructions in the README, a
   pinned `requirements.txt` exported from the existing lock, and a report of
   at most four pages including **what did not work** and AI-use disclosure.
 

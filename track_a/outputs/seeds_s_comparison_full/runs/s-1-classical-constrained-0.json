@@ -1,0 +1,80 @@
+{
+  "instance": {
+    "tier": "s",
+    "instance_seed": 1,
+    "coordinates": [
+      [
+        75.83870728974628,
+        49.11253161311042
+      ],
+      [
+        33.70471341884663,
+        68.21491476481467
+      ],
+      [
+        64.60508973656114,
+        3.940302333209811
+      ],
+      [
+        76.78306447458468,
+        39.58899661045909
+      ]
+    ],
+    "demands": [
+      3,
+      4,
+      2,
+      2
+    ],
+    "certificate": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "vehicles": 2,
+    "capacity": 7,
+    "depot": [
+      50.0,
+      50.0
+    ]
+  },
+  "instance_id": "s-1",
+  "instance_hash": "5a8af708422573eb",
+  "method": "classical-constrained",
+  "seed": 0,
+  "encoding": "binary-slack-v1",
+  "shot_budget": 256,
+  "atom_count": 14,
+  "variable_order": [
+    "x_0_0",
+    "x_0_1",
+    "x_1_0",
+    "x_1_1",
+    "x_2_0",
+    "x_2_1",
+    "x_3_0",
+    "x_3_1",
+    "y_0_0",
+    "y_0_1",
+    "y_0_2",
+    "y_1_0",
+    "y_1_1",
+    "y_1_2"
+  ],
+  "configuration": {
+    "method": "classical-constrained",
+    "shots": 256,
+    "seed": 0,
+    "warm_start": false,
+    "repair": false,
+    "time_limit_seconds": null
+  },
+  "configuration_id": "ddf0d451a038de26",
+  "status": "completed",
+  "counts": {
+    "10010110010100": 256
+  },
+  "clustering_seconds": 0.0003052179963560775,
+  "deterministic_solver_result_repeated": true
+}
