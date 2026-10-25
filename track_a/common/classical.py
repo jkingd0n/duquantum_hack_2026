@@ -31,9 +31,87 @@ def partitions(n: int, vehicles: int):
     yield from visit(1, 0)
 
 
+@lru_cache(maxsize=16)
+def subset_clustering_optima(instance: Instance) -> tuple[float, tuple[tuple[int, ...], ...]]:
+    """Exact compactness DP over capacity-feasible subsets, without routing."""
+    n = instance.n
+    size = 1 << n
+    loads = np.zeros(size, dtype=int)
+    costs = np.zeros(size)
+    distances = instance.distances
+    for mask in range(1, size):
+        bit = mask & -mask
+        customer = bit.bit_length() - 1
+        previous = mask ^ bit
+        loads[mask] = loads[previous] + instance.demands[customer]
+        costs[mask] = costs[previous] + sum(
+            distances[customer, j] for j in range(n) if previous & (1 << j))
+
+    @lru_cache(None)
+    def solve(mask: int, vehicles: int) -> tuple[float, tuple[int, ...]]:
+        if mask == 0:
+            return 0., ()
+        if vehicles == 0 or loads[mask] > vehicles * instance.capacity:
+            return inf, ()
+        if vehicles == 1:
+            return (float(costs[mask]), (mask,)) if loads[mask] <= instance.capacity else (inf, ())
+        first = mask & -mask
+        sub = mask
+        best = inf
+        choices = []
+        while sub:
+            if sub & first and loads[sub] <= instance.capacity:
+                remaining, _ = solve(mask ^ sub, vehicles - 1)
+                value = float(costs[sub]) + remaining
+                if value < best - 1e-8:
+                    best, choices = value, [sub]
+                elif np.isfinite(value) and abs(value - best) <= 1e-8:
+                    best = min(best, value)
+                    choices.append(sub)
+            sub = (sub - 1) & mask
+        return best, tuple(choices)
+
+    def reconstruct(mask: int, vehicles: int):
+        if not mask:
+            yield ()
+            return
+        for sub in solve(mask, vehicles)[1]:
+            for rest in reconstruct(mask ^ sub, vehicles - 1):
+                yield (sub, *rest)
+
+    full = size - 1
+    best = solve(full, instance.vehicles)[0]
+    if not np.isfinite(best):
+        raise ValueError("No feasible grouping")
+    assignments = []
+    for groups in reconstruct(full, instance.vehicles):
+        labels = [0] * n
+        for vehicle, group in enumerate(groups):
+            for customer in range(n):
+                if group & (1 << customer):
+                    labels[customer] = vehicle
+        assignments.append(tuple(labels))
+    return best, tuple(assignments)
+
+
 def clustering_reference(instance: Instance) -> dict:
     """Exact clustering only; routing references belong to the results stage."""
     start = perf_counter()
+    if instance.tier == "l":
+        best, winners = subset_clustering_optima(instance)
+        result = {
+            "clustering": {"cost": best, "labels": winners[0], "distinct_optima": len(winners),
+                           "status": "proven_optimum"},
+            "status": "proven_optimum", "algorithm": "exact-clustering-subset-DP",
+            "settings": {"maximum_customers": 15, "vehicle_labels_quotiented": True,
+                         "equality_tolerance": 1e-8},
+            "seconds": perf_counter() - start,
+        }
+        result["cplex_crosscheck"] = {
+            "clustering": {"status": "not_run",
+                           "reason": "L uses exact clustering-only subset DP; no routing columns built."},
+        }
+        return result
     candidates = [labels for labels in partitions(instance.n, instance.vehicles)
                   if feasible(instance, labels)]
     if not candidates:

@@ -98,7 +98,7 @@ def classical_runs(instances: list[Instance], output: Path, shots: int, seed: in
                       "warm_start": False, "repair": False, "time_limit_seconds": None}
             start = perf_counter()
             if method == "classical-constrained":
-                labels = min(
+                labels = tuple(reference["clustering"]["labels"]) if instance.tier == "l" else min(
                     (labels for labels in partitions(instance.n, instance.vehicles)
                      if feasible(instance, labels)),
                     key=lambda labels: objective(instance, labels),

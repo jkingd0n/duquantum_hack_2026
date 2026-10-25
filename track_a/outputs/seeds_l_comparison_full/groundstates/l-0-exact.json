@@ -1,0 +1,844 @@
+{
+  "instance_id": "l-0",
+  "instance_hash": "7e2aa9bf14034091",
+  "variable_order": [
+    "x_0_0",
+    "x_0_1",
+    "x_0_2",
+    "x_0_3",
+    "x_1_0",
+    "x_1_1",
+    "x_1_2",
+    "x_1_3",
+    "x_2_0",
+    "x_2_1",
+    "x_2_2",
+    "x_2_3",
+    "x_3_0",
+    "x_3_1",
+    "x_3_2",
+    "x_3_3",
+    "x_4_0",
+    "x_4_1",
+    "x_4_2",
+    "x_4_3",
+    "x_5_0",
+    "x_5_1",
+    "x_5_2",
+    "x_5_3",
+    "x_6_0",
+    "x_6_1",
+    "x_6_2",
+    "x_6_3",
+    "x_7_0",
+    "x_7_1",
+    "x_7_2",
+    "x_7_3",
+    "x_8_0",
+    "x_8_1",
+    "x_8_2",
+    "x_8_3",
+    "x_9_0",
+    "x_9_1",
+    "x_9_2",
+    "x_9_3",
+    "x_10_0",
+    "x_10_1",
+    "x_10_2",
+    "x_10_3",
+    "x_11_0",
+    "x_11_1",
+    "x_11_2",
+    "x_11_3",
+    "x_12_0",
+    "x_12_1",
+    "x_12_2",
+    "x_12_3",
+    "x_13_0",
+    "x_13_1",
+    "x_13_2",
+    "x_13_3",
+    "x_14_0",
+    "x_14_1",
+    "x_14_2",
+    "x_14_3",
+    "y_0_0",
+    "y_0_1",
+    "y_0_2",
+    "y_0_3",
+    "y_0_4",
+    "y_1_0",
+    "y_1_1",
+    "y_1_2",
+    "y_1_3",
+    "y_1_4",
+    "y_2_0",
+    "y_2_1",
+    "y_2_2",
+    "y_2_3",
+    "y_2_4",
+    "y_3_0",
+    "y_3_1",
+    "y_3_2",
+    "y_3_3",
+    "y_3_4"
+  ],
+  "bit_layout": [
+    {
+      "position_from_left": 1,
+      "python_index": 0,
+      "variable": "x_0_0",
+      "kind": "assignment",
+      "customer": 0,
+      "vehicle": 0,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 2,
+      "python_index": 1,
+      "variable": "x_0_1",
+      "kind": "assignment",
+      "customer": 0,
+      "vehicle": 1,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 3,
+      "python_index": 2,
+      "variable": "x_0_2",
+      "kind": "assignment",
+      "customer": 0,
+      "vehicle": 2,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 4,
+      "python_index": 3,
+      "variable": "x_0_3",
+      "kind": "assignment",
+      "customer": 0,
+      "vehicle": 3,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 5,
+      "python_index": 4,
+      "variable": "x_1_0",
+      "kind": "assignment",
+      "customer": 1,
+      "vehicle": 0,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 6,
+      "python_index": 5,
+      "variable": "x_1_1",
+      "kind": "assignment",
+      "customer": 1,
+      "vehicle": 1,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 7,
+      "python_index": 6,
+      "variable": "x_1_2",
+      "kind": "assignment",
+      "customer": 1,
+      "vehicle": 2,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 8,
+      "python_index": 7,
+      "variable": "x_1_3",
+      "kind": "assignment",
+      "customer": 1,
+      "vehicle": 3,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 9,
+      "python_index": 8,
+      "variable": "x_2_0",
+      "kind": "assignment",
+      "customer": 2,
+      "vehicle": 0,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 10,
+      "python_index": 9,
+      "variable": "x_2_1",
+      "kind": "assignment",
+      "customer": 2,
+      "vehicle": 1,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 11,
+      "python_index": 10,
+      "variable": "x_2_2",
+      "kind": "assignment",
+      "customer": 2,
+      "vehicle": 2,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 12,
+      "python_index": 11,
+      "variable": "x_2_3",
+      "kind": "assignment",
+      "customer": 2,
+      "vehicle": 3,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 13,
+      "python_index": 12,
+      "variable": "x_3_0",
+      "kind": "assignment",
+      "customer": 3,
+      "vehicle": 0,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 14,
+      "python_index": 13,
+      "variable": "x_3_1",
+      "kind": "assignment",
+      "customer": 3,
+      "vehicle": 1,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 15,
+      "python_index": 14,
+      "variable": "x_3_2",
+      "kind": "assignment",
+      "customer": 3,
+      "vehicle": 2,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 16,
+      "python_index": 15,
+      "variable": "x_3_3",
+      "kind": "assignment",
+      "customer": 3,
+      "vehicle": 3,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 17,
+      "python_index": 16,
+      "variable": "x_4_0",
+      "kind": "assignment",
+      "customer": 4,
+      "vehicle": 0,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 18,
+      "python_index": 17,
+      "variable": "x_4_1",
+      "kind": "assignment",
+      "customer": 4,
+      "vehicle": 1,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 19,
+      "python_index": 18,
+      "variable": "x_4_2",
+      "kind": "assignment",
+      "customer": 4,
+      "vehicle": 2,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 20,
+      "python_index": 19,
+      "variable": "x_4_3",
+      "kind": "assignment",
+      "customer": 4,
+      "vehicle": 3,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 21,
+      "python_index": 20,
+      "variable": "x_5_0",
+      "kind": "assignment",
+      "customer": 5,
+      "vehicle": 0,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 22,
+      "python_index": 21,
+      "variable": "x_5_1",
+      "kind": "assignment",
+      "customer": 5,
+      "vehicle": 1,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 23,
+      "python_index": 22,
+      "variable": "x_5_2",
+      "kind": "assignment",
+      "customer": 5,
+      "vehicle": 2,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 24,
+      "python_index": 23,
+      "variable": "x_5_3",
+      "kind": "assignment",
+      "customer": 5,
+      "vehicle": 3,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 25,
+      "python_index": 24,
+      "variable": "x_6_0",
+      "kind": "assignment",
+      "customer": 6,
+      "vehicle": 0,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 26,
+      "python_index": 25,
+      "variable": "x_6_1",
+      "kind": "assignment",
+      "customer": 6,
+      "vehicle": 1,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 27,
+      "python_index": 26,
+      "variable": "x_6_2",
+      "kind": "assignment",
+      "customer": 6,
+      "vehicle": 2,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 28,
+      "python_index": 27,
+      "variable": "x_6_3",
+      "kind": "assignment",
+      "customer": 6,
+      "vehicle": 3,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 29,
+      "python_index": 28,
+      "variable": "x_7_0",
+      "kind": "assignment",
+      "customer": 7,
+      "vehicle": 0,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 30,
+      "python_index": 29,
+      "variable": "x_7_1",
+      "kind": "assignment",
+      "customer": 7,
+      "vehicle": 1,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 31,
+      "python_index": 30,
+      "variable": "x_7_2",
+      "kind": "assignment",
+      "customer": 7,
+      "vehicle": 2,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 32,
+      "python_index": 31,
+      "variable": "x_7_3",
+      "kind": "assignment",
+      "customer": 7,
+      "vehicle": 3,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 33,
+      "python_index": 32,
+      "variable": "x_8_0",
+      "kind": "assignment",
+      "customer": 8,
+      "vehicle": 0,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 34,
+      "python_index": 33,
+      "variable": "x_8_1",
+      "kind": "assignment",
+      "customer": 8,
+      "vehicle": 1,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 35,
+      "python_index": 34,
+      "variable": "x_8_2",
+      "kind": "assignment",
+      "customer": 8,
+      "vehicle": 2,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 36,
+      "python_index": 35,
+      "variable": "x_8_3",
+      "kind": "assignment",
+      "customer": 8,
+      "vehicle": 3,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 37,
+      "python_index": 36,
+      "variable": "x_9_0",
+      "kind": "assignment",
+      "customer": 9,
+      "vehicle": 0,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 38,
+      "python_index": 37,
+      "variable": "x_9_1",
+      "kind": "assignment",
+      "customer": 9,
+      "vehicle": 1,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 39,
+      "python_index": 38,
+      "variable": "x_9_2",
+      "kind": "assignment",
+      "customer": 9,
+      "vehicle": 2,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 40,
+      "python_index": 39,
+      "variable": "x_9_3",
+      "kind": "assignment",
+      "customer": 9,
+      "vehicle": 3,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 41,
+      "python_index": 40,
+      "variable": "x_10_0",
+      "kind": "assignment",
+      "customer": 10,
+      "vehicle": 0,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 42,
+      "python_index": 41,
+      "variable": "x_10_1",
+      "kind": "assignment",
+      "customer": 10,
+      "vehicle": 1,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 43,
+      "python_index": 42,
+      "variable": "x_10_2",
+      "kind": "assignment",
+      "customer": 10,
+      "vehicle": 2,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 44,
+      "python_index": 43,
+      "variable": "x_10_3",
+      "kind": "assignment",
+      "customer": 10,
+      "vehicle": 3,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 45,
+      "python_index": 44,
+      "variable": "x_11_0",
+      "kind": "assignment",
+      "customer": 11,
+      "vehicle": 0,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 46,
+      "python_index": 45,
+      "variable": "x_11_1",
+      "kind": "assignment",
+      "customer": 11,
+      "vehicle": 1,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 47,
+      "python_index": 46,
+      "variable": "x_11_2",
+      "kind": "assignment",
+      "customer": 11,
+      "vehicle": 2,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 48,
+      "python_index": 47,
+      "variable": "x_11_3",
+      "kind": "assignment",
+      "customer": 11,
+      "vehicle": 3,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 49,
+      "python_index": 48,
+      "variable": "x_12_0",
+      "kind": "assignment",
+      "customer": 12,
+      "vehicle": 0,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 50,
+      "python_index": 49,
+      "variable": "x_12_1",
+      "kind": "assignment",
+      "customer": 12,
+      "vehicle": 1,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 51,
+      "python_index": 50,
+      "variable": "x_12_2",
+      "kind": "assignment",
+      "customer": 12,
+      "vehicle": 2,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 52,
+      "python_index": 51,
+      "variable": "x_12_3",
+      "kind": "assignment",
+      "customer": 12,
+      "vehicle": 3,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 53,
+      "python_index": 52,
+      "variable": "x_13_0",
+      "kind": "assignment",
+      "customer": 13,
+      "vehicle": 0,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 54,
+      "python_index": 53,
+      "variable": "x_13_1",
+      "kind": "assignment",
+      "customer": 13,
+      "vehicle": 1,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 55,
+      "python_index": 54,
+      "variable": "x_13_2",
+      "kind": "assignment",
+      "customer": 13,
+      "vehicle": 2,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 56,
+      "python_index": 55,
+      "variable": "x_13_3",
+      "kind": "assignment",
+      "customer": 13,
+      "vehicle": 3,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 57,
+      "python_index": 56,
+      "variable": "x_14_0",
+      "kind": "assignment",
+      "customer": 14,
+      "vehicle": 0,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 58,
+      "python_index": 57,
+      "variable": "x_14_1",
+      "kind": "assignment",
+      "customer": 14,
+      "vehicle": 1,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 59,
+      "python_index": 58,
+      "variable": "x_14_2",
+      "kind": "assignment",
+      "customer": 14,
+      "vehicle": 2,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 60,
+      "python_index": 59,
+      "variable": "x_14_3",
+      "kind": "assignment",
+      "customer": 14,
+      "vehicle": 3,
+      "slack_weight": null
+    },
+    {
+      "position_from_left": 61,
+      "python_index": 60,
+      "variable": "y_0_0",
+      "kind": "slack",
+      "customer": null,
+      "vehicle": 0,
+      "slack_weight": 1
+    },
+    {
+      "position_from_left": 62,
+      "python_index": 61,
+      "variable": "y_0_1",
+      "kind": "slack",
+      "customer": null,
+      "vehicle": 0,
+      "slack_weight": 2
+    },
+    {
+      "position_from_left": 63,
+      "python_index": 62,
+      "variable": "y_0_2",
+      "kind": "slack",
+      "customer": null,
+      "vehicle": 0,
+      "slack_weight": 4
+    },
+    {
+      "position_from_left": 64,
+      "python_index": 63,
+      "variable": "y_0_3",
+      "kind": "slack",
+      "customer": null,
+      "vehicle": 0,
+      "slack_weight": 8
+    },
+    {
+      "position_from_left": 65,
+      "python_index": 64,
+      "variable": "y_0_4",
+      "kind": "slack",
+      "customer": null,
+      "vehicle": 0,
+      "slack_weight": 16
+    },
+    {
+      "position_from_left": 66,
+      "python_index": 65,
+      "variable": "y_1_0",
+      "kind": "slack",
+      "customer": null,
+      "vehicle": 1,
+      "slack_weight": 1
+    },
+    {
+      "position_from_left": 67,
+      "python_index": 66,
+      "variable": "y_1_1",
+      "kind": "slack",
+      "customer": null,
+      "vehicle": 1,
+      "slack_weight": 2
+    },
+    {
+      "position_from_left": 68,
+      "python_index": 67,
+      "variable": "y_1_2",
+      "kind": "slack",
+      "customer": null,
+      "vehicle": 1,
+      "slack_weight": 4
+    },
+    {
+      "position_from_left": 69,
+      "python_index": 68,
+      "variable": "y_1_3",
+      "kind": "slack",
+      "customer": null,
+      "vehicle": 1,
+      "slack_weight": 8
+    },
+    {
+      "position_from_left": 70,
+      "python_index": 69,
+      "variable": "y_1_4",
+      "kind": "slack",
+      "customer": null,
+      "vehicle": 1,
+      "slack_weight": 16
+    },
+    {
+      "position_from_left": 71,
+      "python_index": 70,
+      "variable": "y_2_0",
+      "kind": "slack",
+      "customer": null,
+      "vehicle": 2,
+      "slack_weight": 1
+    },
+    {
+      "position_from_left": 72,
+      "python_index": 71,
+      "variable": "y_2_1",
+      "kind": "slack",
+      "customer": null,
+      "vehicle": 2,
+      "slack_weight": 2
+    },
+    {
+      "position_from_left": 73,
+      "python_index": 72,
+      "variable": "y_2_2",
+      "kind": "slack",
+      "customer": null,
+      "vehicle": 2,
+      "slack_weight": 4
+    },
+    {
+      "position_from_left": 74,
+      "python_index": 73,
+      "variable": "y_2_3",
+      "kind": "slack",
+      "customer": null,
+      "vehicle": 2,
+      "slack_weight": 8
+    },
+    {
+      "position_from_left": 75,
+      "python_index": 74,
+      "variable": "y_2_4",
+      "kind": "slack",
+      "customer": null,
+      "vehicle": 2,
+      "slack_weight": 16
+    },
+    {
+      "position_from_left": 76,
+      "python_index": 75,
+      "variable": "y_3_0",
+      "kind": "slack",
+      "customer": null,
+      "vehicle": 3,
+      "slack_weight": 1
+    },
+    {
+      "position_from_left": 77,
+      "python_index": 76,
+      "variable": "y_3_1",
+      "kind": "slack",
+      "customer": null,
+      "vehicle": 3,
+      "slack_weight": 2
+    },
+    {
+      "position_from_left": 78,
+      "python_index": 77,
+      "variable": "y_3_2",
+      "kind": "slack",
+      "customer": null,
+      "vehicle": 3,
+      "slack_weight": 4
+    },
+    {
+      "position_from_left": 79,
+      "python_index": 78,
+      "variable": "y_3_3",
+      "kind": "slack",
+      "customer": null,
+      "vehicle": 3,
+      "slack_weight": 8
+    },
+    {
+      "position_from_left": 80,
+      "python_index": 79,
+      "variable": "y_3_4",
+      "kind": "slack",
+      "customer": null,
+      "vehicle": 3,
+      "slack_weight": 16
+    }
+  ],
+  "checked_bitstrings": 24,
+  "checked_feasible_partitions": 1,
+  "ground_states": 24,
+  "ground_state_bitstrings": [
+    "00010010010010001000001010000001000100100100100000010100001000010111100100000000",
+    "00010010100001000100001001000001000100101000010000011000001011110000100100000000",
+    "00010100001010001000010010000001000101000010100000010010010000010010001111000000",
+    "00010100100000100010010000100001000101001000001000011000010011110010000001000000",
+    "00011000001001000100100001000001000110000010010000010010100001000000101111000000",
+    "00011000010000100010100000100001000110000100001000010100100001000111100001000000",
+    "00100001010010001000000110000010001000010100100000100100000100010111100000001000",
+    "00100001100001000100000101000010001000011000010000101000000111110000100000001000",
+    "00100100000110001000010010000010001001000001100000100001010000010010000000011110",
+    "00100100100000010001010000010010001001001000000100101000010011110010000000000010",
+    "00101000000101000100100001000010001010000001010000100001100001000000100000011110",
+    "00101000010000010001100000010010001010000100000100100100100001000111100000000010",
+    "01000001001010001000000110000100010000010010100001000010000100010000001111001000",
+    "01000001100000100010000100100100010000011000001001001000000111110000000001001000",
+    "01000010000110001000001010000100010000100001100001000001001000010000000100011110",
+    "01000010100000010001001000010100010000101000000101001000001011110000000100000010",
+    "01001000000100100010100000100100010010000001001001000001100001000000000001011110",
+    "01001000001000010001100000010100010010000010000101000010100001000000001111000010",
+    "10000001001001000100000101001000100000010010010010000010000100000000101111001000",
+    "10000001010000100010000100101000100000010100001010000100000100000111100001001000",
+    "10000010000101000100001001001000100000100001010010000001001000000000100100011110",
+    "10000010010000010001001000011000100000100100000110000100001000000111100100000010",
+    "10000100000100100010010000101000100001000001001010000001010000000010000001011110",
+    "10000100001000010001010000011000100001000010000110000010010000000010001111000010"
+  ],
+  "distinct_ground_partitions": 1,
+  "passed": true,
+  "minimum_energy": 5.58148042389153,
+  "validation_method": "penalty-proof-and-subset-DP",
+  "exhaustive_binary_space": false,
+  "penalty": 11.946337049796062,
+  "feasible_certificate_bound": 10.946337049796062
+}

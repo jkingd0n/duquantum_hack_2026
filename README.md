@@ -12,7 +12,7 @@
 The first build requires internet access. The pre-reading notebooks run locally
 without credentials.
 
-## Track A: selectable S/M clustering benchmark
+## Track A: selectable S/M/L clustering benchmark
 
 Both optimization notebooks have a first code cell with:
 
@@ -21,7 +21,8 @@ INPUT_FILE = "seeds_s.json"  # Change to "seeds_m.json" for M.
 OUTPUT_DIRECTORY = "track_a/outputs/seeds_s_comparison_full"
 ```
 
-For M, also change the directory to `"track_a/outputs/seeds_m_comparison_full"`.
+For M/L, select `seeds_m.json` / `seeds_l.json` and change the directory to
+`"track_a/outputs/seeds_m_comparison_full"` / `"track_a/outputs/seeds_l_comparison_full"`.
 Use the same selection in classical and quantum; results selects both saved
 directories with `SAVED_OUTPUTS`. Bare filenames resolve
 under `track_a/inputs/`; repository-relative and absolute input paths also work.
@@ -31,12 +32,26 @@ An explicit `OUTPUT_DIRECTORY` may be absolute or repository-relative.
 | --- | ---: | ---: | ---: | --- | ---: | --- |
 | S | 4 | 2 | 7 | 1-4 | 14 | `emu-sv` |
 | M | 10 | 3 | 20 | 1-8 | 45 | `emu-mps` |
+| L | 15 | 4 | 30 | 1-10 | 80 | `emu-mps` |
 
 When the callable input helper receives `OUTPUT_DIRECTORY=None`, the default S
 file uses its legacy `track_a/outputs/all_demands/` directory and M uses
 `track_a/outputs/seeds_m/`; other files use
 `track_a/outputs/<input-file-stem>/`. Saved input manifests reject attempts to
-reuse a directory for different demands or geometry. L remains unsupported.
+reuse a directory for different demands or geometry. L-tier input data is available
+in [seeds_l.json](track_a/inputs/seeds_l.json): 15 customers, 4 vehicles,
+capacity 30, demands 1-10, and three demand vectors. Its intended backend is
+`emu-mps` or QPU. The current local workflows use `emu-mps`; no QPU submission
+is performed. L has 80 slack, 60 unbalanced, or 64 variable-reduction bits.
+Exact L clustering references use capacity-constrained subset DP, not exhaustive
+vehicle assignments. For remaining-customer set `S` and `v` vehicles, minimize
+`cost(T) + DP(S\\T, v-1)` over capacity-feasible groups `T` containing the first
+remaining customer. Anchoring removes vehicle-label duplicates; all optimal
+partitions can be reconstructed. This reference does not compute routing.
+The original slack penalty proof plus this DP certifies the L target optimum;
+it does not enumerate `2**80` strings or every feasible partition explicitly.
+L unbalanced weights initially reuse M's `(0.75, 0.02)` as **untuned starting
+values**, recorded in the preset file; they are not L-optimal weights.
 
 If you edit the demands, number of demand rows, or coordinates after running,
 choose a fresh `OUTPUT_DIRECTORY` in all three notebooks, for example
@@ -184,7 +199,7 @@ Existing slack runs and S/M unbalanced presets are preserved.
 
 Run the classical and quantum notebooks to produce solver evidence. Then run
 the results notebook as a **read-only saved-results viewer** with the `.venv`
-kernel. It loads both S and M output folders, compares all six QUBO methods
+kernel. It loads S, M and L output folders, compares all six QUBO methods
 (three formulations times classical/quantum),
 and shows coverage, shot-probability bars, best-gap dot charts, per-instance
 costs, side-by-side chosen-cluster maps, recorded weights, runtimes, and matching cached CVRP gaps.
@@ -203,6 +218,7 @@ The results parameter cell selects previous runs, not current input files:
 SAVED_OUTPUTS = {
     "S": "track_a/outputs/seeds_s_comparison_full",
     "M": "track_a/outputs/seeds_m_comparison_full",
+    "L": "track_a/outputs/seeds_l_comparison_full",
 }
 seed = 0
 ```
@@ -220,7 +236,7 @@ There is no command-line runner.
 The default is 256 raw shots per stochastic method, sampling seed 0, and
 per-emulation limits of 180 seconds / 4096 MB address space.
 The quantum parameter cell also exposes `dt_ns`, `mps_max_bond_dim` (default 64)
-and `mps_precision` (default `1e-5`). M always uses `emu-mps`, not a large
+and `mps_precision` (default `1e-5`). M and L always use `emu-mps`, not a large
 state vector. MPS bond/truncation and timestep convergence are not established;
 resource limits may prevent a run from completing. Qubit-order optimization is
 disabled so raw strings preserve the documented variable order.

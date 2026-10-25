@@ -34,7 +34,7 @@ def saved_comparisons(directories: dict[str, str | Path], seed: int = 0) -> pd.D
         raise ValueError("The saved sampling seed must be a nonnegative integer")
     rows = []
     for tier, directory in directories.items():
-        if tier.upper() not in ("S", "M"):
+        if tier.upper() not in ("S", "M", "L"):
             raise ValueError(f"Unsupported comparison tier: {tier}")
         output = Path(directory).expanduser()
         if not output.is_absolute():
@@ -238,7 +238,7 @@ def plot_saved_clusters(runs: pd.DataFrame, selections: dict[str, list[str]] | N
             requested.extend((tier.upper(), identifier) for identifier in identifiers)
     if not requested:
         raise ValueError("Select at least one saved instance for cluster maps")
-    colors = ("#4477aa", "#ee6677", "#228833")
+    colors = ("#4477aa", "#ee6677", "#228833", "#aa3377")
     for tier, identifier in requested:
         group = runs[(runs["tier"] == tier) & (runs["instance_id"] == identifier)]
         if len(group) != len(QUBO_METHODS) or set(group["method"]) != set(QUBO_METHODS):

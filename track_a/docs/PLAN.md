@@ -1,18 +1,24 @@
 # Pasqal Track A plan: classical vs quantum capacity-constrained clustering
 
-> **Current implementation scope (updated by user): selectable S and M.**
+> **Current implementation scope (updated by user): selectable S, M and L.**
 > Set `INPUT_FILE` and optional `OUTPUT_DIRECTORY` in each optimization notebook's parameter
 > cell. Every selected demand vector is processed. The current comparison uses
-> `outputs/seeds_s_comparison_full/` and `outputs/seeds_m_comparison_full/`.
+> `outputs/seeds_s_comparison_full/`, `outputs/seeds_m_comparison_full/`,
+> and `outputs/seeds_l_comparison_full/`.
 > The first instance has a detailed manual check in both notebooks; it is not
 > the only benchmark instance. Controls are calibrated on the first selected
 > instance, then frozen. Fixed numerical worked examples remain labeled as S.
 > Three supplied vectors include demand 1; the vectors need not share a multiset.
-> S uses emu-sv; M requires emu-mps with recorded maximum bond dimension,
+> S uses emu-sv; M and L require emu-mps with recorded maximum bond dimension,
 > truncation precision, timestep, timeout and memory limits. M target validation
 > uses the penalty proof and all feasible partitions, never all 2^45 strings.
-> M routing uses subset/Held-Karp DP. L and convergence/scaling claims remain
-> deferred. The selected input in `inputs/seeds_s.json` or `inputs/seeds_m.json`
+> M routing uses subset/Held-Karp DP. L clustering uses exact capacity-constrained
+> subset DP, with the slack penalty proof and reconstructed optimal ground
+> strings instead of enumerating all feasible partitions or all 2^80 strings.
+> L's three QUBOs use 80/60/64 bits. Its unbalanced weights start from M's
+> untuned (0.75, 0.02); no L tuning or convergence/scaling claim is made.
+> No QPU job is submitted. The selected input in `inputs/seeds_s.json`,
+> `inputs/seeds_m.json`, or `inputs/seeds_l.json`
 > contains `N`, `K`, `Q`, `demand_range`, explicit customer `coordinates`,
 > the fixed `depot`, and an array of demand vectors. It does not require
 > permutation provenance, retry counts, or saved feasibility certificates.
@@ -22,7 +28,7 @@
 > The user also revised the presentation: core mathematical algorithms
 > remain visible in the notebooks, with beginner-friendly explanations.
 > Classical/quantum walkthroughs contain clustering only, without customer-coordinate
-> tables. The results notebook is now a read-only S/M comparison of all six
+> tables. The results notebook is now a read-only S/M/L comparison of all six
 > QUBO methods, selected by `SAVED_OUTPUTS`. It never solves, emulates, routes,
 > or computes missing references. CVRP gaps are displayed only from matching
 > saved caches; explicit Python evaluation stages remain available separately.
@@ -32,7 +38,7 @@
 > vehicle (S 10 / M 33 bits), physically complemented as `b=1-z` for repulsive
 > coupling. It can reward overload and is not an exact inequality encoding.
 > Alpha/beta defaults are untuned certificate-based starting weights.
-> All eight comparison/cluster figures export to `outputs/result_visuals/`.
+> All eleven comparison/cluster figures export to `outputs/result_visuals/`.
 > Saved unbalanced presets are S (0.2, 0.01) and M (0.75, 0.02), with bounded
 > benchmark-tuning evidence and no global/quantum-optimality claim.
 > The notebooks are the primary workflow; there is no command-line runner.

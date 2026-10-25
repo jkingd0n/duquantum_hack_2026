@@ -29,7 +29,7 @@ EmulatorBackend = Literal["sv", "mps"]
 def backend_for(instance: Instance) -> EmulatorBackend:
     if instance.tier == "s":
         return "sv"
-    if instance.tier == "m":
+    if instance.tier in ("m", "l"):
         return "mps"
     raise ValueError(f"No emulator is configured for tier {instance.tier}")
 

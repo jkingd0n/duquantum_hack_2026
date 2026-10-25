@@ -11,3 +11,9 @@ M,classical-variable_reduction-sa,Classical variable reduction,3,3,0,0,3,768,27.
 M,quantum-global,Quantum slack,3,3,0,0,0,768,0.0,0.0,,,55.29499338401365
 M,quantum-unbalanced,Quantum unbalanced,3,1,2,0,0,256,0.0,0.0,,,113.65122539499134
 M,quantum-variable_reduction,Quantum variable reduction,3,1,2,0,0,256,0.0,0.0,,,176.045748782999
+L,classical-qubo-sa,Classical slack,3,3,0,0,0,768,0.0,0.0,,,0.03862563500297256
+L,classical-unbalanced-sa,Classical unbalanced,3,3,0,0,3,768,39.973958333333336,0.0,44.192671868461154,54.989134633564426,0.036261159999412484
+L,classical-variable_reduction-sa,Classical variable reduction,3,3,0,0,3,768,30.078125,0.0,43.728091011088594,47.64248699241976,0.04395816699252464
+L,quantum-global,Quantum slack,3,3,0,0,0,768,0.0,0.0,,,87.98739726400527
+L,quantum-unbalanced,Quantum unbalanced,3,3,0,0,0,768,0.0,0.0,,,89.57166953099659
+L,quantum-variable_reduction,Quantum variable reduction,3,3,0,0,0,768,0.0,0.0,,,107.18449492899526

@@ -353,3 +353,31 @@ All original methods remain. The saved-only results viewer identifies the three
 formulations as `slack`, `unbalanced_penalty`, `variable_reduction`, comparing
 original feasible costs/gaps and raw-shot probabilities, not target energies.
 Each cluster map shows the reference plus all six solver assignments.
+
+## L-tier execution
+
+L uses $N=15$, $K=4$, $Q=30$, demands 1-10 and `emu-mps` for all
+formulations: slack 80 bits, unbalanced 60, variable reduction 64.
+The local workflows do not submit QPU jobs. L unbalanced weights `(0.75, 0.02)`
+are explicitly untuned M transfers, not certified L presets.
+
+The exact L reference uses a clustering-only subset dynamic program:
+
+$$D(S,v)=\min_{\substack{T\subseteq S,\ \min(S)\in T\\
+                        \sum_{j\in T}d_j\le Q}}
+         \left[F(T)+D(S\setminus T,v-1)\right].$$
+
+Empty sets cost zero; nonempty sets with no vehicles are impossible.
+Anchoring at the first customer eliminates duplicate vehicle relabelings.
+All tied optimal partitions are reconstructed, including solutions using fewer
+than four vehicles. The implementation was cross-checked against exhaustive
+S/M grouping searches. It does not build tours or CPLEX routing columns.
+
+For the original slack target, the unchanged certificate-based penalty proof
+excludes infeasible ground states. The DP certifies the constrained optimum;
+matrix energies and residuals are checked for reconstructed optimal partitions
+and their vehicle relabelings. Validation metadata identifies
+`penalty-proof-and-subset-DP`: it does not claim enumeration of all feasible
+partitions or all $2^{80}$ strings. Alternative QUBOs still have no inherited
+ground-state feasibility proof. Saved-only results show four canonical vehicle
+colors and preserve resource-limit/no-feasible distinctions.

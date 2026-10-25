@@ -10,11 +10,13 @@
   },
   "directories": {
     "S": "track_a/outputs/seeds_s_comparison_full",
-    "M": "track_a/outputs/seeds_m_comparison_full"
+    "M": "track_a/outputs/seeds_m_comparison_full",
+    "L": "track_a/outputs/seeds_l_comparison_full"
   },
   "input_fingerprints": {
     "S": "481327d0b5a8ffc3",
-    "M": "0f6a0a6a1e2200c7"
+    "M": "0f6a0a6a1e2200c7",
+    "L": "562350d4aba2ffa3"
   },
   "unbalanced_weights": {
     "S": [
@@ -24,10 +26,32 @@
     "M": [
       0.75,
       0.02
+    ],
+    "L": [
+      0.75,
+      0.02
     ]
   },
-  "qubo_run_count": 36,
+  "qubo_run_count": 54,
   "statuses": {
+    "L:classical-qubo-sa": {
+      "completed": 3
+    },
+    "L:classical-unbalanced-sa": {
+      "completed": 3
+    },
+    "L:classical-variable_reduction-sa": {
+      "completed": 3
+    },
+    "L:quantum-global": {
+      "completed": 3
+    },
+    "L:quantum-unbalanced": {
+      "completed": 3
+    },
+    "L:quantum-variable_reduction": {
+      "completed": 3
+    },
     "M:classical-qubo-sa": {
       "completed": 3
     },
@@ -78,7 +102,8 @@
     "auxiliary_mapping": "b = 1-z",
     "bits": {
       "S": 10,
-      "M": 33
+      "M": 33,
+      "L": 64
     },
     "weights": [
       {
@@ -116,9 +141,38 @@
         "instance_id": "m-2",
         "alpha": 5.74662980142169,
         "beta": 5.74662980142169
+      },
+      {
+        "tier": "L",
+        "instance_id": "l-0",
+        "alpha": 11.946337049796062,
+        "beta": 11.946337049796062
+      },
+      {
+        "tier": "L",
+        "instance_id": "l-1",
+        "alpha": 17.264258364817152,
+        "beta": 17.264258364817152
+      },
+      {
+        "tier": "L",
+        "instance_id": "l-2",
+        "alpha": 18.566600162350788,
+        "beta": 18.566600162350788
       }
     ],
     "weights_tuned": false,
     "ground_state_feasibility_guaranteed": false
+  },
+  "large_tier": {
+    "reference": "exact-clustering-subset-DP",
+    "unbalanced_weights_tuned": false,
+    "weight_provenance": "M preset transferred as an untuned L starting point",
+    "backend": "emu-mps",
+    "qubo_bits": {
+      "slack": 80,
+      "unbalanced_penalty": 60,
+      "variable_reduction": 64
+    }
   }
 }

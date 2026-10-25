@@ -299,11 +299,11 @@ def validate_small_qubo(instance: Instance, reference: float) -> dict:
 
 
 def validate_qubo(instance: Instance, reference: float) -> dict:
-    """Validate larger targets by the penalty bound and every feasible partition."""
+    """Validate by penalty bound plus partition enumeration or exact L subset DP."""
     qubo = build_qubo(instance)
     if len(qubo.variable_order) <= 16:
         return validate_small_qubo(instance, reference)
-    from .classical import partitions
+    from .classical import partitions, subset_clustering_optima
 
     bound = objective(instance, instance.certificate) / qubo.normalization
     if not feasible(instance, instance.certificate) or qubo.penalty <= bound:
@@ -312,7 +312,14 @@ def validate_qubo(instance: Instance, reference: float) -> dict:
     optimum = float("inf")
     winners = []
     canonical_ground_strings = set()
-    for labels in partitions(instance.n, instance.vehicles):
+    if instance.tier == "l":
+        dp_cost, optimal_partitions = subset_clustering_optima(instance)
+        if not np.isclose(dp_cost, reference, atol=1e-8, rtol=0):
+            raise AssertionError("Subset DP and constrained reference disagree")
+        candidates = optimal_partitions
+    else:
+        candidates = partitions(instance.n, instance.vehicles)
+    for labels in candidates:
         if not feasible(instance, labels):
             continue
         bitstring = encode(instance, labels)
@@ -342,6 +349,8 @@ def validate_qubo(instance: Instance, reference: float) -> dict:
         "checked_feasible_partitions": checked, "ground_states": len(ground_strings),
         "ground_state_bitstrings": sorted(ground_strings),
         "distinct_ground_partitions": len(winners), "passed": True, "minimum_energy": minimum,
-        "validation_method": "penalty-proof-and-feasible-partitions", "exhaustive_binary_space": False,
+        "validation_method": ("penalty-proof-and-subset-DP" if instance.tier == "l"
+                              else "penalty-proof-and-feasible-partitions"),
+        "exhaustive_binary_space": False,
         "penalty": qubo.penalty, "feasible_certificate_bound": bound,
     }

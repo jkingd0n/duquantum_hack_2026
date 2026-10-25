@@ -62,7 +62,8 @@ def write_report(output: Path, rows: list[dict]) -> None:
             "squares and binary-slack capacity squares. With U the normalized certificate cost, "
             "A = B = U + 1 proves feasibility of every target ground state. The certificate is "
             "not a solver warm start. Pair coefficients are twice off-diagonal matrix entries.",
-            "Variable counts (binary slack / unbalanced / variable reduction): S 14 / 8 / 10; M 45 / 30 / 33. "
+            "Variable counts (binary slack / unbalanced / variable reduction): "
+            "S 14 / 8 / 10; M 45 / 30 / 33; L 80 / 60 / 64. "
             "Unbalanced H adds sum_k(-lambda1*h_k + lambda2*h_k^2), "
             "h_k = Q - sum_j d_j*x_jk, to normalized compactness and assignment squares. "
             "Unbalanced has no slack bits. Variable reduction retains one complemented binary "

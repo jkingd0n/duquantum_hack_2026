@@ -1,0 +1,39 @@
+{
+  "clustering": {
+    "cost": 592.9419803085207,
+    "labels": [
+      0,
+      1,
+      0,
+      2,
+      3,
+      3,
+      3,
+      1,
+      1,
+      1,
+      0,
+      2,
+      0,
+      2,
+      3
+    ],
+    "distinct_optima": 1,
+    "status": "proven_optimum"
+  },
+  "status": "proven_optimum",
+  "algorithm": "exact-clustering-subset-DP",
+  "settings": {
+    "maximum_customers": 15,
+    "vehicle_labels_quotiented": true,
+    "equality_tolerance": 1e-08
+  },
+  "seconds": 1.8037797970027896,
+  "cplex_crosscheck": {
+    "clustering": {
+      "status": "not_run",
+      "reason": "L uses exact clustering-only subset DP; no routing columns built."
+    }
+  },
+  "instance_hash": "4ab5f75c4d865663"
+}

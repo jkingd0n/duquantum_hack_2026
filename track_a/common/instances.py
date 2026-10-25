@@ -1,4 +1,4 @@
-"""Selectable S/M inputs and independently checked, reproducible geometry."""
+"""Selectable S/M/L inputs and independently checked, reproducible geometry."""
 
 from dataclasses import asdict, dataclass, fields
 from itertools import product
@@ -11,14 +11,14 @@ from numpy.typing import NDArray
 ROOT = Path(__file__).resolve().parents[1]
 INPUT_PATH = ROOT / "inputs" / "seeds_s.json"
 OUTPUT_PATH = ROOT / "outputs" / "all_demands"
-TIER_CONFIGS = {"s": (4, 2, 7, 4), "m": (10, 3, 20, 8)}
+TIER_CONFIGS = {"s": (4, 2, 7, 4), "m": (10, 3, 20, 8), "l": (15, 4, 30, 10)}
 
 
 def _tier_for(n: int, vehicles: int, capacity: int) -> str:
     for tier, (customers, fleet, limit, _) in TIER_CONFIGS.items():
         if (n, vehicles, capacity) == (customers, fleet, limit):
             return tier
-    raise ValueError("Supported tiers: S (N=4, K=2, Q=7) and M (N=10, K=3, Q=20)")
+    raise ValueError("Supported tiers: S (4,2,7), M (10,3,20), L (15,4,30)")
 
 
 @dataclass(frozen=True)

@@ -6,5 +6,10 @@
   "m": {
     "lambda1": 0.75,
     "lambda2": 0.02
+  },
+  "l": {
+    "lambda1": 0.75,
+    "lambda2": 0.02,
+    "provenance": "Untuned starting values transferred from M; not optimized for L."
   }
 }
