@@ -9,8 +9,8 @@ from time import perf_counter
 
 import numpy as np
 
-from .analysis import fingerprint, metrics, save, summarize
-from .classical import Routing, anneal, exact_references, installed_qubo_crosscheck, partitions
+from .analysis import clustering_metrics, fingerprint, save, summarize
+from .classical import anneal, clustering_reference, exact_references, partitions
 from .instances import INPUT_PATH, OUTPUT_PATH, ensure_instances, feasible, instance_record
 from .models import ENCODING, build_qubo, decode, encode, objective, validate_small_qubo
 from .quantum import PulseSettings, device_metadata, embedding, emulate, sequence_for
@@ -20,14 +20,13 @@ def classical_runs(instances, output: Path, shots: int, seed: int) -> None:
     for instance in instances:
         print(f"Classical {instance.id}", flush=True)
         record = asdict(instance)
-        reference = exact_references(instance)
+        reference = clustering_reference(instance)
         reference["instance_hash"] = fingerprint(record)
         save(output / "references" / f"{instance.id}.json", reference)
         qubo = build_qubo(instance)
         if instance.tier == "s":
             validation = validate_small_qubo(instance, reference["clustering"]["cost"])
-            validation["installed_qubo_solver"] = installed_qubo_crosscheck(
-                instance, qubo, reference["clustering"]["cost"])
+            validation["installed_qubo_solver"] = reference["cplex_crosscheck"]["clustering"]
             save(output / "validation" / f"{instance.id}.json",
                  validation)
         config = {"shots": shots, "seed": seed, "annealing_steps": 400,
@@ -69,17 +68,22 @@ def classical_runs(instances, output: Path, shots: int, seed: int) -> None:
 def quantum_runs(instances, output: Path, shots: int, seed: int,
                  timeout: float, memory_mb: int) -> None:
     save(output / "device.json", device_metadata())
+    validations = {}
+    for instance in instances:
+        reference = json.loads((output / "references" / f"{instance.id}.json").read_text())
+        if reference["instance_hash"] != fingerprint(asdict(instance)):
+            raise ValueError(f"Classical reference does not match {instance.id}")
+        validations[instance.id] = validate_small_qubo(instance, reference["clustering"]["cost"])
     first = instances[0]
     ref = json.loads((output / "references" / f"{first.id}.json").read_text())
     qubo = build_qubo(first)
-    validation = validate_small_qubo(first, ref["clustering"]["cost"])
     first_layout = embedding(qubo, seed)
     candidates = [PulseSettings(1000, 8.0), PulseSettings(2000, 8.0)]
     trials = []
     for pulse in candidates:
         print(f"Calibrating S: {pulse}", flush=True)
         result = emulate(first_layout, pulse, shots, seed, timeout_seconds=timeout, memory_mb=memory_mb)
-        measured, _ = metrics(first, result.get("counts", {}), ref, Routing(first))
+        measured = clustering_metrics(first, result.get("counts", {}), ref["clustering"]["cost"])
         trials.append({"pulse": asdict(pulse), "result": result, "metrics": measured})
     valid = [trial for trial in trials if trial["result"]["status"] == "completed"]
     selected = max(valid, key=lambda t: (
@@ -93,7 +97,7 @@ def quantum_runs(instances, output: Path, shots: int, seed: int,
         "frozen_before_benchmark": True, "uses_benchmark_instance": True,
         "selection": "best feasible model gap, reference hit probability, feasibility",
     })
-    small_ok = validation["passed"]
+    small_ok = all(check["passed"] for check in validations.values())
     for instance in instances:
         print(f"Quantum {instance.id}", flush=True)
         record = asdict(instance)
@@ -128,8 +132,23 @@ def quantum_runs(instances, output: Path, shots: int, seed: int,
             "linear_relative_error": layout["linear_relative_error"], "scale": layout["scale"],
             "pulse": asdict(pulse),
         })
-    save(output / "checkpoint.json", {"s_passed": small_ok,
+    save(output / "checkpoint.json", {"s_passed": small_ok, "instance_ids": list(validations),
                                      "requirements": "exact QUBO, legal device, feasible raw S shots"})
+
+
+def evaluation_references(instances, output: Path) -> None:
+    """Add missing full-CVRP references only when preparing results."""
+    for instance in instances:
+        path = output / "references" / f"{instance.id}.json"
+        reference = json.loads(path.read_text())
+        if reference["instance_hash"] != fingerprint(asdict(instance)):
+            raise ValueError(f"Classical reference does not match {instance.id}")
+        if "cvrp" in reference:
+            continue
+        complete = exact_references(instance)
+        if not np.isclose(complete["clustering"]["cost"], reference["clustering"]["cost"]):
+            raise AssertionError("Evaluation and clustering references disagree")
+        save(path, {**complete, "instance_hash": reference["instance_hash"]})
 
 
 def main() -> None:
@@ -155,13 +174,14 @@ def main() -> None:
         save(args.output / "generation.json", {
             "input_path": str(args.input.resolve()), "numpy": np.__version__,
             "coordinates": "explicit input coordinates, shared across demand vectors",
-            "selected_demand_indices": [0],
+            "selected_demand_indices": [i.instance_seed for i in instances],
             "input": json.loads(args.input.read_text()),
         })
         classical_runs(instances, args.output, args.shots, args.seed)
     if args.stage in {"all", "quantum"}:
         quantum_runs(instances, args.output, args.shots, args.seed, args.timeout, args.memory_mb)
     if args.stage in {"all", "results"}:
+        evaluation_references(instances, args.output)
         rows = summarize(args.output)
         from .report import write_report
         write_report(args.output, rows)

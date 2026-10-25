@@ -9,7 +9,7 @@ from time import perf_counter
 import numpy as np
 
 from .instances import Instance, feasible
-from .models import Qubo, canonical, objective
+from .models import Qubo, build_qubo, canonical, objective
 
 
 def partitions(n: int, vehicles: int):
@@ -25,6 +25,30 @@ def partitions(n: int, vehicles: int):
             yield from visit(i + 1, max(maximum, k))
 
     yield from visit(1, 0)
+
+
+def clustering_reference(instance: Instance) -> dict:
+    """Exact clustering only; routing references belong to the results stage."""
+    start = perf_counter()
+    candidates = [labels for labels in partitions(instance.n, instance.vehicles)
+                  if feasible(instance, labels)]
+    if not candidates:
+        raise ValueError("No feasible grouping")
+    costs = [objective(instance, labels) for labels in candidates]
+    best = min(costs)
+    result = {
+        "clustering": {"cost": best, "labels": candidates[costs.index(best)],
+                       "distinct_optima": sum(abs(cost - best) <= 1e-8 for cost in costs),
+                       "status": "proven_optimum"},
+        "status": "proven_optimum", "algorithm": "exhaustive-clustering-partitions",
+        "settings": {"maximum_customers": 4, "vehicle_labels_quotiented": True,
+                     "equality_tolerance": 1e-8},
+        "feasible_partitions": len(candidates), "seconds": perf_counter() - start,
+    }
+    result["cplex_crosscheck"] = {
+        "clustering": installed_qubo_crosscheck(instance, build_qubo(instance), best),
+    }
+    return result
 
 
 class Routing:

@@ -17,15 +17,22 @@ without credentials.
 The current implementation deliberately runs **S only**: four customers, two
 vehicles, capacity seven. M/L experiments are deferred.
 
-Only the **first demand vector** (`demands[0]`, currently `[2, 3, 4, 2]`) is
-processed. The remaining vectors stay in the input file but are not run.
-The notebooks and CLI use the same selection.
+**Every demand vector** in the input is processed: currently ten instances,
+`s-0` through `s-9`. The notebooks and CLI use the same selection.
+The first instance, `[2, 3, 4, 2]`, has a detailed hand-check in both notebooks:
+all candidate groupings, loads, pair costs and QUBO/slack arithmetic.
+The classical and quantum notebooks focus only on clustering. Customer-coordinate
+tables are omitted; coordinates remain in the input to define pair costs.
+The required full-CVRP reference and fixed-group routing analysis are confined
+to the results notebook (Track A, challenge section 9.2).
+Three vectors (`s-2`, `s-5`, `s-8`) include demand `1`; the supplied values
+span the allowed range 1-4 and are not all permutations of the same multiset.
 
 The quantum notebook displays the exact 14-bit target-QUBO ground states and
 the lowest-energy strings actually sampled, including counts, feasibility and
 assignment/slack bit splits. It explicitly reports when no exact target ground
 state was sampled. The full bitstring evidence is saved under
-`outputs/first_demand/groundstates/`.
+`outputs/all_demands/groundstates/`.
 The notebook also maps every bit position to its variable and shows each
 vehicle's slack group with weights 1, 2, 4 and its decoded unused-capacity value.
 
@@ -68,8 +75,8 @@ validation and penalty bounds; it is **not** a solver warm start. Arbitrary
 feasible S vectors are accepted, not just permutations of one multiset.
 Malformed and capacity-infeasible inputs are rejected explicitly.
 
-Outputs for this single instance are saved in
-[track_a/outputs/first_demand/](track_a/outputs/first_demand/): references, validation
+Outputs for all supplied instances are saved in
+[track_a/outputs/all_demands/](track_a/outputs/all_demands/): references, validation
 evidence, configurations, geometry, atom layouts, complete interaction matrices,
 serialized sequences, raw shot counts, exact evaluation tours,
 `results.csv`, and `report.pdf`. Separate references and gaps are reported for
@@ -78,14 +85,16 @@ baseline repeats one result to the shot budget and is labeled accordingly.
 Physical embedding is approximate; its errors are reported separately from
 target-QUBO correctness.
 
-Earlier multi-instance outputs remain in the parent `outputs/` folder and are
-not included in this run's results. Notebook outputs are cleared when switching
-to this scope; rerun classical, quantum, then results to display the single-instance tables.
+Earlier outputs in the parent `outputs/` folder and `outputs/first_demand/` are
+left untouched and are not included in this run's results. Rerun classical,
+quantum, then results to display all instances. With four methods and ten demand
+vectors, the results table contains 40 rows. Pulse calibration uses `s-0`;
+the selected controls are then frozen for every instance.
 
 Useful commands:
 
 ```bash
-# Reassemble saved evidence without rerunning optimization or emulation.
+# Evaluate saved samples; build missing CVRP references on the first results run.
 uv run --locked python -m track_a.common.run --stage results
 # Run just classical references/comparisons, or just quantum experiments.
 uv run --locked python -m track_a.common.run --stage classical
@@ -94,7 +103,7 @@ uv run --locked python -m track_a.common.run --stage quantum
 uv run --locked python -m track_a.common.run --input track_a/inputs/seeds_s.json --output track_a/outputs_custom
 ```
 
-See the step-by-step notebooks, which contain their executable core algorithms:
+Read and run the notebooks in order; all core algorithms stay inline:
 [classical](track_a/classical_capacity_constrained_clustering.ipynb),
 [quantum](track_a/quantum_capacity_constrained_clustering.ipynb), and
 [results](track_a/results.ipynb), plus the complete
@@ -102,11 +111,22 @@ See the step-by-step notebooks, which contain their executable core algorithms:
 Only the three notebooks sit directly in `track_a/`; supporting files are
 grouped into `common/` (Python helpers and CLI), `docs/` (write-ups),
 `inputs/` (seed JSON), and `outputs/` (saved evidence).
-Each notebook introduces the problem in plain language before the equations,
-with worked bit/slack examples and explanations of neutral atoms, pulse
-controls, and shot statistics. Input validation, file utilities, emulator
-resource protection, and PDF layout remain shared. The modules also preserve
-the command-line workflow. No automated test suite is included.
+The notebooks use short explanations and small examples. The classical notebook
+tries all S assignments, with an independent CPLEX QUBO cross-check, but no routing.
+The quantum notebook derives penalties, shows bit/slack decoding, checks every
+target bitstring, then constructs the atom layout and pulse. Pulse selection uses
+clustering metrics only. The results notebook contains exact tour enumeration,
+full-CVRP/CPLEX references and a separately labeled CVRP gap table. The CLI retains
+equivalent dynamic-programming evaluation. Missing CVRP references are computed
+only at the results stage; saved sampling runs are never rerun by that stage.
+Input validation, file
+utilities, emulator protection and PDF layout remain shared.
+
+**Submission scope:** this is a multi-instance S baseline, not a complete Track A
+submission. All supplied vectors have independently checked feasibility witnesses
+and pulse runs (A4), but inputs are explicit rows, not a seed-based generator (A2).
+No variable reduction over textbook slack is claimed.
+No automated test suite is included.
 The plan's scope note records the S-only/input-schema/presentation revisions.
 [requirements.txt](requirements.txt) is pinned and hash-locked, exported from
 [uv.lock](uv.lock) with

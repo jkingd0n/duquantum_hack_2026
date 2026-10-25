@@ -1,0 +1,76 @@
+{
+  "run_hash": "1254c1bec27c8be8",
+  "metrics": {
+    "actual_shots": 256,
+    "feasible_shots": 256,
+    "feasibility_rate": 1.0,
+    "best_model_gap": 0.0,
+    "best_cvrp_gap": 1.2588156146799827,
+    "best_model_labels": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "best_cvrp_labels": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "routing_seconds": 2.1338011720217764e-05,
+    "model_hit_probability_0.1pct": 1.0,
+    "model_hit_probability_1pct": 1.0,
+    "model_hit_probability_5pct": 1.0,
+    "cvrp_hit_probability_0.1pct": 0.0,
+    "cvrp_hit_probability_1pct": 0.0,
+    "cvrp_hit_probability_5pct": 1.0
+  },
+  "partitions": [
+    {
+      "labels": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "model_cost": 80.88685325702023,
+      "route_cost": 208.23610162704392,
+      "model_gap": 0.0,
+      "cvrp_gap": 1.2588156146799827,
+      "tours": [
+        {
+          "vehicle": 0,
+          "customers": [
+            0,
+            3
+          ],
+          "route": [
+            "depot",
+            0,
+            3,
+            "depot"
+          ],
+          "cost": 64.15955615654245,
+          "load": 5
+        },
+        {
+          "vehicle": 1,
+          "customers": [
+            1,
+            2
+          ],
+          "route": [
+            "depot",
+            1,
+            2,
+            "depot"
+          ],
+          "cost": 144.0765454705015,
+          "load": 6
+        }
+      ],
+      "shots": 256
+    }
+  ]
+}

@@ -10,7 +10,7 @@ from numpy.typing import NDArray
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUT_PATH = ROOT / "inputs" / "seeds_s.json"
-OUTPUT_PATH = ROOT / "outputs" / "first_demand"
+OUTPUT_PATH = ROOT / "outputs" / "all_demands"
 
 
 @dataclass(frozen=True)
@@ -74,7 +74,7 @@ def validate(instance: Instance) -> None:
 
 
 def load_tier(path: Path) -> list[Instance]:
-    """Load only the first demand vector, keeping the remaining input rows untouched."""
+    """Load and validate every supplied demand vector without changing the input."""
     data = json.loads(path.read_text())
     expected = {"N", "K", "Q", "demand_range", "demands", "coordinates", "depot"}
     if set(data) != expected:
@@ -103,7 +103,7 @@ def load_tier(path: Path) -> list[Instance]:
     coordinates = tuple((float(x), float(y)) for x, y in points)
     depot = (float(data["depot"][0]), float(data["depot"][1]))
     instances = []
-    for index, vector in enumerate(vectors[:1]):
+    for index, vector in enumerate(vectors):
         if (not isinstance(vector, list) or len(vector) != data["N"]
                 or any(type(d) is not int or not demand_range[0] <= d <= demand_range[1]
                        for d in vector)):
@@ -120,7 +120,7 @@ def load_tier(path: Path) -> list[Instance]:
 
 
 def ensure_instances(input_path: Path = INPUT_PATH) -> list[Instance]:
-    """Load the first demand vector without regenerating or rewriting input."""
+    """Load all demand vectors without regenerating or rewriting input."""
     return load_tier(input_path)
 
 

@@ -33,7 +33,9 @@ def write_report(output: Path, rows: list[dict]) -> None:
                     for check in crosschecks)
     with PdfPages(output / "report.pdf") as pdf:
         fig = page("Track A: model and verification", [
-            "Scope: capacity-constrained clustering only. Quantum optimization returns groups; "
+            f"Scope: all {len(references)} supplied S demand vectors, capacity-constrained clustering only. "
+            "Seed-generated inputs (A2) remain a submission gap. "
+            "Quantum optimization returns groups; "
             "all routing is exact classical evaluation with those groups fixed. No quantum speedup claim.",
             "Binary x_ik assigns each customer exactly once. Minimize the sum of Euclidean "
             "customer-pair distances within each vehicle, subject to load <= capacity. Unused "
@@ -59,8 +61,9 @@ def write_report(output: Path, rows: list[dict]) -> None:
             "The input in inputs/seeds_s.json contains N, K, Q, demand_range, demands, "
             "customer coordinates and depot. Fixed coordinates are read directly from the input. "
             "Feasibility witnesses are computed internally, not supplied as input.",
-            "References use exhaustive subset dynamic programming, with exact Held-Karp tour "
-            "costs for every candidate group. Capacity-filtered set partitions select groups "
+            "References use exhaustive exact search: the CLI uses subset dynamic programming "
+            "and Held-Karp tours; the notebook directly enumerates assignments and tour orders. "
+            "Capacity-filtered partitions select groups "
             "and tours jointly for full CVRP, independently of compactness. Vehicle labels "
             "are quotiented. S additionally counts tour optima modulo reversal.",
             "Embedding uses a legal triangular grid, seeded greedy atom-label swaps and a "
@@ -124,8 +127,8 @@ def write_report(output: Path, rows: list[dict]) -> None:
             "Resource limits bound each isolated state-vector emulator by wall time and "
             "address space. Time-step convergence and noise robustness are not established "
             "by this baseline. No scaling or hardware performance claims are made.",
-            "Only one geometry is covered. The supplied vectors share a demand multiset, "
-            "although the simplified input also accepts different feasible vectors. Low feasible "
+            "Only one geometry is covered. Explicit demand vectors include different load ratios, "
+            "but do not replace a seed-based instance generator. Low feasible "
             "rates on uniform bitstrings are expected for one-hot assignment. A small "
             "pulse calibration and local swap layout are baselines, not an exhaustive "
             "embedding/control optimization. There is no classical repair of quantum shots.",

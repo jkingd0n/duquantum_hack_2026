@@ -28,6 +28,31 @@ def gap(cost: float, reference: float) -> float | None:
     return 100 * (cost - reference) / reference
 
 
+def clustering_metrics(instance: Instance, counts: dict[str, int], reference: float) -> dict:
+    """Clustering-only raw-shot statistics for pulse selection, without routing."""
+    if any(type(count) is not int or count <= 0 for count in counts.values()):
+        raise ValueError("Raw counts must be positive integers")
+    total = sum(counts.values())
+    samples = []
+    for bitstring, count in counts.items():
+        labels = decode(instance, bitstring)
+        if labels is not None:
+            samples.append((objective(instance, labels), count, labels))
+    best = min(samples, key=lambda item: item[0], default=None)
+    feasible_shots = sum(count for _, count, _ in samples)
+    hits = {}
+    for threshold in (0.1, 1.0, 5.0):
+        hit_count = sum(count for cost, count, _ in samples
+                        if (value := gap(cost, reference)) is not None and value <= threshold)
+        hits[f"model_hit_probability_{threshold:g}pct"] = hit_count / total if total else None
+    return {
+        "actual_shots": total, "feasible_shots": feasible_shots,
+        "feasibility_rate": feasible_shots / total if total else None,
+        "best_model_gap": gap(best[0], reference) if best else None,
+        "best_model_labels": list(best[2]) if best else None, **hits,
+    }
+
+
 def metrics(instance: Instance, counts: dict[str, int], reference: dict,
             routing: Routing) -> tuple[dict, list[dict]]:
     if any(type(count) is not int or count <= 0 for count in counts.values()):

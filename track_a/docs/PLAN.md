@@ -1,9 +1,11 @@
 # Pasqal Track A plan: classical vs quantum capacity-constrained clustering
 
 > **Current implementation scope (updated by user): S only.**
-> Only `demands[0]` is currently processed. Other input rows are retained but
-> skipped. Single-instance evidence lives under `outputs/first_demand/`,
-> separate from the earlier multi-instance results.
+> All supplied demand vectors are processed (currently ten, `s-0` through `s-9`).
+> Evidence lives under `outputs/all_demands/`, separate from earlier outputs.
+> The first instance has a detailed manual check in both notebooks; it is not
+> the only benchmark instance. Controls are calibrated on `s-0`, then frozen.
+> Three supplied vectors include demand 1; the vectors need not share a multiset.
 > M/L execution and scaling are deferred. The input in `inputs/seeds_s.json`
 > contains `N`, `K`, `Q`, `demand_range`, explicit customer `coordinates`,
 > the fixed `depot`, and an array of demand vectors. It does not require
@@ -13,6 +15,8 @@
 > three-tier generator/JSON requirements below for the current implementation.
 > The user also revised the presentation: core algorithms and experiment loops
 > now live visibly in the notebooks, with beginner-friendly explanations.
+> Classical/quantum walkthroughs contain clustering only, without customer-coordinate
+> tables. Required CVRP reference and routing analysis live in the results notebook.
 > Shared modules remain for CLI reproduction and infrastructure. Automated
 > tests have been removed at the user's request; model and input validation remain.
 

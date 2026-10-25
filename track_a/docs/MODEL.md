@@ -1,8 +1,9 @@
 # Track A model and derivations
 
-Current execution is **S only** (`N=4`, `K=2`, `Q=7`). Only the first input demand vector,
-`[2, 3, 4, 2]` (`s-0`), is processed; other rows are retained but skipped.
-Outputs are isolated under `outputs/first_demand/`.
+Current execution is **S only** (`N=4`, `K=2`, `Q=7`). Every supplied demand vector
+is processed (currently ten instances, `s-0` through `s-9`).
+Outputs are isolated under `outputs/all_demands/`. Both notebooks use `s-0`,
+`[2, 3, 4, 2]`, for a detailed worked example without limiting the benchmark to it.
 M/L counts below are
 prospective comparisons, not implemented experiments. The input
 [inputs/seeds_s.json](../inputs/seeds_s.json) contains the fleet parameters, allowed
@@ -74,12 +75,19 @@ Thus any served subset connects to the depot; isolated cycles are forbidden.
 Unused vehicles have no arcs. Degree, connectivity, and capacity together give
 one depot-to-depot trip per used vehicle with no split service or reloading.
 
-The implementation uses an equivalent exact **set-partition** reference:
+The results stage uses an equivalent exact **set-partition** reference for CVRP:
 compute the exact depot tour cost of every capacity-feasible customer subset,
 then choose disjoint subsets covering every customer using at most \(K\)
 groups. This optimizes both grouping and visit order. Anchoring each recursive
 group on the least remaining customer removes vehicle-label symmetry.
 Held-Karp dynamic programming exhaustively considers all visit orders.
+For readability, the classical notebook enumerates all labeled
+assignments, keeps one representative per vehicle relabeling, and tries every
+feasible grouping for clustering cost only. Its independent CPLEX cross-check
+solves the target QUBO and verifies decoded feasibility and the exact cost.
+The results notebook tries every tour order for the separate CVRP reference
+and fixed-group evaluation. On the supported S instances these searches give
+the same exact objectives and counts as the CLI; they are not intended for M/L scaling.
 For S, independent CPLEX set-partition MILPs verify both reference objectives;
 route-optimum counts additionally identify a route with its reversal.
 
@@ -187,8 +195,21 @@ become success-shaped fallback results.
 Saved instance hashes, configuration IDs, raw counts, encoding IDs and
 variable order identify the evidence. Results assembly caches exact tours
 and per-run partition evaluations and does not rerun optimization.
+Before assembly, the results stage computes any missing full-CVRP references,
+checks their clustering cost against the saved clustering-only reference, and
+saves them for reuse. Neither clustering nor pulse calibration runs routing.
 The deterministic constrained baseline repeats its one result to the common
 budget; this is explicitly not an independent-shot success estimate.
 Classical QUBO SA uses independent random starts and no certificate warm start.
 No method repairs quantum outputs. The certificate is used only for validation
 and the proven penalty bound.
+
+## Submission scope
+
+These notebooks run all supplied explicit S demand vectors.
+They demonstrate A1, the embedding and error accounting of A3, and A4's
+multiple-instance pulse experiments, but do not complete A2's seed-based generation.
+Calibration uses `s-0`, then controls freeze before applying them to every vector.
+The saved feasibility certificates and validator remain available.
+The implemented variable count equals textbook binary slack;
+there is no demonstrated variable reduction.

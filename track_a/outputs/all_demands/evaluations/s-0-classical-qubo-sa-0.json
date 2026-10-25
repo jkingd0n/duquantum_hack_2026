@@ -1,0 +1,211 @@
+{
+  "run_hash": "7938f3043e4daefc",
+  "metrics": {
+    "actual_shots": 256,
+    "feasible_shots": 55,
+    "feasibility_rate": 0.21484375,
+    "best_model_gap": 0.0,
+    "best_cvrp_gap": 0.0,
+    "best_model_labels": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "best_cvrp_labels": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "routing_seconds": 0.0001243499864358455,
+    "model_hit_probability_0.1pct": 0.0546875,
+    "model_hit_probability_1pct": 0.0546875,
+    "model_hit_probability_5pct": 0.08203125,
+    "cvrp_hit_probability_0.1pct": 0.05859375,
+    "cvrp_hit_probability_1pct": 0.05859375,
+    "cvrp_hit_probability_5pct": 0.140625
+  },
+  "partitions": [
+    {
+      "labels": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "model_cost": 80.88685325702023,
+      "route_cost": 208.23610162704392,
+      "model_gap": 0.0,
+      "cvrp_gap": 1.2588156146799827,
+      "tours": [
+        {
+          "vehicle": 0,
+          "customers": [
+            0,
+            3
+          ],
+          "route": [
+            "depot",
+            0,
+            3,
+            "depot"
+          ],
+          "cost": 64.15955615654245,
+          "load": 4
+        },
+        {
+          "vehicle": 1,
+          "customers": [
+            1,
+            2
+          ],
+          "route": [
+            "depot",
+            1,
+            2,
+            "depot"
+          ],
+          "cost": 144.0765454705015,
+          "load": 7
+        }
+      ],
+      "shots": 14
+    },
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "model_cost": 98.27030257904937,
+      "route_cost": 225.61955094907307,
+      "model_gap": 21.49106884748346,
+      "cvrp_gap": 9.711852700435147,
+      "tours": [
+        {
+          "vehicle": 0,
+          "customers": [
+            0,
+            2
+          ],
+          "route": [
+            "depot",
+            0,
+            2,
+            "depot"
+          ],
+          "cost": 120.721844818203,
+          "load": 6
+        },
+        {
+          "vehicle": 1,
+          "customers": [
+            1,
+            3
+          ],
+          "route": [
+            "depot",
+            1,
+            3,
+            "depot"
+          ],
+          "cost": 104.89770613087006,
+          "load": 5
+        }
+      ],
+      "shots": 19
+    },
+    {
+      "labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "model_cost": 83.93339456868273,
+      "route_cost": 211.28264293870643,
+      "model_gap": 3.766423329613311,
+      "cvrp_gap": 2.7402550122185088,
+      "tours": [
+        {
+          "vehicle": 0,
+          "customers": [
+            0,
+            1
+          ],
+          "route": [
+            "depot",
+            0,
+            1,
+            "depot"
+          ],
+          "cost": 96.55608375092235,
+          "load": 5
+        },
+        {
+          "vehicle": 1,
+          "customers": [
+            2,
+            3
+          ],
+          "route": [
+            "depot",
+            2,
+            3,
+            "depot"
+          ],
+          "cost": 114.72655918778406,
+          "load": 6
+        }
+      ],
+      "shots": 7
+    },
+    {
+      "labels": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "model_cost": 107.55447668517513,
+      "route_cost": 205.6473802927386,
+      "model_gap": 32.9690454682639,
+      "cvrp_gap": 0.0,
+      "tours": [
+        {
+          "vehicle": 0,
+          "customers": [
+            1,
+            0,
+            3
+          ],
+          "route": [
+            "depot",
+            1,
+            0,
+            3,
+            "depot"
+          ],
+          "cost": 109.00775290585098,
+          "load": 7
+        },
+        {
+          "vehicle": 1,
+          "customers": [
+            2
+          ],
+          "route": [
+            "depot",
+            2,
+            "depot"
+          ],
+          "cost": 96.63962738688764,
+          "load": 4
+        }
+      ],
+      "shots": 15
+    }
+  ]
+}
